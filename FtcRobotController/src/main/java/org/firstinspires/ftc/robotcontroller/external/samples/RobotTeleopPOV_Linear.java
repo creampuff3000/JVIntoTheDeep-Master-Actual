@@ -48,18 +48,22 @@ import com.qualcomm.robotcore.util.Range;
  * Remove or comment out the @Disabled line to add this OpMode to the Driver Station OpMode list
  */
 
+
+
+
 @TeleOp(name="Robot: Teleop POV", group="Robot")
 @Disabled
 public class RobotTeleopPOV_Linear extends LinearOpMode {
 
     /* Declare OpMode members. */
-    public DcMotor  frontleftDrive   = null;
-    public DcMotor  frontrightDrive  = null;
-    public DcMotor  backleftDrive = null;
-    public DcMotor  backrightDrive     = null;
-    public Servo    leftClaw    = null;
-    public Servo    rightClaw   = null;
-    public Servo    leftArm = null;
+    public DcMotor  frontLeftDrive   = null;
+    public DcMotor  frontRightDrive  = null;
+    public DcMotor  backLeftDrive = null;
+    public DcMotor  backRightDrive     = null;
+    public Servo    intakeServo    = null;
+    public Servo    outtakeServo   = null;
+    public Servo    tiltServo = null;
+    public Servo rotateServo = null;
 
     double clawOffset = 0;
 
@@ -67,6 +71,8 @@ public class RobotTeleopPOV_Linear extends LinearOpMode {
     public static final double CLAW_SPEED  = 0.02 ;                 // sets rate to move servo
     public static final double ARM_UP_POWER    =  0.45 ;
     public static final double ARM_DOWN_POWER  = -0.45 ;
+
+
 
     @Override
     public void runOpMode() {
@@ -77,27 +83,32 @@ public class RobotTeleopPOV_Linear extends LinearOpMode {
         double max;
 
         // Define and Initialize Motors
-        frontleftDrive  = hardwareMap.get(DcMotor.class, "left_drive");
-        frontrightDrive = hardwareMap.get(DcMotor.class, "right_drive");
-        leftArm    = hardwareMap.get(Servo.class, "left_arm");
-
+        frontLeftDrive  = hardwareMap.get(DcMotor.class, "left_drive");
+        frontRightDrive = hardwareMap.get(DcMotor.class, "right_drive");
+        backLeftDrive = hardwareMap.get(DcMotor.class, "back_left");
+        backRightDrive = hardwareMap.get(DcMotor.class, "back_right");
         // To drive forward, most robots need the motor on one side to be reversed, because the axles point in opposite directions.
         // Pushing the left stick forward MUST make robot go forward. So adjust these two lines based on your first test drive.
         // Note: The settings here assume direct drive on left and right wheels.  Gear Reduction or 90 Deg drives may require direction flips
-        frontleftDrive.setDirection(DcMotor.Direction.REVERSE);
-        frontrightDrive.setDirection(DcMotor.Direction.FORWARD);
-        backleftDrive.setDirection(DcMotor.Direction.REVERSE);
-        backrightDrive.setDirection(DcMotor.Direction.FORWARD);
+        frontLeftDrive.setDirection(DcMotor.Direction.REVERSE);
+        frontRightDrive.setDirection(DcMotor.Direction.FORWARD);
+        backLeftDrive.setDirection(DcMotor.Direction.REVERSE);
+        backRightDrive.setDirection(DcMotor.Direction.FORWARD);
 
         // If there are encoders connected, switch to RUN_USING_ENCODER mode for greater accuracy
         // leftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         // rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         // Define and initialize ALL installed servos.
-        leftClaw  = hardwareMap.get(Servo.class, "left_hand");
-        rightClaw = hardwareMap.get(Servo.class, "right_hand");
-        leftClaw.setPosition(MID_SERVO);
-        rightClaw.setPosition(MID_SERVO);
+        intakeServo  = hardwareMap.get(Servo.class, "intakeServo");
+        outtakeServo = hardwareMap.get(Servo.class, "outtakeServo");
+        tiltServo = hardwareMap.get(Servo.class, "tiltServo");
+        rotateServo = hardwareMap.get(Servo.class, "rotateServo");
+        intakeServo.setPosition(MID_SERVO);
+        outtakeServo.setPosition(MID_SERVO);
+        tiltServo.setPosition(MID_SERVO);
+        rotateServo.setPosition(MID_SERVO);
+
 
         // Send telemetry message to signify robot waiting;
         telemetry.addData(">", "Robot Ready.  Press Play.");    //
@@ -128,8 +139,8 @@ public class RobotTeleopPOV_Linear extends LinearOpMode {
             }
 
             // Output the safe values to the motor drives.
-            frontleftDrive.setPower(left);
-            frontrightDrive.setPower(right);
+            frontLeftDrive.setPower(left);
+            frontRightDrive.setPower(right);
 
             // Use gamepad left & right Bumpers to open and close the claw
             if (gamepad1.right_bumper)
@@ -139,16 +150,16 @@ public class RobotTeleopPOV_Linear extends LinearOpMode {
 
             // Move both servos to new position.  Assume servos are mirror image of each other.
             clawOffset = Range.clip(clawOffset, -0.5, 0.5);
-            leftClaw.setPosition(MID_SERVO + clawOffset);
-            rightClaw.setPosition(MID_SERVO - clawOffset);
+            intakeServo.setPosition(MID_SERVO + clawOffset);
+            outtakeServo.setPosition(MID_SERVO - clawOffset);
 
             // Use gamepad buttons to move arm up (Y) and down (A)
             if (gamepad1.y)
-                leftArm.setPosition(ARM_UP_POWER);
+                tiltServo.setPosition(ARM_UP_POWER);
             else if (gamepad1.a)
-                leftArm.setPosition(ARM_DOWN_POWER);
+                tiltServo.setPosition(ARM_DOWN_POWER);
             else
-                leftArm.setPosition(0.0);
+                tiltServo.setPosition(0.0);
 
             // Send telemetry message to signify robot running;
             telemetry.addData("claw",  "Offset = %.2f", clawOffset);
