@@ -57,9 +57,18 @@ public class RobotTeleopPOV_Linear extends LinearOpMode {
     public DcMotor  frontrightDrive  = null;
     public DcMotor  backleftDrive = null;
     public DcMotor  backrightDrive     = null;
-    public Servo    leftClaw    = null;
-    public Servo    rightClaw   = null;
-    public Servo    leftArm = null;
+
+    public DcMotor  leftClimb = null;
+
+    public DcMotor  rightClimb = null;
+
+    public DcMotor  intake = null;
+
+    public DcMotor outtake = null';'
+
+    public Servo    tiltOuttake    = null;
+    public Servo    rotateOuttake  = null;
+    public Servo    leftArm = null;""
 
     double clawOffset = 0;
 
@@ -94,10 +103,10 @@ public class RobotTeleopPOV_Linear extends LinearOpMode {
         // rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         // Define and initialize ALL installed servos.
-        leftClaw  = hardwareMap.get(Servo.class, "left_hand");
-        rightClaw = hardwareMap.get(Servo.class, "right_hand");
-        leftClaw.setPosition(MID_SERVO);
-        rightClaw.setPosition(MID_SERVO);
+        leftClimb  = hardwareMap.get(Servo.class, "left_climb");
+        rightClimb = hardwareMap.get(Servo.class, "right_climb");
+        leftClimb.setPower(0.5);
+        rightClimb.setPower(-0.5);
 
         // Send telemetry message to signify robot waiting;
         telemetry.addData(">", "Robot Ready.  Press Play.");    //
