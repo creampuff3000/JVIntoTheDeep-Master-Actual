@@ -56,6 +56,7 @@ import com.qualcomm.robotcore.util.Range;
 public class RobotTeleopPOV_Linear extends LinearOpMode {
 
     /* Declare OpMode members. */
+
     public DcMotor  frontLeftDrive   = null;
     public DcMotor  frontRightDrive  = null;
     public DcMotor  backLeftDrive = null;
@@ -64,6 +65,23 @@ public class RobotTeleopPOV_Linear extends LinearOpMode {
     public Servo    outtakeServo   = null;
     public Servo    tiltServo = null;
     public Servo rotateServo = null;
+
+    public DcMotor  frontleftDrive   = null;
+    public DcMotor  frontrightDrive  = null;
+    public DcMotor  backleftDrive = null;
+    public DcMotor  backrightDrive     = null;
+
+    public DcMotor  leftClimb = null;
+
+    public DcMotor  rightClimb = null;
+
+    public DcMotor  intake = null;
+
+    public DcMotor outtake = null;
+
+    public Servo    tiltOuttake    = null;
+    public Servo    rotateOuttake  = null;
+    public Servo    leftArm = null;
 
     double clawOffset = 0;
 
@@ -100,6 +118,7 @@ public class RobotTeleopPOV_Linear extends LinearOpMode {
         // rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         // Define and initialize ALL installed servos.
+
         intakeServo  = hardwareMap.get(Servo.class, "intakeServo");
         outtakeServo = hardwareMap.get(Servo.class, "outtakeServo");
         tiltServo = hardwareMap.get(Servo.class, "tiltServo");
@@ -108,6 +127,12 @@ public class RobotTeleopPOV_Linear extends LinearOpMode {
         outtakeServo.setPosition(MID_SERVO);
         tiltServo.setPosition(MID_SERVO);
         rotateServo.setPosition(MID_SERVO);
+
+
+        leftClimb  = hardwareMap.get(DcMotor.class, "left_climb");
+        rightClimb = hardwareMap.get(DcMotor.class, "right_climb");
+        leftClimb.setPower(0.5);
+        rightClimb.setPower(-0.5);
 
 
         // Send telemetry message to signify robot waiting;
