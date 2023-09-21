@@ -66,22 +66,10 @@ public class RobotTeleopPOV_Linear extends LinearOpMode {
     public Servo    tiltServo = null;
     public Servo rotateServo = null;
 
-    public DcMotor  frontleftDrive   = null;
-    public DcMotor  frontrightDrive  = null;
-    public DcMotor  backleftDrive = null;
-    public DcMotor  backrightDrive     = null;
-
     public DcMotor  leftClimb = null;
 
     public DcMotor  rightClimb = null;
 
-    public DcMotor  intake = null;
-
-    public DcMotor outtake = null;
-
-    public Servo    tiltOuttake    = null;
-    public Servo    rotateOuttake  = null;
-    public Servo    leftArm = null;
 
     double clawOffset = 0;
 
@@ -105,6 +93,8 @@ public class RobotTeleopPOV_Linear extends LinearOpMode {
         frontRightDrive = hardwareMap.get(DcMotor.class, "right_drive");
         backLeftDrive = hardwareMap.get(DcMotor.class, "back_left");
         backRightDrive = hardwareMap.get(DcMotor.class, "back_right");
+        leftClimb  = hardwareMap.get(DcMotor.class, "left_climb");
+        rightClimb = hardwareMap.get(DcMotor.class, "right_climb");
         // To drive forward, most robots need the motor on one side to be reversed, because the axles point in opposite directions.
         // Pushing the left stick forward MUST make robot go forward. So adjust these two lines based on your first test drive.
         // Note: The settings here assume direct drive on left and right wheels.  Gear Reduction or 90 Deg drives may require direction flips
@@ -129,10 +119,6 @@ public class RobotTeleopPOV_Linear extends LinearOpMode {
         rotateServo.setPosition(MID_SERVO);
 
 
-        leftClimb  = hardwareMap.get(DcMotor.class, "left_climb");
-        rightClimb = hardwareMap.get(DcMotor.class, "right_climb");
-        leftClimb.setPower(0.5);
-        rightClimb.setPower(-0.5);
 
 
         // Send telemetry message to signify robot waiting;
