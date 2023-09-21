@@ -79,14 +79,15 @@ public class RobotTeleopPOV_Linear extends LinearOpMode {
         // Define and Initialize Motors
         frontleftDrive  = hardwareMap.get(DcMotor.class, "left_drive");
         frontrightDrive = hardwareMap.get(DcMotor.class, "right_drive");
-        leftArm    = hardwareMap.get(DcMotor.class, "left_arm");
+        leftArm    = hardwareMap.get(Servo.class, "left_arm");
 
         // To drive forward, most robots need the motor on one side to be reversed, because the axles point in opposite directions.
         // Pushing the left stick forward MUST make robot go forward. So adjust these two lines based on your first test drive.
         // Note: The settings here assume direct drive on left and right wheels.  Gear Reduction or 90 Deg drives may require direction flips
         frontleftDrive.setDirection(DcMotor.Direction.REVERSE);
         frontrightDrive.setDirection(DcMotor.Direction.FORWARD);
-        backleftDrive.setDirection(DcMotor.);
+        backleftDrive.setDirection(DcMotor.Direction.REVERSE);
+        backrightDrive.setDirection(DcMotor.Direction.FORWARD);
 
         // If there are encoders connected, switch to RUN_USING_ENCODER mode for greater accuracy
         // leftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
@@ -126,9 +127,9 @@ public class RobotTeleopPOV_Linear extends LinearOpMode {
                 right /= max;
             }
 
-            // Output the safe vales to the motor drives.
-            leftDrive.setPower(left);
-            rightDrive.setPower(right);
+            // Output the safe values to the motor drives.
+            frontleftDrive.setPower(left);
+            frontrightDrive.setPower(right);
 
             // Use gamepad left & right Bumpers to open and close the claw
             if (gamepad1.right_bumper)
@@ -143,11 +144,11 @@ public class RobotTeleopPOV_Linear extends LinearOpMode {
 
             // Use gamepad buttons to move arm up (Y) and down (A)
             if (gamepad1.y)
-                leftArm.setPower(ARM_UP_POWER);
+                leftArm.setPosition(ARM_UP_POWER);
             else if (gamepad1.a)
-                leftArm.setPower(ARM_DOWN_POWER);
+                leftArm.setPosition(ARM_DOWN_POWER);
             else
-                leftArm.setPower(0.0);
+                leftArm.setPosition(0.0);
 
             // Send telemetry message to signify robot running;
             telemetry.addData("claw",  "Offset = %.2f", clawOffset);
@@ -157,6 +158,7 @@ public class RobotTeleopPOV_Linear extends LinearOpMode {
 
             // Pace this loop so jaw action is reasonable speed.
             sleep(50);
+
         }
     }
 }
