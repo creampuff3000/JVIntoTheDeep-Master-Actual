@@ -43,8 +43,12 @@ public class TestTeleop extends LinearOpMode {
             robot.backRightDrive.setPower(backRightPower*speed);
 
             // Teleop Code goes here
-
-
+            if(gamepad1.right_bumper && robot.outtakeServo.getPosition() == 0)  {
+                robot.outtakeServo.setPosition(1);
+            }
+            else if(gamepad1.right_bumper && robot.outtakeServo.getPosition() == 1){
+                robot.outtakeServo.setPosition(0);
+            }
         }
 
     }
