@@ -2,10 +2,11 @@ package org.firstinspires.ftc.teamcode.auton;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.Gamepad;
-import com.qualcomm.robotcore.exception.RobotCoreException;
+
 import org.firstinspires.ftc.teamcode.Projects.HWMap;
+
 @Autonomous(name = "BasicAuto")
-public class BasicAuto extends LinearOpMode{
+public class FrontBlue extends LinearOpMode{
 
     Gamepad currentGamepad1 = new Gamepad();
     Gamepad previousGamepad1 = new Gamepad();
@@ -24,7 +25,7 @@ public class BasicAuto extends LinearOpMode{
         waitForStart(); //wait for play button to be pressed
 
         // Autonomous code starts here
-    
+        //
 
         }
     }

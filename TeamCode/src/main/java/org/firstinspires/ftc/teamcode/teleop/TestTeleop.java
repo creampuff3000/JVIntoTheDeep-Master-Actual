@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.exception.RobotCoreException;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.teamcode.Projects.HWMap;
 
 @TeleOp(name = "TestTeleop")
@@ -36,13 +37,14 @@ public class TestTeleop extends LinearOpMode {
             double frontRightPower = (y - x - rx) / denominator;
             double backRightPower = (y + x - rx) / denominator;
 
-            robot.fLeftWheel.setPower(frontLeftPower*speed);
-            robot.bLeftWheel.setPower(backLeftPower*speed);
-            robot.fRightWheel.setPower(frontRightPower*speed);
-            robot.bRightWheel.setPower(backRightPower*speed);
+            robot.frontLeftDrive.setPower(frontLeftPower*speed);
+            robot.backLeftDrive.setPower(backLeftPower*speed);
+            robot.frontRightDrive.setPower(frontRightPower*speed);
+            robot.backRightDrive.setPower(backRightPower*speed);
 
             // Teleop Code goes here
-            
+
+
         }
 
     }
