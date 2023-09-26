@@ -37,10 +37,10 @@ public class TestTeleop extends LinearOpMode {
             double frontRightPower = (y - x - rx) / denominator;
             double backRightPower = (y + x - rx) / denominator;
 
-            robot.frontLeftDrive.setPower(frontLeftPower*speed);
-            robot.backLeftDrive.setPower(backLeftPower*speed);
-            robot.frontRightDrive.setPower(frontRightPower*speed);
-            robot.backRightDrive.setPower(backRightPower*speed);
+            robot.frontLeftDrive.setPower(frontLeftPower * speed);
+            robot.backLeftDrive.setPower(backLeftPower * speed);
+            robot.frontRightDrive.setPower(frontRightPower * speed);
+            robot.backRightDrive.setPower(backRightPower * speed);
 
             // Teleop Code goes here
             if (gamepad1.right_bumper == true) {
@@ -59,6 +59,8 @@ public class TestTeleop extends LinearOpMode {
                     robot.rotateServo.setPosition(0);
                 }
             }
+
+        }
 
     }
 
