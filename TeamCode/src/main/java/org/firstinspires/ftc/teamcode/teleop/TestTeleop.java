@@ -47,7 +47,8 @@ public class TestTeleop extends LinearOpMode {
                 double a = robot.tiltServo.getPosition();
                 if (a == 0) {
                     robot.tiltServo.setPosition(1);
-                } else {
+                }
+                else if (a == 1){
                     robot.tiltServo.setPosition(0);
                 }
             }
@@ -55,15 +56,13 @@ public class TestTeleop extends LinearOpMode {
                 double a = robot.rotateServo.getPosition();
                 if (a == 0) {
                     robot.rotateServo.setPosition(1);
-                } else {
+                }
+                else if(a == 1) {
                     robot.rotateServo.setPosition(0);
                 }
             }
-
         }
-
     }
-
 }
 
 
