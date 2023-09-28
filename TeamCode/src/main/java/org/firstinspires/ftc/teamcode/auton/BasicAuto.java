@@ -23,23 +23,23 @@ public class BasicAuto extends LinearOpMode{
         }
         waitForStart(); //wait for play button to be pressed
         // BackRed Autonomous 
-        robot.fRightWheel.setPower(1);
-        robot.fLeftWheel.setPower(1);
-        robot.bRightWheel.setPower(1);
-        robot.bLeftWheel.setPower(1);
+        robot.frontRightDrive.setPower(1);
+        robot.frontLeftDrive.setPower(1);
+        robot.backRightDrive.setPower(1);
+        robot.backLeftDrive.setPower(1);
         sleep(3000);
-        robot.fRightWheel.setPower(0);
-        robot.fLeftWheel.setPower(0);
-        robot.bRightWheel.setPower(0);
-        robot.bLeftWheel.setPower(0);
+        robot.frontLeftDrive.setPower(0);
+        robot.frontRightDrive.setPower(0);
+        robot.backLeftDrive.setPower(0);
+        robot.backRightDrive.setPower(0);
         sleep(500);
-        robot.fLeftWheel.setPower(1);
-        robot.bLeftWheel.setPower(-1);
+        robot.frontLeftDrive.setPower(1);
+        robot.backLeftDrive.setPower(-1);
         sleep(1500);
-        robot.fRightWheel.setPower(1);
-        robot.fLeftWheel.setPower(1);
-        robot.bRightWheel.setPower(1);
-        robot.bLeftWheel.setPower(1);
+        robot.frontRightDrive.setPower(1);
+        robot.frontLeftDrive.setPower(1);
+        robot.backRightDrive.setPower(1);
+        robot.backLeftDrive.setPower(1);
         sleep(3000);
 
 
