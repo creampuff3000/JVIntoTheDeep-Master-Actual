@@ -61,7 +61,16 @@ public class TestTeleop extends LinearOpMode {
                     robot.rotateServo.setPosition(0);
                 }
             }
-
+            if (gamepad1.dpad_up == true) {
+                robot.outtakeMotor.setPower(0.5);
+                wait(500);
+                robot.outtakeMotor.setPower(0);
+            }
+            if (gamepad1.dpad_down == true){
+                robot.outtakeMotor.setPower(-0.5);
+                wait(500);
+                robot.outtakeMotor.setPower(0);
+            }
         }
     }
 }
