@@ -9,7 +9,7 @@ import org.firstinspires.ftc.teamcode.Projects.HWMap;
 
 @Autonomous(name = "BasicAuto")
 
-public class BasicAUTO extends LinearOpMode{
+public class BasicAuto extends LinearOpMode{
     enum Parking{
         Blue,
         Red
@@ -52,7 +52,7 @@ public class BasicAUTO extends LinearOpMode{
         }
         waitForStart(); //wait for play button to be pressed
         // BackRed Autonomous
-        if (Alliance == BasicAUTO.Parking.Blue){
+        if (Alliance == BasicAuto.Parking.Blue){
             robot.frontRightDrive.setPower(1);
             robot.backRightDrive.setPower(-1);
             robot.frontLeftDrive.setPower(-1);
