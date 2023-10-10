@@ -44,7 +44,7 @@ public class TestTeleop extends LinearOpMode {
             robot.backLeftDrive.setPower(backLeftPower * speed);
             robot.frontRightDrive.setPower(frontRightPower * speed);
             robot.backRightDrive.setPower(backRightPower * speed);
-            robot.outtakeMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+           // robot.outtakeMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
             // Teleop Code goes here
             if (gamepad1.right_bumper == true) {
@@ -66,16 +66,16 @@ public class TestTeleop extends LinearOpMode {
                 }
             }
             if (gamepad1.dpad_down == true){
-                robot.outtakeMotor.setTargetPosition(0);
+               // robot.outtakeMotor.setTargetPosition(0);
             }
             if (gamepad1.dpad_left == true){
-                robot.outtakeMotor.setTargetPosition(500);
+               // robot.outtakeMotor.setTargetPosition(500);
             }
             if (gamepad1.dpad_right == true){
-                robot.outtakeMotor.setTargetPosition(1000);
+              //  robot.outtakeMotor.setTargetPosition(1000);
             }
             if (gamepad1.dpad_up == true){
-                robot.outtakeMotor.setTargetPosition(1500);
+               // robot.outtakeMotor.setTargetPosition(1500);
             }
 
         }

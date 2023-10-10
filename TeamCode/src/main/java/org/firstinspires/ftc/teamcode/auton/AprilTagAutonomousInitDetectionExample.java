@@ -125,7 +125,7 @@ public class AprilTagAutonomousInitDetectionExample extends LinearOpMode
                 }
                 else
                 {
-                    telemetry.addLine("Don't see tag of interest :(");
+                    telemetry.addLine("Don't see tag of interest :O");
 
                     if(tagOfInterest == null)
                     {
@@ -177,6 +177,7 @@ public class AprilTagAutonomousInitDetectionExample extends LinearOpMode
             telemetry.update();
         }
         if(tagOfInterest == null || tagOfInterest.id==Blueleft) {
+
         } else if(tagOfInterest == null || tagOfInterest.id==Bluemiddle) {
     }else if(tagOfInterest == null || tagOfInterest.id==Blueright) {
         }
