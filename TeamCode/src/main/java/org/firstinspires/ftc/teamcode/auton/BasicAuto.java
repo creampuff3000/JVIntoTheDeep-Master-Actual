@@ -106,7 +106,7 @@ public class BasicAuto extends LinearOpMode {
             robot.backRightDrive.setPower(-1);
             robot.frontLeftDrive.setPower(1);
             robot.backLeftDrive.setPower(1);
-            sleep(533);
+            sleep(570);
             robot.frontRightDrive.setPower(0);
             robot.backRightDrive.setPower(0);
             robot.frontLeftDrive.setPower(0);
@@ -116,7 +116,7 @@ public class BasicAuto extends LinearOpMode {
             robot.backRightDrive.setPower(1);
             robot.frontLeftDrive.setPower(1);
             robot.backLeftDrive.setPower(1);
-            sleep(954);
+            sleep(1750);
             robot.frontRightDrive.setPower(0);
             robot.backRightDrive.setPower(0);
             robot.frontLeftDrive.setPower(0);
