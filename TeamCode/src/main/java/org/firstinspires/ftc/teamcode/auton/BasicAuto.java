@@ -29,10 +29,10 @@ public class BasicAuto extends LinearOpMode {
         int direction = 1;
         int otherDirection = -1;
         boolean isBlue = true;
-        //we wish you a merry christmas, we wish you a merry christmas, we wish you a merry christmas, and a happy new year
-
+        // hi
+        // Autonomous code starts here
         while (!isStarted()) {
-            // only the ghost of programmers past know why tf this is set up this way
+            // uygiufougoijpiuhitfjfstuhhdstersuyrukuy;oyg
             previousGamepad1.copy(currentGamepad1);
             currentGamepad1.copy(gamepad1);
             if (currentGamepad1.right_bumper && !previousGamepad1.right_bumper) {
@@ -50,7 +50,7 @@ public class BasicAuto extends LinearOpMode {
             telemetry.update();
         }
         waitForStart(); //wait for play button to be pressed
-        // BackRed Autonomous
+
         if (Alliance == BasicAuto.Parking.Blue) {
 //
             robot.frontRightDrive.setPower(1);
@@ -128,5 +128,4 @@ public class BasicAuto extends LinearOpMode {
 }
 
 
-    // Autonomous code starts here
 
