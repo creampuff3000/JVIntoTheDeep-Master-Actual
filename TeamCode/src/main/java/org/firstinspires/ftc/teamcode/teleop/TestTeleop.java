@@ -82,18 +82,18 @@ public class TestTeleop extends LinearOpMode {
 //                aButtonHeld = false;
 //                robot.intakeMotor.setPower(0.0);
 //            }
-//            if (gamepad1.dpad_down == true) {
-//                robot.slideMotor.setTargetPosition(0);
-//            }
-//            if (gamepad1.dpad_left == true) {
-//                robot.slideMotor.setTargetPosition(500);
-//            }
-//            if (gamepad1.dpad_right == true) {
-//                robot.slideMotor.setTargetPosition(1000);
-//            }
-//            if (gamepad1.dpad_up == true) {
-//                robot.slideMotor.setTargetPosition(1500);
-//            }
+            if (gamepad1.dpad_down == true) {
+                robot.slideMotor.setTargetPosition(0);
+            }
+            if (gamepad1.dpad_left == true) {
+                robot.slideMotor.setTargetPosition(500);
+            }
+            if (gamepad1.dpad_right == true) {
+                robot.slideMotor.setTargetPosition(1000);
+            }
+            if (gamepad1.dpad_up == true) {
+                robot.slideMotor.setTargetPosition(1500);
+            }
         }
     }
 }
