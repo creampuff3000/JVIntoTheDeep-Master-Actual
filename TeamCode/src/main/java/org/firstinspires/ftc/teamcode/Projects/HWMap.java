@@ -22,17 +22,17 @@ public class HWMap extends Project{
         frontRightDrive = hwMap.get(DcMotor.class, "frontRightDrive");
         backLeftDrive = hwMap.get(DcMotor.class, "backLeftDrive");
         backRightDrive = hwMap.get(DcMotor.class, "backRightDrive");
-//        intakeMotor = hwMap.get(DcMotor.class, "intakeMotor");
-//        slideMotor = hwMap.get(DcMotor.class, "slideMotor");
-//        rotateServo = hwMap.get(Servo.class, "rotateServo");
-//        tiltServo = hwMap.get(Servo.class, "tiltServo");
-//        launchServo = hwMap.get(Servo.class, "launchServo");
-//        outtakeServo = hwMap.get(Servo.class, "outtakeServo");
+        intakeMotor = hwMap.get(DcMotor.class, "intakeMotor");
+        slideMotor = hwMap.get(DcMotor.class, "slideMotor");
+        rotateServo = hwMap.get(Servo.class, "rotateServo");
+        tiltServo = hwMap.get(Servo.class, "tiltServo");
+        launchServo = hwMap.get(Servo.class, "launchServo");
+        outtakeServo = hwMap.get(Servo.class, "outtakeServo");
         frontLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         frontRightDrive.setDirection(DcMotor.Direction.FORWARD);
         backLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         backRightDrive.setDirection(DcMotor.Direction.FORWARD);
-//        slideMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        slideMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         // If there are encoders connected, switch to RUN_USING_ENCODER mode for greater accuracy
         Stop();
     }
@@ -41,11 +41,11 @@ public class HWMap extends Project{
         frontLeftDrive.setPower(0);
         backRightDrive.setPower(0);
         backLeftDrive.setPower(0);
-//        intakeMotor.setPower(0);
-//        slideMotor.setPower(0);
-//        launchServo.setPosition(0);
-//        tiltServo.setPosition(0);
-//        rotateServo.setPosition(1);
-//        outtakeServo.setPosition(0);
+        intakeMotor.setPower(0);
+        slideMotor.setPower(0);
+        launchServo.setPosition(0);
+        tiltServo.setPosition(0);
+        rotateServo.setPosition(1);
+        outtakeServo.setPosition(0);
     }
 }
