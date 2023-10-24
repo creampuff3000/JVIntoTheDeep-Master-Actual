@@ -83,6 +83,24 @@ public class BasicAuto extends LinearOpMode {
             robot.frontLeftDrive.setPower(0);
             robot.backLeftDrive.setPower(0);
             sleep(10);
+            robot.slideMotor.setPower(.3);
+            sleep(100);
+            robot.tiltServo.setPosition(1);
+            sleep(10);
+            robot.tiltServo.setPosition(0);
+            sleep(10);
+            robot.tiltServo.setPosition(1);
+            sleep(100);
+            robot.frontRightDrive.setPower(1);
+            robot.backRightDrive.setPower(-1);
+            robot.frontLeftDrive.setPower(-1);
+            robot.backLeftDrive.setPower(1);
+            sleep(100);
+            robot.frontRightDrive.setPower(1);
+            robot.backRightDrive.setPower(1);
+            robot.frontLeftDrive.setPower(1);
+            robot.backLeftDrive.setPower(1);
+            sleep(50);
 //            sleep(1000);
 //            robot.frontRightDrive.setPower(0);
 //            robot.backRightDrive.setPower(0);
@@ -122,6 +140,25 @@ public class BasicAuto extends LinearOpMode {
             robot.frontLeftDrive.setPower(0);
             robot.backLeftDrive.setPower(0);
             sleep(10);
+            robot.slideMotor.setPower(.3);
+            sleep(100);
+            robot.tiltServo.setPosition(1);
+            sleep(10);
+            robot.tiltServo.setPosition(0);
+            sleep(10);
+            robot.tiltServo.setPosition(1);
+            sleep(100);
+            robot.frontRightDrive.setPower(-1);
+            robot.backRightDrive.setPower(1);
+            robot.frontLeftDrive.setPower(1);
+            robot.backLeftDrive.setPower(-1);
+            sleep(100);
+            robot.frontRightDrive.setPower(1);
+            robot.backRightDrive.setPower(1);
+            robot.frontLeftDrive.setPower(1);
+            robot.backLeftDrive.setPower(1);
+            sleep(50);
+
 
         }
     }
