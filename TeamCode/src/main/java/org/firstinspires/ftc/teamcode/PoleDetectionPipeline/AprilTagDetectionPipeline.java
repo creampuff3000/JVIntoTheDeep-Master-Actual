@@ -83,7 +83,7 @@ public class AprilTagDetectionPipeline extends OpenCvPipeline
     public Mat processFrame(Mat input)
     {
         // Convert to greyscale
-        Imgproc.cvtColor(input, grey, Imgproc.COLOR_RGBA2GRAY);
+        Imgproc.cvtColor(input, mat, Imgproc.COLOR_RGBA2GRAY);
 
         synchronized (decimationSync)
         {
@@ -95,7 +95,7 @@ public class AprilTagDetectionPipeline extends OpenCvPipeline
         }
 
         // Run AprilTag
-        detections = AprilTagDetectorJNI.runAprilTagDetectorSimple(nativeApriltagPtr, grey, tagsize, fx, fy, cx, cy);
+        detections = AprilTagDetectorJNI.runAprilTagDetectorSimple(nativeApriltagPtr, mat, tagsize, fx, fy, cx, cy);
 
         synchronized (detectionsUpdateSync)
         {

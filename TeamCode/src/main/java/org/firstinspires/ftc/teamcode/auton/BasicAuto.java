@@ -10,7 +10,7 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 
 //OpenCV to cycle a cone during autonomous
-public class PoleDetectionPipeline extends OpenCvPipeline {
+public class BasicAuto extends OpenCvPipeline {
     Telemetry telemetry;
     //video frame of camera, is our input for processFrame()
     Mat mat = new Mat();
@@ -49,7 +49,7 @@ public class PoleDetectionPipeline extends OpenCvPipeline {
 
 
 
-    public PoleDetectionPipeline(Telemetry t) { telemetry = t; }
+    public BasicAuto(Telemetry t) { telemetry = t; }
 
     @Override
     public Mat processFrame(Mat input) {
