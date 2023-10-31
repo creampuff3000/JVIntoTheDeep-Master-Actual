@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Vision;
+package org.firstinspires.ftc.teamcode.Java;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.Point;
@@ -8,8 +8,9 @@ import org.opencv.imgproc.Imgproc;
 import org.openftc.easyopencv.OpenCvPipeline;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
+
 //OpenCV to cycle a cone during autonomous
-public class PoleDetectionPipeline extends OpenCvPipeline {
+public class Java extends OpenCvPipeline {
     Telemetry telemetry;
     //video frame of camera, is our input for processFrame()
     Mat mat = new Mat();
@@ -58,7 +59,7 @@ public class PoleDetectionPipeline extends OpenCvPipeline {
         Imgproc.cvtColor(input, mat, Imgproc.COLOR_RGB2HSV);
 
         //define HSV range to identify the color yellow
-        Scalar lowHSV = new Scalar (20, 100, 100);
+        Scalar lowHSV = new Scalar (0, 100, 100);
         Scalar highHSV = new Scalar(90, 255, 255);
 
         //applies a threshold (everything that is yellow will be white,
