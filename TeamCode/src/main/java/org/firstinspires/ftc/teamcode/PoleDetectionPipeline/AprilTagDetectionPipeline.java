@@ -1,5 +1,6 @@
-package org.firstinspires.ftc.teamcode.Vision;
+package org.firstinspires.ftc.teamcode.PoleDetectionPipeline;
 import org.opencv.calib3d.Calib3d;
+import org.opencv.core.Core;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfDouble;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 public class AprilTagDetectionPipeline extends OpenCvPipeline
 {
     private long nativeApriltagPtr;
-    private Mat grey = new Mat();
+    private Mat mat = new Mat();
     private ArrayList<AprilTagDetection> detections = new ArrayList<>();
 
     private ArrayList<AprilTagDetection> detectionsUpdate = new ArrayList<>();
@@ -30,7 +31,7 @@ public class AprilTagDetectionPipeline extends OpenCvPipeline
     Scalar red = new Scalar(255,0,0,255);
     Scalar green = new Scalar(0,255,0,255);
     Scalar white = new Scalar(255,255,255,255);
-    Scalar lowHSV
+
 
     double fx;
     double fy;
@@ -82,7 +83,7 @@ public class AprilTagDetectionPipeline extends OpenCvPipeline
     public Mat processFrame(Mat input)
     {
         // Convert to greyscale
-        Imgproc.cvtColor(input, grey, Imgproc.COLOR_RGBA2GRAY);
+        Imgproc.cvtColor(input, mat, Imgproc.COLOR_RGBA2GRAY);
 
         synchronized (decimationSync)
         {
@@ -94,7 +95,7 @@ public class AprilTagDetectionPipeline extends OpenCvPipeline
         }
 
         // Run AprilTag
-        detections = AprilTagDetectorJNI.runAprilTagDetectorSimple(nativeApriltagPtr, grey, tagsize, fx, fy, cx, cy);
+        detections = AprilTagDetectorJNI.runAprilTagDetectorSimple(nativeApriltagPtr, mat, tagsize, fx, fy, cx, cy);
 
         synchronized (detectionsUpdateSync)
         {

@@ -1,5 +1,4 @@
 package org.firstinspires.ftc.teamcode.teleop;
-
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Gamepad;
@@ -20,7 +19,6 @@ public class TestTeleop extends LinearOpMode {
         double speed = .9;
         waitForStart();
         boolean isSpinning = false;
-
         while (opModeIsActive()) {
             boolean aButtonHeld = false;
             double y = -gamepad1.left_stick_y; // Remember, this is reversed!
@@ -42,45 +40,29 @@ public class TestTeleop extends LinearOpMode {
             robot.backRightDrive.setPower(backRightPower * speed);
             robot.slideMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-//             Teleop Code goes here
-            if (gamepad1.right_bumper == true) {
-                double a = robot.tiltServo.getPosition();
-                if (a == 0) {
-                    robot.tiltServo.setPosition(1);
-                } else if (a == 1) {
-                    robot.tiltServo.setPosition(0);
-                }
-            }
-            if (gamepad1.left_bumper == true) {
-                double b = robot.rotateServo.getPosition();
-                if (b == 0) {
-                    robot.rotateServo.setPosition(1);
-                } else if (b == 1) {
-                    robot.rotateServo.setPosition(0);
-                }
-            }
+//             Teleop Code goes here         }
             if (gamepad1.y == true) {
                 double c = robot.outtakeServo.getPosition();
                 if (c == 0) {
                     robot.outtakeServo.setPosition(1);
+                    sleep(500);
                 } else if (c == 1) {
                     robot.outtakeServo.setPosition(0);
+                    sleep(500);
                 }
             }
             if (gamepad1.right_stick_button == true && gamepad1.left_stick_button == true) {
                 double d = robot.launchServo.getPosition();
                 if (d == 0) {
                     robot.launchServo.setPosition(1);
+                    sleep(500);
                 } else if (d == 1) {
                     robot.launchServo.setPosition(0);
+                    sleep(500);
                 }
             }
-            if (gamepad1.a && !aButtonHeld) {
-                aButtonHeld = true;
+            while(gamepad1.a == true){
                 robot.intakeMotor.setPower(0.8);
-            } else if (!gamepad1.a && aButtonHeld) {
-                aButtonHeld = false;
-                robot.intakeMotor.setPower(0.0);
             }
             if (gamepad1.dpad_down == true) {
                 robot.slideMotor.setTargetPosition(0);

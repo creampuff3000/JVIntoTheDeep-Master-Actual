@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.exception.RobotCoreException;
 import org.firstinspires.ftc.teamcode.Projects.HWMap;
 @Autonomous(name = "BasicAuto")
-public class frontredBasicAuto extends LinearOpMode{
+public class frontredBasicAuto extends LinearOpMode {
 
     Gamepad currentGamepad1 = new Gamepad();
     Gamepad previousGamepad1 = new Gamepad();
@@ -16,7 +16,7 @@ public class frontredBasicAuto extends LinearOpMode{
         //initialize hardware map
         robot.init(hardwareMap);
 
-        while(!isStarted()){
+        while (!isStarted()) {
             // only the ghost of programmers past know why tf this is set up this way
             previousGamepad1.copy(currentGamepad1);
             currentGamepad1.copy(gamepad1);
@@ -24,6 +24,8 @@ public class frontredBasicAuto extends LinearOpMode{
         waitForStart(); //wait for play button to be pressed
 
         // Autonoumous code starts here
-    isStarted(
+        isStarted(
 
-)
+        );
+    }
+}

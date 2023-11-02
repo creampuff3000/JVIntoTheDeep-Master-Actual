@@ -1,163 +1,129 @@
 package org.firstinspires.ftc.teamcode.auton;
+import org.opencv.core.Core;
+import org.opencv.core.Mat;
+import org.opencv.core.Point;
+import org.opencv.core.Rect;
+import org.opencv.core.Scalar;
+import org.opencv.imgproc.Imgproc;
+import org.openftc.easyopencv.OpenCvPipeline;
+import org.firstinspires.ftc.robotcore.external.Telemetry;
 
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.Gamepad;
-import com.qualcomm.robotcore.exception.RobotCoreException;
-import org.firstinspires.ftc.teamcode.Projects.HWMap;
 
-@Autonomous(name = "BasicAuto")
+//OpenCV to cycle a cone during autonomous
+public class BasicAuto extends OpenCvPipeline {
+    Telemetry telemetry;
+    //video frame of camera, is our input for processFrame()
+    Mat mat = new Mat();
 
-public class BasicAuto extends LinearOpMode {
-    enum Parking {
-        Blue,
-        Red
+    public enum PoleLocation {
+        LEFT,
+        MIDDLE,
+        RIGHT,
+        UNKNOWN,
+        //        FAR,
+        CLOSE
     }
 
-    Gamepad currentGamepad1 = new Gamepad();
-    Gamepad previousGamepad1 = new Gamepad();
-    public HWMap robot = new HWMap();
+    private boolean closeToPole = false;
+
+
+    private PoleLocation elementLocation;
+
+    //defining regions of interest (ROI)
+    //Divide the camera frame into three rectangles
+    //rectangles are made from defining two opposite vertices of a triangle,
+    //which are connected by the diagonals
+    static final Rect leftROI = new Rect(
+            new Point( 0, 0),
+            new Point(400, 700)
+    );
+    //middleROI is really small to make sure our robot is aligned with the robot
+    static final Rect middleROI = new Rect(
+            new Point( 500, 0),
+            new Point(800, 700)
+    );
+    static final Rect rightROI = new Rect(
+            new Point( 800, 0),
+            new Point(1200, 800)
+    );
+
+
+
+    public BasicAuto(Telemetry t) { telemetry = t; }
 
     @Override
-    public void runOpMode() throws InterruptedException {
-        //initialize hardware map
-        robot.init(hardwareMap);
-        Parking Alliance = Parking.Blue;
+    public Mat processFrame(Mat input) {
 
 
-        int direction = 1;
-        int otherDirection = -1;
-        boolean isBlue = true;
-        // hi
-        // Autonomous code starts here
-        while (!isStarted()) {
-            // uygiufougoijpiuhitfjfstuhhdstersuyrukuy;oyg
-            previousGamepad1.copy(currentGamepad1);
-            currentGamepad1.copy(gamepad1);
-            if (currentGamepad1.right_bumper && !previousGamepad1.right_bumper) {
+        //HSV = hue(color), saturation(intensity), value (brightness)
+        Imgproc.cvtColor(input, mat, Imgproc.COLOR_RGB2HSV);
 
-                isBlue = !isBlue;
-            }
-            if (isBlue) {
+        //define HSV range to identify the color blue
+        //Scalar lowHSV = new Scalar (50,50,50);
+        // Scalar highHSV = new Scalar(255,255,255);
 
-                Alliance = Parking.Blue;
-            } else {
+        //define HSV range to identify the color red
+        Scalar lowHSV = new Scalar (60,60,60);
+        Scalar highHSV = new Scalar (230,230,230);
 
-                Alliance = Parking.Red;
-            }
-            telemetry.addData("Parking", Alliance);
-            telemetry.update();
+        //applies a threshold (everything that is yellow will be white,
+        // everything else will be black)
+        //returns a new mat with this threshold
+        Core.inRange(mat,lowHSV, highHSV, mat);
+
+        //extract regions of interest from camera frame
+        //submat = sub-matrix, a portion of the original
+        Mat left = mat.submat(leftROI);
+        Mat middle = mat.submat(middleROI);
+        Mat right = mat.submat(rightROI);
+
+        //calculate what percentage of the ROI became white
+        //(add all the pixels together, divide by its area, divide by 255)
+        double leftPercentage = Core.sumElems(left).val[0] / leftROI.area() / 255;
+        double middlePercentage = Core.sumElems(middle).val[0] / middleROI.area() / 255;
+        double rightPercentage = Core.sumElems(right).val[0] / rightROI.area() / 255;
+        double polePercentage = leftPercentage + middlePercentage + rightPercentage;
+
+        //deallocates the Matrix data from the memory
+        left.release();
+        middle.release();
+        right.release();
+
+        if (Math.round(polePercentage * 100) > 60) {
+            elementLocation = PoleLocation.CLOSE;
         }
-        waitForStart(); //wait for play button to be pressed
-
-        if (Alliance == BasicAuto.Parking.Blue) {
-//
-            robot.frontRightDrive.setPower(1);
-            robot.backRightDrive.setPower(1);
-            robot.frontLeftDrive.setPower(1);
-            robot.backLeftDrive.setPower(1);
-            sleep(614);
-            robot.frontRightDrive.setPower(0);
-            robot.backRightDrive.setPower(0);
-            robot.frontLeftDrive.setPower(0);
-            robot.backLeftDrive.setPower(0);
-            sleep(10);
-            robot.frontRightDrive.setPower(1);
-            robot.backRightDrive.setPower(1);
-            robot.frontLeftDrive.setPower(-1);
-            robot.backLeftDrive.setPower(-1);
-            sleep(570);
-            robot.frontRightDrive.setPower(0);
-            robot.backRightDrive.setPower(0);
-            robot.frontLeftDrive.setPower(0);
-            robot.backLeftDrive.setPower(0);
-            sleep(10);
-            robot.frontRightDrive.setPower(1);
-            robot.backRightDrive.setPower(1);
-            robot.frontLeftDrive.setPower(1);
-            robot.backLeftDrive.setPower(1);
-            sleep(1750);
-            robot.frontRightDrive.setPower(0);
-            robot.backRightDrive.setPower(0);
-            robot.frontLeftDrive.setPower(0);
-            robot.backLeftDrive.setPower(0);
-            sleep(10);
-            robot.slideMotor.setPower(.3);
-            sleep(100);
-            robot.tiltServo.setPosition(1);
-            sleep(50);
-            robot.tiltServo.setPosition(0);
-            robot.frontRightDrive.setPower(1);
-            robot.backRightDrive.setPower(-1);
-            robot.frontLeftDrive.setPower(-1);
-            robot.backLeftDrive.setPower(1);
-            sleep(100);
-            robot.frontRightDrive.setPower(1);
-            robot.backRightDrive.setPower(1);
-            robot.frontLeftDrive.setPower(1);
-            robot.backLeftDrive.setPower(1);
-            sleep(50);
-//            sleep(1000);
-//            robot.frontRightDrive.setPower(0);
-//            robot.backRightDrive.setPower(0);
-//            robot.frontLeftDrive.setPower(0);
-//            robot.backLeftDrive.setPower(0);
-
-
-
-        } else {
-            robot.frontRightDrive.setPower(1);
-            robot.backRightDrive.setPower(1);
-            robot.frontLeftDrive.setPower(1);
-            robot.backLeftDrive.setPower(1);
-            sleep(614);
-            robot.frontRightDrive.setPower(0);
-            robot.backRightDrive.setPower(0);
-            robot.frontLeftDrive.setPower(0);
-            robot.backLeftDrive.setPower(0);
-            sleep(10);
-            robot.frontRightDrive.setPower(-1);
-            robot.backRightDrive.setPower(-1);
-            robot.frontLeftDrive.setPower(1);
-            robot.backLeftDrive.setPower(1);
-            sleep(570);
-            robot.frontRightDrive.setPower(0);
-            robot.backRightDrive.setPower(0);
-            robot.frontLeftDrive.setPower(0);
-            robot.backLeftDrive.setPower(0);
-            sleep(10);
-            robot.frontRightDrive.setPower(1);
-            robot.backRightDrive.setPower(1);
-            robot.frontLeftDrive.setPower(1);
-            robot.backLeftDrive.setPower(1);
-            sleep(1750);
-            robot.frontRightDrive.setPower(0);
-            robot.backRightDrive.setPower(0);
-            robot.frontLeftDrive.setPower(0);
-            robot.backLeftDrive.setPower(0);
-            sleep(10);
-            robot.slideMotor.setPower(.3);
-            sleep(100);
-            robot.tiltServo.setPosition(1);
-            sleep(100);
-            robot.tiltServo.setPosition(0);
-            sleep(50);
-            robot.frontRightDrive.setPower(-1);
-            robot.backRightDrive.setPower(1);
-            robot.frontLeftDrive.setPower(1);
-            robot.backLeftDrive.setPower(-1);
-            sleep(100);
-            robot.frontRightDrive.setPower(1);
-            robot.backRightDrive.setPower(1);
-            robot.frontLeftDrive.setPower(1);
-            robot.backLeftDrive.setPower(1);
-            sleep(50);
-
-
+        else if(leftPercentage > middlePercentage && leftPercentage > rightPercentage){
+            elementLocation = PoleLocation.LEFT;
         }
+        else if(middlePercentage > leftPercentage && middlePercentage > rightPercentage){
+            elementLocation = PoleLocation.MIDDLE;
+        }
+        else if(rightPercentage > leftPercentage && rightPercentage > middlePercentage){
+            elementLocation = PoleLocation.RIGHT;
+        }
+//        else if(Math.round(polePercentage * 100) < 60){
+//            elementLocation = PoleLocation.FAR;
+//        }
+        else{
+            elementLocation = PoleLocation.UNKNOWN;
+        }
+
+        telemetry.addData("left percentage", Math.round(leftPercentage * 100) + "%");
+        telemetry.addData("middle percentage", Math.round(middlePercentage * 100) + "%");
+        telemetry.addData("right percentage", Math.round(rightPercentage * 100) + "%");
+        telemetry.addData("total pole percentage", Math.round(polePercentage * 100) + "%");
+        telemetry.addData("Pole Location", elementLocation);
+        //telemetry.addData("total pole percentage", polePercentage);
+
+
+
+        telemetry.update();
+        return mat;
+
     }
+
+    public PoleLocation getPoleLocation(){
+        return elementLocation;
+    }
+
 }
-
-
-
