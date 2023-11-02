@@ -62,10 +62,13 @@ public class TestTeleop extends LinearOpMode {
 //                }
 //            }
             if(gamepad1.a == true){
-                robot.intakeMotor.setPower(-0.8);
+                robot.intakeMotor.setPower(-0.65);
             }
             if(gamepad1.b == true){
                 robot.intakeMotor.setPower(0);
+            }
+            if (gamepad1.y == true){
+                robot.intakeMotor.setPower(0.5);
             }
             if (gamepad1.dpad_down == true) {
                 robot.slideMotor.setTargetPosition(0);
