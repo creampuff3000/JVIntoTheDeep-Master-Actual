@@ -10,7 +10,7 @@ public class HWMap extends Project{
     public DcMotor  backRightDrive     = null;
     public DcMotor    intakeMotor   = null;
     public DcMotor slideMotor = null;
-    public Servo launchServo = null;
+//    public Servo launchServo = null;
     public Servo outtakeServo = null;
 
     @Override
@@ -22,7 +22,7 @@ public class HWMap extends Project{
         backRightDrive = hwMap.get(DcMotor.class, "backRightDrive");
         intakeMotor = hwMap.get(DcMotor.class, "intakeMotor");
         slideMotor = hwMap.get(DcMotor.class, "slideMotor");
-        launchServo = hwMap.get(Servo.class, "launchServo");
+//        launchServo = hwMap.get(Servo.class, "launchServo");
         outtakeServo = hwMap.get(Servo.class, "outtakeServo");
         frontLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         frontRightDrive.setDirection(DcMotor.Direction.FORWARD);
@@ -39,7 +39,7 @@ public class HWMap extends Project{
         backLeftDrive.setPower(0);
         intakeMotor.setPower(0);
         slideMotor.setPower(0);
-        launchServo.setPosition(0);
+//        launchServo.setPosition(0);
         outtakeServo.setPosition(0);
     }
 }
