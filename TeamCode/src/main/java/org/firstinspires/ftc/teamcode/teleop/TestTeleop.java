@@ -68,13 +68,13 @@ public class TestTeleop extends LinearOpMode {
                 robot.slideMotor.setTargetPosition(0);
             }
             if (gamepad1.dpad_left == true) {
-                robot.slideMotor.setTargetPosition(500);
+                robot.slideMotor.setTargetPosition(200);
             }
             if (gamepad1.dpad_right == true) {
-                robot.slideMotor.setTargetPosition(1000);
+                robot.slideMotor.setTargetPosition(400);
             }
             if (gamepad1.dpad_up == true) {
-                robot.slideMotor.setTargetPosition(1500);
+                robot.slideMotor.setTargetPosition(600);
             }
         }
     }
