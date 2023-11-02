@@ -19,7 +19,6 @@ public class TestTeleop extends LinearOpMode {
         double speed = .9;
         waitForStart();
         boolean isSpinning = false;
-
         while (opModeIsActive()) {
             boolean aButtonHeld = false;
             double y = -gamepad1.left_stick_y; // Remember, this is reversed!
@@ -41,27 +40,7 @@ public class TestTeleop extends LinearOpMode {
             robot.backRightDrive.setPower(backRightPower * speed);
             robot.slideMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-//             Teleop Code goes here
-            if (gamepad1.right_bumper == true) {
-                double a = robot.tiltServo.getPosition();
-                if (a == 0) {
-                    robot.tiltServo.setPosition(1);
-                    sleep(500);
-                } else if (a == 1) {
-                    robot.tiltServo.setPosition(0);
-                    sleep(500);
-                }
-            }
-            if (gamepad1.left_bumper == true) {
-                double b = robot.rotateServo.getPosition();
-                if (b == 0) {
-                    robot.rotateServo.setPosition(1);
-                    sleep(500);
-                } else if (b == 1) {
-                    robot.rotateServo.setPosition(0);
-                    sleep(500);
-                }
-            }
+//             Teleop Code goes here         }
             if (gamepad1.y == true) {
                 double c = robot.outtakeServo.getPosition();
                 if (c == 0) {
@@ -82,12 +61,8 @@ public class TestTeleop extends LinearOpMode {
                     sleep(500);
                 }
             }
-            if (gamepad1.a == true) {
-                aButtonHeld = true;
+            while(gamepad1.a == true){
                 robot.intakeMotor.setPower(0.8);
-            } else if (!gamepad1.a && aButtonHeld) {
-                aButtonHeld = false;
-                robot.intakeMotor.setPower(0.0);
             }
             if (gamepad1.dpad_down == true) {
                 robot.slideMotor.setTargetPosition(0);
