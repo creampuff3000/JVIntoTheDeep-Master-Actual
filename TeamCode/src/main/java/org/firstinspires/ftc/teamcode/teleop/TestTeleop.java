@@ -38,10 +38,10 @@ public class TestTeleop extends LinearOpMode {
             robot.backLeftDrive.setPower(backLeftPower * speed);
             robot.frontRightDrive.setPower(frontRightPower * speed);
             robot.backRightDrive.setPower(backRightPower * speed);
-            robot.slideMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+//            robot.slideMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
 //             Teleop Code goes here         }
-            if (gamepad1.y == true) {
+            if (gamepad1.x == true) {
                 double c = robot.outtakeServo.getPosition();
                 if (c == 0) {
                     robot.outtakeServo.setPosition(1);
@@ -61,17 +61,17 @@ public class TestTeleop extends LinearOpMode {
 //                    sleep(500);
 //                }
 //            }
-            if(gamepad1.a == true){
-                robot.intakeMotor.setPower(-0.65);
+            if (gamepad1.a == true){
+                robot.intakeMotor.setPower(0.589);
             }
-            if(gamepad1.b == true){
+            if (gamepad1.b == true){
                 robot.intakeMotor.setPower(0);
             }
             if (gamepad1.y == true){
-                robot.intakeMotor.setPower(0.5);
+                robot.intakeMotor.setPower(-0.5);
             }
-            while (gamepad1.dpad_down == true) {
-                robot.slideMotor.setPower(0.2);
+            while (gamepad1.dpad_up == true) {
+                robot.slideMotor.setPower(0.6);
             }
             //if (gamepad1.dpad_left == true) {
               //  robot.slideMotor.setTargetPosition(200);
@@ -79,8 +79,11 @@ public class TestTeleop extends LinearOpMode {
            // if (gamepad1.dpad_right == true) {
           //      robot.slideMotor.setTargetPosition(400);
           //  }
-            while (gamepad1.dpad_up == true) {
-                robot.slideMotor.setPower(-0.2);
+            while (gamepad1.dpad_down == true) {
+                robot.slideMotor.setPower(-0.48967);
+            }
+            while (gamepad1.dpad_left == true) {
+                robot.slideMotor.setPower(0);
             }
         }
     }
