@@ -11,8 +11,10 @@ import org.firstinspires.ftc.teamcode.Projects.HWMap;
 
 public class BASICAUTONOMOUS extends LinearOpMode {
     enum Parking {
-        Blue,
-        Red
+        FBlue,
+        BBlue,
+        BRed,
+        FRed,
     }
 
     Gamepad currentGamepad1 = new Gamepad();
@@ -23,12 +25,16 @@ public class BASICAUTONOMOUS extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
         //initialize hardware map
         robot.init(hardwareMap);
-        Parking Alliance = Parking.Blue;
+        Parking Alliance = Parking.FBlue;
 
 
         int direction = 1;
         int otherDirection = -1;
-        boolean isBlue = true;
+
+        boolean isFBlue = false;
+        boolean isBBlue = false;
+        boolean isFRed = false;
+        boolean isBRed = false;
         // hi
         // Autonomous code starts here
         while (!isStarted()) {
@@ -37,21 +43,55 @@ public class BASICAUTONOMOUS extends LinearOpMode {
             currentGamepad1.copy(gamepad1);
             if (currentGamepad1.right_bumper && !previousGamepad1.right_bumper) {
 
-                isBlue = !isBlue;
+                isFBlue = true;
+                isBBlue = false;
+                isFRed = false;
+                isBRed = false;
             }
-            if (isBlue) {
+            if (currentGamepad1.left_bumper && !previousGamepad1.left_bumper) {
 
-                Alliance = Parking.Blue;
-            } else {
+                isFBlue = false;
+                isBBlue = false;
+                isFRed = true;
+                isBRed = false;
+            }
+            if (currentGamepad1.left_trigger != 0) {
 
-                Alliance = Parking.Red;
+                isFBlue = false;
+                isBBlue = false;
+                isFRed = false;
+                isBRed = true;
+            }
+            if (currentGamepad1.right_trigger != 0) {
+
+                isFBlue = false;
+                isBBlue = true;
+                isFRed = false;
+                isBRed = false;
+            }
+
+            if (isFBlue) {
+
+                Alliance = Parking.BBlue;
+            }
+            if (isBBlue) {
+
+                Alliance = Parking.FRed;
+            }
+            if (isFRed) {
+
+                Alliance = Parking.BRed;
+            }
+            if (isBRed) {
+
+                Alliance = Parking.FBlue;
             }
             telemetry.addData("Parking", Alliance);
             telemetry.update();
         }
         waitForStart(); //wait for play button to be pressed
 
-        if (Alliance == BASICAUTONOMOUS.Parking.Blue) {
+        if (Alliance == BASICAUTONOMOUS.Parking.FBlue) {
 //
             robot.frontRightDrive.setPower(1);
             robot.backRightDrive.setPower(1);
@@ -87,18 +127,18 @@ public class BASICAUTONOMOUS extends LinearOpMode {
             robot.backRightDrive.setPower(1);
             robot.frontLeftDrive.setPower(-1);
             robot.backLeftDrive.setPower(-1);
-            sleep(660);
-//            robot.slideMotor.setPower(0.3);
-//            sleep(1000);
-//            robot.slideMotor.setPower(0);
-//            sleep(10);
-//            robot.outtakeServo.setPosition(1);
-//            sleep(10);
-//            robot.outtakeServo.setPosition(0);
-//            sleep(10);
-//            robot.slideMotor.setPower(-0.3);
-//            sleep(900);
-//            robot.slideMotor.setPower(0);
+            sleep(100);
+            robot.slideMotor.setPower(0.3);
+            sleep(950);
+            robot.slideMotor.setPower(0);
+            sleep(100);
+            robot.outtakeServo.setPosition(1);
+            sleep(100);
+            robot.outtakeServo.setPosition(0);
+            sleep(100);
+            robot.slideMotor.setPower(-0.3);
+            sleep(850);
+            robot.slideMotor.setPower(0);
             robot.frontRightDrive.setPower(1);
             robot.backRightDrive.setPower(-1);
             robot.frontLeftDrive.setPower(-1);
@@ -109,15 +149,14 @@ public class BASICAUTONOMOUS extends LinearOpMode {
             robot.frontLeftDrive.setPower(1);
             robot.backLeftDrive.setPower(1);
             sleep(50);
-//            sleep(1000);
-//            robot.frontRightDrive.setPower(0);
-//            robot.backRightDrive.setPower(0);
-//            robot.frontLeftDrive.setPower(0);
-//            robot.backLeftDrive.setPower(0);
+            robot.frontRightDrive.setPower(0);
+            robot.backRightDrive.setPower(0);
+            robot.frontLeftDrive.setPower(0);
+            robot.backLeftDrive.setPower(0);
 
 
-
-        } else {
+        }
+        if (Alliance == BASICAUTONOMOUS.Parking.FRed) {
             robot.frontRightDrive.setPower(1);
             robot.backRightDrive.setPower(1);
             robot.frontLeftDrive.setPower(1);
@@ -147,19 +186,74 @@ public class BASICAUTONOMOUS extends LinearOpMode {
             robot.backRightDrive.setPower(0);
             robot.frontLeftDrive.setPower(0);
             robot.backLeftDrive.setPower(0);
-            sleep(4000);
-//            robot.slideMotor.setPower(0.3);
-//            sleep(1000);
-//            robot.slideMotor.setPower(0);
-//            sleep(10);
-//            robot.outtakeServo.setPosition(1);
-//            sleep(10);
-//            robot.outtakeServo.setPosition(0);
-//            sleep(10);
-//            robot.slideMotor.setPower(-0.3);
-//            sleep(900);
-//            robot.slideMotor.setPower(0);
-//            sleep(10);
+            sleep(100);
+            robot.slideMotor.setPower(0.3);
+            sleep(950);
+            robot.slideMotor.setPower(0);
+            sleep(100);
+            robot.outtakeServo.setPosition(1);
+            sleep(100);
+            robot.outtakeServo.setPosition(0);
+            sleep(100);
+            robot.slideMotor.setPower(-0.3);
+            sleep(850);
+            robot.slideMotor.setPower(0);
+            sleep(100);
+            robot.frontRightDrive.setPower(-1);
+            robot.backRightDrive.setPower(1);
+            robot.frontLeftDrive.setPower(1);
+            robot.backLeftDrive.setPower(-1);
+            sleep(950);
+            robot.frontRightDrive.setPower(1);
+            robot.backRightDrive.setPower(1);
+            robot.frontLeftDrive.setPower(1);
+            robot.backLeftDrive.setPower(1);
+            sleep(50);
+        }
+
+        if (Alliance == BASICAUTONOMOUS.Parking.BRed) {
+            robot.frontRightDrive.setPower(1);
+            robot.backRightDrive.setPower(1);
+            robot.frontLeftDrive.setPower(1);
+            robot.backLeftDrive.setPower(1);
+            sleep(614);
+            robot.frontRightDrive.setPower(0);
+            robot.backRightDrive.setPower(0);
+            robot.frontLeftDrive.setPower(0);
+            robot.backLeftDrive.setPower(0);
+            sleep(10);
+            robot.frontRightDrive.setPower(-1);
+            robot.backRightDrive.setPower(-1);
+            robot.frontLeftDrive.setPower(1);
+            robot.backLeftDrive.setPower(1);
+            sleep(570);
+            robot.frontRightDrive.setPower(0);
+            robot.backRightDrive.setPower(0);
+            robot.frontLeftDrive.setPower(0);
+            robot.backLeftDrive.setPower(0);
+            sleep(10);
+            robot.frontRightDrive.setPower(1);
+            robot.backRightDrive.setPower(1);
+            robot.frontLeftDrive.setPower(1);
+            robot.backLeftDrive.setPower(1);
+            sleep(750);
+            robot.frontRightDrive.setPower(0);
+            robot.backRightDrive.setPower(0);
+            robot.frontLeftDrive.setPower(0);
+            robot.backLeftDrive.setPower(0);
+            sleep(100);
+            robot.slideMotor.setPower(0.3);
+            sleep(950);
+            robot.slideMotor.setPower(0);
+            sleep(100);
+            robot.outtakeServo.setPosition(1);
+            sleep(100);
+            robot.outtakeServo.setPosition(0);
+            sleep(100);
+            robot.slideMotor.setPower(-0.3);
+            sleep(850);
+            robot.slideMotor.setPower(0);
+            sleep(100);
             robot.frontRightDrive.setPower(-1);
             robot.backRightDrive.setPower(1);
             robot.frontLeftDrive.setPower(1);
@@ -171,7 +265,70 @@ public class BASICAUTONOMOUS extends LinearOpMode {
             robot.backLeftDrive.setPower(1);
             sleep(50);
         }
+
+        if (Alliance == BASICAUTONOMOUS.Parking.BBlue) {
+//
+            robot.frontRightDrive.setPower(1);
+            robot.backRightDrive.setPower(1);
+            robot.frontLeftDrive.setPower(1);
+            robot.backLeftDrive.setPower(1);
+            sleep(614);
+            robot.frontRightDrive.setPower(0);
+            robot.backRightDrive.setPower(0);
+            robot.frontLeftDrive.setPower(0);
+            robot.backLeftDrive.setPower(0);
+            sleep(10);
+            robot.frontRightDrive.setPower(1);
+            robot.backRightDrive.setPower(1);
+            robot.frontLeftDrive.setPower(-1);
+            robot.backLeftDrive.setPower(-1);
+            sleep(324);
+            robot.frontRightDrive.setPower(0);
+            robot.backRightDrive.setPower(0);
+            robot.frontLeftDrive.setPower(0);
+            robot.backLeftDrive.setPower(0);
+            sleep(10);
+            robot.frontRightDrive.setPower(1);
+            robot.backRightDrive.setPower(1);
+            robot.frontLeftDrive.setPower(1);
+            robot.backLeftDrive.setPower(1);
+            sleep(600);
+            robot.frontRightDrive.setPower(0);
+            robot.backRightDrive.setPower(0);
+            robot.frontLeftDrive.setPower(0);
+            robot.backLeftDrive.setPower(0);
+            sleep(50);
+            robot.frontRightDrive.setPower(1);
+            robot.backRightDrive.setPower(1);
+            robot.frontLeftDrive.setPower(-1);
+            robot.backLeftDrive.setPower(-1);
+            sleep(100);
+            robot.slideMotor.setPower(0.3);
+            sleep(950);
+            robot.slideMotor.setPower(0);
+            sleep(100);
+            robot.outtakeServo.setPosition(1);
+            sleep(100);
+            robot.outtakeServo.setPosition(0);
+            sleep(850);
+            robot.slideMotor.setPower(-0.3);
+            sleep(100);
+            robot.slideMotor.setPower(0);
+            robot.frontRightDrive.setPower(1);
+            robot.backRightDrive.setPower(-1);
+            robot.frontLeftDrive.setPower(-1);
+            robot.backLeftDrive.setPower(1);
+            sleep(100);
+            robot.frontRightDrive.setPower(1);
+            robot.backRightDrive.setPower(1);
+            robot.frontLeftDrive.setPower(1);
+            robot.backLeftDrive.setPower(1);
+            sleep(50);
+            robot.frontRightDrive.setPower(0);
+            robot.backRightDrive.setPower(0);
+            robot.frontLeftDrive.setPower(0);
+            robot.backLeftDrive.setPower(0);
+        }
     }
 }
-
 
