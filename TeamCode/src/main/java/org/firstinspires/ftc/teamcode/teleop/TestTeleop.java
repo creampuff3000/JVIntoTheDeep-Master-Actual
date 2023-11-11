@@ -29,10 +29,10 @@ public class TestTeleop extends LinearOpMode {
             // This ensures all the powers maintain the same ratio, but only when
             // at least one is out of the range [-1, 1]
             double denominator = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(rx), 1);
-            double frontLeftPower = -(y + x + rx) / denominator;
-            double backLeftPower = -(y - x + rx) / denominator;
-            double frontRightPower = -(y - x - rx) / denominator;
-            double backRightPower = -(y + x - rx) / denominator;
+            double frontLeftPower = (y + x + rx) / denominator;
+            double backLeftPower = (y - x + rx) / denominator;
+            double frontRightPower = (y - x - rx) / denominator;
+            double backRightPower = (y + x - rx) / denominator;
 
             robot.frontLeftDrive.setPower(frontLeftPower * speed);
             robot.backLeftDrive.setPower(backLeftPower * speed);
@@ -62,7 +62,7 @@ public class TestTeleop extends LinearOpMode {
 //                }
 //            }
             if (gamepad1.a == true){
-                robot.intakeMotor.setPower(0.589);
+                robot.intakeMotor.setPower(0.6);
             }
             if (gamepad1.b == true){
                 robot.intakeMotor.setPower(0);
@@ -80,7 +80,7 @@ public class TestTeleop extends LinearOpMode {
           //      robot.slideMotor.setTargetPosition(400);
           //  }
             while (gamepad1.dpad_down == true) {
-                robot.slideMotor.setPower(-0.48967);
+                robot.slideMotor.setPower(-0.9);
             }
             while (gamepad1.dpad_left == true) {
                 robot.slideMotor.setPower(0);
