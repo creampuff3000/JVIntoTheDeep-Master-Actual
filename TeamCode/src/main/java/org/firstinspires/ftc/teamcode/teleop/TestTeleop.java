@@ -38,7 +38,7 @@ public class TestTeleop extends LinearOpMode {
             robot.backLeftDrive.setPower(backLeftPower * speed);
             robot.frontRightDrive.setPower(frontRightPower * speed);
             robot.backRightDrive.setPower(backRightPower * speed);
-//            robot.slideMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            robot.slideMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
 //             Teleop Code goes here         }
             if (gamepad1.x == true) {
@@ -51,16 +51,16 @@ public class TestTeleop extends LinearOpMode {
                     sleep(500);
                 }
             }
-//            if (gamepad1.right_stick_button == true && gamepad1.left_stick_button == true) {
-//                double d = robot.launchServo.getPosition();
-//                if (d == 0) {
-//                    robot.launchServo.setPosition(1);
-//                    sleep(500);
-//                } else if (d == 1) {
-//                    robot.launchServo.setPosition(0);
-//                    sleep(500);
-//                }
-//            }
+            if (gamepad1.right_bumper == true && gamepad1.right_bumper == true) {
+                double d = robot.launchServo.getPosition();
+                if (d == 0) {
+                    robot.launchServo.setPosition(1);
+                    sleep(500);
+                } else if (d == 1) {
+                    robot.launchServo.setPosition(0);
+                    sleep(500);
+                }
+            }
             if (gamepad1.a == true){
                 robot.intakeMotor.setPower(0.6);
             }
@@ -70,20 +70,17 @@ public class TestTeleop extends LinearOpMode {
             if (gamepad1.y == true){
                 robot.intakeMotor.setPower(-0.5);
             }
-            while (gamepad1.dpad_up == true) {
-                robot.slideMotor.setPower(0.6);
-            }
-            //if (gamepad1.dpad_left == true) {
-              //  robot.slideMotor.setTargetPosition(200);
-          //  }
-           // if (gamepad1.dpad_right == true) {
-          //      robot.slideMotor.setTargetPosition(400);
-          //  }
             while (gamepad1.dpad_down == true) {
-                robot.slideMotor.setPower(-0.9);
+                robot.slideMotor.setTargetPosition(0);
             }
-            while (gamepad1.dpad_left == true) {
-                robot.slideMotor.setPower(0);
+            if (gamepad1.dpad_left == true) {
+                robot.slideMotor.setTargetPosition(200);
+            }
+            if (gamepad1.dpad_right == true) {
+                robot.slideMotor.setTargetPosition(400);
+            }
+            if (gamepad1.dpad_up == true){
+                robot.slideMotor.setTargetPosition(600);
             }
         }
     }

@@ -10,7 +10,7 @@ public class HWMap extends Project{
     public DcMotor  backRightDrive     = null;
     public DcMotor    intakeMotor   = null;
     public DcMotor slideMotor = null;
-//    public Servo launchServo = null;
+    public Servo launchServo = null;
     public Servo outtakeServo = null;
 
     @Override
@@ -22,14 +22,17 @@ public class HWMap extends Project{
         backRightDrive = hwMap.get(DcMotor.class, "backRightDrive");
         intakeMotor = hwMap.get(DcMotor.class, "intakeMotor");
         slideMotor = hwMap.get(DcMotor.class, "slideMotor");
-//        launchServo = hwMap.get(Servo.class, "launchServo");
+        launchServo = hwMap.get(Servo.class, "launchServo");
         outtakeServo = hwMap.get(Servo.class, "outtakeServo");
         frontLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         frontRightDrive.setDirection(DcMotor.Direction.FORWARD);
         backLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         backRightDrive.setDirection(DcMotor.Direction.FORWARD);
-       // slideMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        // If there are encoders connected, switch to RUN_USING_ENCODER mode for greater accuracy
+        frontLeftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        backLeftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        frontRightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        backRightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        slideMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         Stop();
     }
     public void Stop(){
@@ -39,7 +42,7 @@ public class HWMap extends Project{
         backLeftDrive.setPower(0);
         intakeMotor.setPower(0);
         slideMotor.setPower(0);
-//        launchServo.setPosition(0);
+        launchServo.setPosition(0);
         outtakeServo.setPosition(0);
     }
 }
