@@ -32,7 +32,7 @@ public class HWMap extends Project{
         backLeftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         frontRightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         backRightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        slideMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+//        slideMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         Stop();
     }
     public void Stop(){

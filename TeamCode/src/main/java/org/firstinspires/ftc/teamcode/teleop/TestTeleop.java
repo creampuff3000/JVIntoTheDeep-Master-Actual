@@ -38,7 +38,7 @@ public class TestTeleop extends LinearOpMode {
             robot.backLeftDrive.setPower(backLeftPower * speed);
             robot.frontRightDrive.setPower(frontRightPower * speed);
             robot.backRightDrive.setPower(backRightPower * speed);
-            robot.slideMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+//            robot.slideMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
 //             Teleop Code goes here         }
             if (gamepad1.x == true) {
@@ -55,14 +55,14 @@ public class TestTeleop extends LinearOpMode {
                 double d = robot.launchServo.getPosition();
                 if (d == 0) {
                     robot.launchServo.setPosition(1);
-                    sleep(500);
+                    sleep(800);
                 } else if (d == 1) {
                     robot.launchServo.setPosition(0);
-                    sleep(500);
+                    sleep(800);
                 }
             }
             if (gamepad1.a == true) {
-                robot.intakeMotor.setPower(0.6);
+                robot.intakeMotor.setPower(0.8);
             }
             if (gamepad1.b == true) {
                 robot.intakeMotor.setPower(0);
@@ -70,35 +70,18 @@ public class TestTeleop extends LinearOpMode {
             if (gamepad1.y == true) {
                 robot.intakeMotor.setPower(-0.5);
             }
-            while (gamepad1.dpad_down == true) {
-                robot.slideMotor.setTargetPosition(-2000);
-                robot.slideMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                robot.slideMotor.setPower(-1);
-            }
-            while (gamepad1.dpad_left == true) {
-                robot.slideMotor.setTargetPosition(750);
-                robot.slideMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                robot.slideMotor.setPower(0.6);
-            }
-            while (gamepad1.dpad_right == true) {
-                robot.slideMotor.setTargetPosition(1500);
-                robot.slideMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                robot.slideMotor.setPower(0.6);
-            }
-            while (gamepad1.dpad_up == true) {
-                robot.slideMotor.setTargetPosition(2000);
-                robot.slideMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-                robot.slideMotor.setPower(0.6);
-                // moving = true
-                // if current position < 200 {
-                // goingUp = true
-                // else{
-                // goingUp = false
-            }
+            if (gamepad1.dpad_down == true) {
 
-//            if(goingUp){
-//                robot.slideMotor.setPower(0.6);
-//            }
+                    robot.slideMotor.setPower(-1);
+
+            }
+            else if (gamepad1.dpad_up == true)
+            {
+                robot.slideMotor.setPower(1);
+            }
+            else if (gamepad1.dpad_left == true) {
+                robot.slideMotor.setPower(0);
+            }
 
 
         }
