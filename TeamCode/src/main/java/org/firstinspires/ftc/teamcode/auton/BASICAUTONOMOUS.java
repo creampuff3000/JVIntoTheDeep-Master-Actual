@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.exception.RobotCoreException;
 import org.firstinspires.ftc.teamcode.Projects.HWMap;
 
-@Autonomous(name = "BasicAutonomous")
+@Autonomous(name = "VeryBasicAutonomous")
 
 public class BASICAUTONOMOUS extends LinearOpMode {
     enum Parking {
