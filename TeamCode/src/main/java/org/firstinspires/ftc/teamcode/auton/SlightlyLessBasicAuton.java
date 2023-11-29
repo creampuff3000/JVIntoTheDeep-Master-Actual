@@ -19,25 +19,22 @@ public class SlightlyLessBasicAuton extends LinearOpMode {
     Gamepad currentGamepad1 = new Gamepad();
     Gamepad previousGamepad1 = new Gamepad();
     public HWMap robot = new HWMap();
-    public void poweringthing(){
-        robot.backRightDrive.setPower(0.7);
-        robot.backLeftDrive.setPower(0.7);
-        robot.frontRightDrive.setPower(0.7);
-        robot.frontLeftDrive.setPower(0.7);
-    }
+
+
     @Override
     public void runOpMode() throws InterruptedException {
         //initialize hardware map
 
         robot.init(hardwareMap);
-        robot.frontLeftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        robot.frontRightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        robot.backLeftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        robot.backRightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
         robot.frontRightDrive.setTargetPosition(0);
         robot.frontLeftDrive.setTargetPosition(0);
         robot.backRightDrive.setTargetPosition(0);
         robot.backLeftDrive.setTargetPosition(0);
+        robot.frontLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.frontRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.backLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.backRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         robot.frontLeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.frontRightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.backLeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -110,15 +107,69 @@ public class SlightlyLessBasicAuton extends LinearOpMode {
         waitForStart(); //wait for play button to be pressed
 
         if (Alliance == SlightlyLessBasicAuton.Parking.FBlue) {
-            robot.backRightDrive.setTargetPosition(3290);
-            robot.backLeftDrive.setTargetPosition(3290);
-            robot.frontRightDrive.setTargetPosition(3290);
-            robot.frontRightDrive.setTargetPosition(3290);
-            poweringthing();
-            robot.frontLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            robot.frontRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+            robot.backLeftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.backRightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.frontLeftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.frontRightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            robot.frontRightDrive.setPower(0.7);
+            robot.frontLeftDrive.setPower(0.7);
+            robot.backRightDrive.setPower(0.7);
+            robot.backLeftDrive.setPower(0.7);
+            robot.backLeftDrive.setTargetPosition(20);
+            robot.backRightDrive.setTargetPosition(20);
+            robot.frontLeftDrive.setTargetPosition(20);
+            robot.frontRightDrive.setTargetPosition(20);
             robot.backLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
             robot.backRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.frontLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.frontRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            sleep(1000);
+            robot.frontRightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            robot.frontLeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            robot.backRightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            robot.backLeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+//            robot.backLeftDrive.setTargetPosition(3500);
+//            robot.backRightDrive.setTargetPosition(0);
+//            robot.backRightDrive.setPower(0.7);
+//            robot.backLeftDrive.setPower(0.7);
+//            robot.frontLeftDrive.setTargetPosition(3500);
+//            robot.frontRightDrive.setTargetPosition(0);
+//            robot.frontRightDrive.setPower(0.7);
+//            robot.frontLeftDrive.setPower(0.7);
+//            robot.backRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//            robot.backLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//            robot.frontRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//            robot.frontLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//            sleep(5000);
+
+
+//            robot.frontRightDrive.setTargetPosition(0);
+//            robot.frontLeftDrive.setTargetPosition(0);
+//            robot.backRightDrive.setTargetPosition(0);
+//            robot.backLeftDrive.setTargetPosition(0);
+//            robot.frontLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//            robot.frontRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//            robot.backLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//            robot.robot.backRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//            robot.frontLeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+//            robot.frontRightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+//            robot.backLeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+//            robot.backRightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+//            robot.backRightDrive.setTargetPosition(3290);
+//            robot.backLeftDrive.setTargetPosition(3290);
+//            robot.frontRightDrive.setTargetPosition(3290);
+//            robot.frontRightDrive.setTargetPosition(3290);
+//            robot.frontLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//            robot.frontRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//            robot.backLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//            robot.backRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//            robot.backRightDrive.setPower(0.7);
+//            robot.backLeftDrive.setPower(0.7);
+//            robot.frontRightDrive.setPower(0.7);
+//            robot.frontLeftDrive.setPower(0.7);
+
+
 //            sleep(12000);
 //            robot.frontRightDrive.setPower(0.8);
 //            robot.backRightDrive.setPower(0.8);
