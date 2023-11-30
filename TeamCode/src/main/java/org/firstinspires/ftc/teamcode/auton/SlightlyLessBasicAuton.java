@@ -27,18 +27,18 @@ public class SlightlyLessBasicAuton extends LinearOpMode {
 
         robot.init(hardwareMap);
 
-        robot.frontRightDrive.setTargetPosition(0);
-        robot.frontLeftDrive.setTargetPosition(0);
-        robot.backRightDrive.setTargetPosition(0);
-        robot.backLeftDrive.setTargetPosition(0);
-        robot.frontLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        robot.frontRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        robot.backLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        robot.backRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        robot.frontLeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.frontRightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.backLeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.backRightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+//        robot.frontRightDrive.setTargetPosition(0);
+//        robot.frontLeftDrive.setTargetPosition(0);
+//        robot.backRightDrive.setTargetPosition(0);
+//        robot.backLeftDrive.setTargetPosition(0);
+//        robot.frontLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//        robot.frontRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//        robot.backLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//        robot.backRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//        robot.frontLeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+//        robot.frontRightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+//        robot.backLeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+//        robot.backRightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         Parking Alliance = Parking.FBlue;
 
         int direction = 1;
@@ -108,27 +108,30 @@ public class SlightlyLessBasicAuton extends LinearOpMode {
 
         if (Alliance == SlightlyLessBasicAuton.Parking.FBlue) {
 
-            robot.backLeftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-            robot.backRightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-            robot.frontLeftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-            robot.frontRightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-            robot.frontRightDrive.setPower(0.7);
-            robot.frontLeftDrive.setPower(0.7);
-            robot.backRightDrive.setPower(0.7);
-            robot.backLeftDrive.setPower(0.7);
-            robot.backLeftDrive.setTargetPosition(20);
-            robot.backRightDrive.setTargetPosition(20);
-            robot.frontLeftDrive.setTargetPosition(20);
-            robot.frontRightDrive.setTargetPosition(20);
-            robot.backLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            robot.backRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            robot.frontLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            robot.frontRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            sleep(1000);
-            robot.frontRightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            robot.frontLeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            robot.backRightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            robot.backLeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+//            robot.backLeftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+//            robot.backRightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+//            robot.frontLeftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+//            robot.frontRightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+//            robot.frontRightDrive.setPower(0.7);
+//            robot.frontLeftDrive.setPower(0.7);
+//            robot.backRightDrive.setPower(0.7);
+//            robot.backLeftDrive.setPower(0.7);
+//            robot.backLeftDrive.setTargetPosition(20);
+//            robot.backRightDrive.setTargetPosition(20);
+//            robot.frontLeftDrive.setTargetPosition(20);
+//            robot.frontRightDrive.setTargetPosition(20);
+//            robot.backLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//            robot.backRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//            robot.frontLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//            robot.frontRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//            sleep(1000);
+//            robot.frontRightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+//            robot.frontLeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+//            robot.backRightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+//            robot.backLeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+
+
 //            robot.backLeftDrive.setTargetPosition(3500);
 //            robot.backRightDrive.setTargetPosition(0);
 //            robot.backRightDrive.setPower(0.7);

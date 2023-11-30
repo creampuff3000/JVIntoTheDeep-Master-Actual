@@ -28,10 +28,10 @@ public class HWMap extends Project{
         frontRightDrive.setDirection(DcMotor.Direction.FORWARD);
         backLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         backRightDrive.setDirection(DcMotor.Direction.FORWARD);
-        frontRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        frontLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        backLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//        frontRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//        frontLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//        backRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//        backLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         Stop();
     }
     public void Stop(){
