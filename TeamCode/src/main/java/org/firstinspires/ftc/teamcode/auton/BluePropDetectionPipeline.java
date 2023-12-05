@@ -9,12 +9,12 @@ import org.openftc.easyopencv.OpenCvPipeline;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 //OpenCV to cycle a cone during autonomous
-public class RedPropDetectionPipeline extends OpenCvPipeline {
+public class BluePropDetectionPipeline extends OpenCvPipeline {
     Telemetry telemetry;
     //video frame of camera, is our input for processFrame()
     Mat mat = new Mat();
 
-    public enum RedPropLocation {
+    public enum BluePropLocation {
         LEFT,
         MIDDLE,
         RIGHT,
@@ -25,7 +25,7 @@ public class RedPropDetectionPipeline extends OpenCvPipeline {
     private boolean closeToPole = false;
 
 
-    private RedPropLocation elementLocation;
+    private BluePropLocation elementLocation;
 
     //defining regions of interest (ROI)
     //Divide the camera frame into three rectangles
@@ -47,7 +47,7 @@ public class RedPropDetectionPipeline extends OpenCvPipeline {
 
 
 
-    public RedPropDetectionPipeline(Telemetry t) { telemetry = t; }
+    public BluePropDetectionPipeline(Telemetry t) { telemetry = t; }
 
     @Override
     public Mat processFrame(Mat input) {
@@ -56,10 +56,11 @@ public class RedPropDetectionPipeline extends OpenCvPipeline {
         //HSV = hue(color), saturation(intensity), value (brightness)
         Imgproc.cvtColor(input, mat, Imgproc.COLOR_RGB2HSV);
 
-        //define HSV range to identify the color red
-        Scalar lowHSV = new Scalar (150,150,100);
+        //define HSV range to identify the color blue
+        Scalar lowHSV = new Scalar (0,220,100);
         Scalar highHSV = new Scalar(255,255,200);
-        //applies a threshold (everything that is red will be white,
+
+        //applies a threshold (everything that is blue will be white,
         // everything else will be black)
         //returns a new mat with this threshold
         Core.inRange(mat,lowHSV, highHSV, mat);
@@ -83,24 +84,23 @@ public class RedPropDetectionPipeline extends OpenCvPipeline {
         right.release();
 
         if (Math.round(polePercentage * 100) > 60) {
-            elementLocation = RedPropLocation.CLOSE;
+            elementLocation = BluePropLocation.CLOSE;
         }
         else if(leftPercentage > middlePercentage && leftPercentage > rightPercentage){
-            elementLocation = RedPropLocation.LEFT;
+            elementLocation = BluePropLocation.LEFT;
         }
         else if(middlePercentage > leftPercentage && middlePercentage > rightPercentage){
-            elementLocation = RedPropLocation.MIDDLE;
+            elementLocation = BluePropLocation.MIDDLE;
         }
         else if(rightPercentage > leftPercentage && rightPercentage > middlePercentage){
-            elementLocation = RedPropLocation.RIGHT;
+            elementLocation = BluePropLocation.RIGHT;
         }
 //        else if(Math.round(polePercentage * 100) < 60){
 //            elementLocation = PropLocation.FAR;
 //        }
         else{
-            elementLocation = RedPropLocation.UNKNOWN;
+            elementLocation = BluePropLocation.UNKNOWN;
         }
-
         telemetry.addData("element location: ", elementLocation );
         telemetry.addData("left percentage", Math.round(leftPercentage * 100) + "%");
         telemetry.addData("middle percentage", Math.round(middlePercentage * 100) + "%");
@@ -115,7 +115,7 @@ public class RedPropDetectionPipeline extends OpenCvPipeline {
 
     }
 
-    public RedPropLocation getPropLocation(){
+    public BluePropLocation getPropLocation(){
         return elementLocation;
     }
 
