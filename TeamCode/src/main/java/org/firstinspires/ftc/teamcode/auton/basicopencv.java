@@ -34,14 +34,14 @@ public class basicopencv extends LinearOpMode {
         //initialize hardware map
         robot.init(hardwareMap);
         Parking Alliance = Parking.FBlue;
-        int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
-        webcam = OpenCvCameraFactory.getInstance().createWebcam(hardwareMap.get(WebcamName.class, "webcam"), cameraMonitorViewId);
+        int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName()); // init the camera?
+        webcam = OpenCvCameraFactory.getInstance().createWebcam(hardwareMap.get(WebcamName.class, "webcam"), cameraMonitorViewId); // init the camera?
 
 
-        webcam.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener() {
+        webcam.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener() { // init the camera?
             @Override
             public void onOpened() {
-                webcam.startStreaming(1280, 800, OpenCvCameraRotation.UPRIGHT);
+                webcam.startStreaming(1280, 800, OpenCvCameraRotation.UPRIGHT); // starting the camera at 1280 x 800
             }
 
             @Override
@@ -50,7 +50,7 @@ public class basicopencv extends LinearOpMode {
             }
         });
 
-        telemetry.setMsTransmissionInterval(50);
+        telemetry.setMsTransmissionInterval(50); // setting the amount of time between new shots transmitted
 
         int direction = 1;
         int otherDirection = -1;
@@ -119,8 +119,8 @@ public class basicopencv extends LinearOpMode {
             telemetry.addData("Parking", Alliance);
             telemetry.update();
             if (numberthing == 1 || numberthing == 2) {
-                webcam.setPipeline(BluePropDetectionPipeline);
-                BluePropLocation elementLocation = BluePropDetectionPipeline.getPropLocation();
+                webcam.setPipeline(BluePropDetectionPipeline); // setting the pipeline
+                BluePropLocation elementLocation = BluePropDetectionPipeline.getPropLocation(); // getting the prop location into a variable elementLocation
                 if (elementLocation == BluePropLocation.RIGHT) {
                     telemetry.addLine("right");
                     telemetry.update();
@@ -148,19 +148,6 @@ public class basicopencv extends LinearOpMode {
 
         waitForStart(); //wait for play button to be pressed
 
-        if (Alliance == basicopencv.Parking.FBlue) {
-        }
-        if (Alliance == basicopencv.Parking.FRed) {
-
-        }
-
-        if (Alliance == basicopencv.Parking.BRed) {
-
-        }
-
-        if (Alliance == basicopencv.Parking.BBlue) {
-
-        }
     }
 }
 
