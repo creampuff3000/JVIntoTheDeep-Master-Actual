@@ -3,6 +3,8 @@ import com.qualcomm.hardware.motors.RevRoboticsUltraPlanetaryHdHexMotor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
+import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
+
 public class HWMap extends Project{
     public DcMotor  frontLeftDrive   = null;
     public DcMotor  frontRightDrive  = null;
@@ -13,6 +15,7 @@ public class HWMap extends Project{
     public Servo launchServo = null;
     public Servo outtakeServo = null;
 
+    public WebcamName camera = null;
     @Override
     public void init(HardwareMap hwMap) {
         // Define and Initialize Motors
@@ -32,6 +35,7 @@ public class HWMap extends Project{
 //        frontLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 //        backRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 //        backLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        camera = hwMap.get(WebcamName.class, "webcam");
         Stop();
     }
     public void Stop(){
