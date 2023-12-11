@@ -15,7 +15,9 @@ public class TestTeleop extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         robot.init(hardwareMap);
-
+        robot.slideMotor.setTargetPosition(0);
+        robot.slideMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.slideMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         double speed = .9;
         waitForStart();
         boolean isSpinning = false;
@@ -38,55 +40,62 @@ public class TestTeleop extends LinearOpMode {
             robot.backLeftDrive.setPower(backLeftPower * speed);
             robot.frontRightDrive.setPower(frontRightPower * speed);
             robot.backRightDrive.setPower(backRightPower * speed);
-//            robot.slideMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
 //             Teleop Code goes here         }
-            if (gamepad1.x == true) {
-                double c = robot.outtakeServo.getPosition();
-                if (c == 0) {
-                    robot.outtakeServo.setPosition(1);
-                    sleep(500);
-                } else if (c == 1) {
-                    robot.outtakeServo.setPosition(0);
-                    sleep(500);
-                }
-            }
-            if (gamepad1.right_bumper == true && gamepad1.left_bumper == true)
-            {
-                double d = robot.launchServo.getPosition();
-                if (d == 0)
-                {
-                    robot.launchServo.setPosition(1);
-                    sleep(800);
-                } else if (d == 1)
-                {
-                    robot.launchServo.setPosition(0);
-                    sleep(800);
-                }
-            }
-            if (gamepad1.a == true)
-            {
-                robot.intakeMotor.setPower(0.8);
-            }
-            if (gamepad1.b == true)
-            {
-                robot.intakeMotor.setPower(0);
-            }
-            if (gamepad1.y == true)
-            {
-                robot.intakeMotor.setPower(-0.5);
-            }
+//            if (gamepad1.x == true) {
+//                double c = robot.outtakeServo.getPosition();
+//                if (c == 0) {
+//                    robot.outtakeServo.setPosition(1);
+//                    sleep(500);
+//                } else if (c == 1) {
+//                    robot.outtakeServo.setPosition(0);
+//                    sleep(500);
+//                }
+//            }
+//            if (gamepad1.right_bumper == true && gamepad1.left_bumper == true)
+//            {
+//                double d = robot.launchServo.getPosition();
+//                if (d == 0)
+//                {
+//                    robot.launchServo.setPosition(1);
+//                    sleep(800);
+//                } else if (d == 1)
+//                {
+//                    robot.launchServo.setPosition(0);
+//                    sleep(800);
+//                }
+//            }
+//            if (gamepad1.a == true)
+//            {
+//                robot.intakeMotor.setPower(0.8);
+//            }
+//            if (gamepad1.b == true)
+//            {
+//                robot.intakeMotor.setPower(0);
+//            }
+//            if (gamepad1.y == true)
+//            {
+//                robot.intakeMotor.setPower(-0.5);
+//            }
             if (gamepad1.dpad_up == true)
             {
                 int slidePos = robot.slideMotor.getCurrentPosition();
-                robot.slideMotor.setPower(1);
-                robot.slideMotor.setTargetPosition(slidePos + 500);
+                String slide = Integer.toString(slidePos);
+                telemetry.addLine("slide encoder count = " + slide);
+                telemetry.update();
+                if (slidePos <= 2500)
+                    robot.slideMotor.setPower(0.5);
+                    robot.slideMotor.setTargetPosition(slidePos + 2000);
+                    slidePos += 2000;
             }
-            else if (gamepad1.dpad_up == true)
+            else if (gamepad1.dpad_down == true)
             {
                 int slidePos = robot.slideMotor.getCurrentPosition();
-                robot.slideMotor.setPower(-1);
-                robot.slideMotor.setTargetPosition(slidePos - 500);
+                String slide = Integer.toString(slidePos);
+                telemetry.addLine("slide encoder count = " + slide);
+                telemetry.update();
+                if (slidePos >= 2500)
+                    robot.slideMotor.setPower(-0.5);
+                    robot.slideMotor.setTargetPosition(slidePos - 2000);
             }
         }
     }
