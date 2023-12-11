@@ -31,12 +31,26 @@ public class basicopencv extends LinearOpMode {
     BluePropDetectionPipeline BluePropDetectionPipeline = new BluePropDetectionPipeline(telemetry);
     @Override
     public void runOpMode() throws InterruptedException {
+
+
         //initialize hardware map
         robot.init(hardwareMap);
         Parking Alliance = Parking.FBlue;
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName()); // init the camera?
         webcam = OpenCvCameraFactory.getInstance().createWebcam(hardwareMap.get(WebcamName.class, "webcam"), cameraMonitorViewId); // init the camera?
 
+        robot.frontRightDrive.setTargetPosition(0);
+        robot.frontLeftDrive.setTargetPosition(0);
+        robot.backRightDrive.setTargetPosition(0);
+        robot.backLeftDrive.setTargetPosition(0);
+        robot.frontLeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.frontRightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.backLeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.backRightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.frontLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.frontRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.backLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.backRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
         webcam.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener() { // init the camera?
             @Override
@@ -147,7 +161,25 @@ public class basicopencv extends LinearOpMode {
         }
 
         waitForStart(); //wait for play button to be pressed
+        if(location == "Middle" && numberthing == 1){
+            // idk if this is right
+        }
+        if(location == "Middle" && numberthing == 2){
+            tile();
+        }
+    }
+    public void tile(){
+        robot.frontRightDrive.setPower(0.8);
+        robot.frontLeftDrive.setPower(0.8);
+        robot.backRightDrive.setPower(0.8);
+        robot.backLeftDrive.setPower(0.8);
 
+        robot.frontRightDrive.setTargetPosition(1000);
+        robot.frontLeftDrive.setTargetPosition(1000);
+        robot.backRightDrive.setTargetPosition(1000);
+        robot.backLeftDrive.setTargetPosition(1000);
+
+        sleep(2000);
     }
 }
 

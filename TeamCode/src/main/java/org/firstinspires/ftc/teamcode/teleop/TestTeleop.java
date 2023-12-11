@@ -51,39 +51,43 @@ public class TestTeleop extends LinearOpMode {
                     sleep(500);
                 }
             }
-            if (gamepad1.right_bumper == true && gamepad1.left_bumper == true) {
+            if (gamepad1.right_bumper == true && gamepad1.left_bumper == true)
+            {
                 double d = robot.launchServo.getPosition();
-                if (d == 0) {
+                if (d == 0)
+                {
                     robot.launchServo.setPosition(1);
                     sleep(800);
-                } else if (d == 1) {
+                } else if (d == 1)
+                {
                     robot.launchServo.setPosition(0);
                     sleep(800);
                 }
             }
-            if (gamepad1.a == true) {
+            if (gamepad1.a == true)
+            {
                 robot.intakeMotor.setPower(0.8);
             }
-            if (gamepad1.b == true) {
+            if (gamepad1.b == true)
+            {
                 robot.intakeMotor.setPower(0);
             }
-            if (gamepad1.y == true) {
+            if (gamepad1.y == true)
+            {
                 robot.intakeMotor.setPower(-0.5);
             }
-            if (gamepad1.dpad_down == true) {
-
-                    robot.slideMotor.setPower(-1);
-
+            if (gamepad1.dpad_up == true)
+            {
+                int slidePos = robot.slideMotor.getCurrentPosition();
+                robot.slideMotor.setPower(1);
+                robot.slideMotor.setTargetPosition(slidePos + 500);
             }
             else if (gamepad1.dpad_up == true)
             {
-                robot.slideMotor.setPower(1);
+                int slidePos = robot.slideMotor.getCurrentPosition();
+                robot.slideMotor.setPower(-1);
+                robot.slideMotor.setTargetPosition(slidePos - 500);
             }
-            else if (gamepad1.dpad_left == true) {
-                robot.slideMotor.setPower(0);
-            }
-
-
         }
     }
 }

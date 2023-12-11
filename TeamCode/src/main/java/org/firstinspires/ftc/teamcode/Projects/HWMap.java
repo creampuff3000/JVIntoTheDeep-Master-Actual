@@ -31,10 +31,10 @@ public class HWMap extends Project{
         frontRightDrive.setDirection(DcMotor.Direction.FORWARD);
         backLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         backRightDrive.setDirection(DcMotor.Direction.FORWARD);
-//        frontRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-//        frontLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-//        backRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-//        backLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        frontRightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        frontLeftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        backRightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        backLeftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         camera = hwMap.get(WebcamName.class, "webcam");
         Stop();
     }
