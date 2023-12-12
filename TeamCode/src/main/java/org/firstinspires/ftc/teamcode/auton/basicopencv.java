@@ -196,11 +196,14 @@ public class basicopencv extends LinearOpMode {
         }
 
         waitForStart(); //wait for play button to be pressed
-        if(location == "Middle" && numberthing == 1){ // FBlue
-            // idk if this is right
+
+        if (numberthing == 1 || numberthing == 2)
+        { // BBlue
+            blueSide(location);
         }
-        if(location == "Middle" && numberthing == 2){ // BBlue
-            tile(1.3);
+        else if (numberthing == 3 || numberthing == 4)
+        {
+            //something happens
         }
     }
     public void tile(double tileNum)
