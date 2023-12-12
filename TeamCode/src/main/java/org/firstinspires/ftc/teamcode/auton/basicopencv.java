@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.auton;
 
+
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 import org.openftc.easyopencv.OpenCvCamera;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
@@ -55,7 +56,7 @@ public class basicopencv extends LinearOpMode {
         webcam.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener() { // init the camera?
             @Override
             public void onOpened() {
-                webcam.startStreaming(1280, 800, OpenCvCameraRotation.UPRIGHT); // starting the camera at 1280 x 800
+                webcam.startStreaming(1280, 960, OpenCvCameraRotation.UPRIGHT); // starting the camera at 1280 x 800
             }
 
             @Override
@@ -132,6 +133,7 @@ public class basicopencv extends LinearOpMode {
             }
             telemetry.addData("Parking", Alliance);
             telemetry.update();
+
             if (numberthing == 1 || numberthing == 2) {
                 webcam.setPipeline(BluePropDetectionPipeline); // setting the pipeline
                 BluePropLocation elementLocation = BluePropDetectionPipeline.getPropLocation(); // getting the prop location into a variable elementLocation
@@ -139,23 +141,57 @@ public class basicopencv extends LinearOpMode {
                     telemetry.addLine("right");
                     telemetry.update();
                     location = "Right";
+                    sleep(500);
 
 
                 } else if (elementLocation == BluePropLocation.LEFT) {
                     telemetry.addLine("left");
                     telemetry.update();
                     location = "Left";
+                    sleep(500);
 
                 } else if (elementLocation == BluePropLocation.MIDDLE) {
                     telemetry.addLine("middle");
                     telemetry.update();
                     location = "Middle";
+                    sleep(500);
 
 
                 } else {
                     telemetry.addLine("not detected");
                     telemetry.update();
                     location = "Left";
+                    sleep(500);
+                }
+            }
+            if (numberthing == 3 || numberthing == 4) {
+                webcam.setPipeline(BluePropDetectionPipeline); // setting the pipeline
+                BluePropLocation elementLocation = BluePropDetectionPipeline.getPropLocation(); // getting the prop location into a variable elementLocation
+                if (elementLocation == BluePropLocation.RIGHT) {
+                    telemetry.addLine("right");
+                    telemetry.update();
+                    location = "Right";
+                    sleep(500);
+
+
+                } else if (elementLocation == BluePropLocation.LEFT) {
+                    telemetry.addLine("left");
+                    telemetry.update();
+                    location = "Left";
+                    sleep(500);
+
+                } else if (elementLocation == BluePropLocation.MIDDLE) {
+                    telemetry.addLine("middle");
+                    telemetry.update();
+                    location = "Middle";
+                    sleep(500);
+
+
+                } else {
+                    telemetry.addLine("not detected");
+                    telemetry.update();
+                    location = "Left";
+                    sleep(500);
                 }
             }
         }

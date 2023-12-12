@@ -76,16 +76,16 @@ public class TestTeleop extends LinearOpMode {
 //            {
 //                robot.intakeMotor.setPower(-0.5);
 //            }
-            if (gamepad1.dpad_up == true)
-            {
+            if (gamepad1.dpad_up == true) {
                 int slidePos = robot.slideMotor.getCurrentPosition();
                 String slide = Integer.toString(slidePos);
                 telemetry.addLine("slide encoder count = " + slide);
                 telemetry.update();
-                if (slidePos <= 2500)
+                if (slidePos <= 3700){
                     robot.slideMotor.setPower(0.5);
-                    robot.slideMotor.setTargetPosition(slidePos + 2000);
-                    slidePos += 2000;
+                robot.slideMotor.setTargetPosition(slidePos + 1000);
+                slidePos += 2000;
+            }
             }
             else if (gamepad1.dpad_down == true)
             {
@@ -93,9 +93,15 @@ public class TestTeleop extends LinearOpMode {
                 String slide = Integer.toString(slidePos);
                 telemetry.addLine("slide encoder count = " + slide);
                 telemetry.update();
-                if (slidePos >= 2500)
+                if (slidePos > 100){
                     robot.slideMotor.setPower(-0.5);
-                    robot.slideMotor.setTargetPosition(slidePos - 2000);
+robot.slideMotor.setTargetPosition(slidePos - 1000);
+                }else if (gamepad1.dpad_right == true){
+                    robot.slideMotor.setPower(-.5);
+                   robot.slideMotor.setTargetPosition(0);
+                }
+
+
             }
         }
     }

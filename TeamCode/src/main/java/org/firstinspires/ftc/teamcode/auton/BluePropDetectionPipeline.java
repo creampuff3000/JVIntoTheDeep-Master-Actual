@@ -1,4 +1,6 @@
 package org.firstinspires.ftc.teamcode.auton;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.Point;
@@ -8,6 +10,7 @@ import org.opencv.imgproc.Imgproc;
 import org.openftc.easyopencv.OpenCvPipeline;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
+@Autonomous(name = "BluePropDetech")
 //OpenCV to cycle a cone during autonomous
 public class BluePropDetectionPipeline extends OpenCvPipeline {
     Telemetry telemetry;
@@ -33,15 +36,15 @@ public class BluePropDetectionPipeline extends OpenCvPipeline {
     //which are connected by the diagonals
     static final Rect leftROI = new Rect(
             new Point( 0, 0),
-            new Point(400, 700)
+            new Point(960, 400)
     );
     static final Rect middleROI = new Rect(
-            new Point( 400, 0),
-            new Point(800, 700)
+            new Point( 0, 0),
+            new Point(960, 840)
     );
     static final Rect rightROI = new Rect(
-            new Point( 800, 0),
-            new Point(1280, 700)
+            new Point( 0, 0),
+            new Point(960, 1280)
 
     );
 
