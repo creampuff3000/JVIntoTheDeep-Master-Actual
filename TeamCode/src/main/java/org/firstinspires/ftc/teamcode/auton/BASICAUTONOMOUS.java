@@ -129,17 +129,21 @@ public class BASICAUTONOMOUS extends LinearOpMode {
             robot.frontLeftDrive.setPower(0);
             robot.backLeftDrive.setPower(0);
             sleep(100);
-            robot.slideMotor.setPower(0.8);
+            robot.slide1.setPower(0.8);
+            robot.slide2.setPower(0.8);
             sleep(1800); //used to be 1200
-            robot.slideMotor.setPower(0);
+            robot.slide1.setPower(0);
+            robot.slide2.setPower(0);
             sleep(500);
             robot.outtakeServo.setPosition(1);
             sleep(1000);
             robot.outtakeServo.setPosition(0);
             sleep(1000);
-            robot.slideMotor.setPower(-0.8);
+            robot.slide1.setPower(-0.8);
+            robot.slide2.setPower(-0.8);
             sleep(1500); //used to be 800
-            robot.slideMotor.setPower(0);
+            robot.slide1.setPower(0);
+            robot.slide2.setPower(0);
             sleep(500);
         }
         if (Alliance == BASICAUTONOMOUS.Parking.FRed) {
@@ -184,17 +188,21 @@ public class BASICAUTONOMOUS extends LinearOpMode {
             robot.frontLeftDrive.setPower(0);
             robot.backLeftDrive.setPower(0);
             sleep(200);
-            robot.slideMotor.setPower(0.8);
+            robot.slide1.setPower(0.8);
+            robot.slide2.setPower(0.8);
             sleep(1800); //used to be 1200
-            robot.slideMotor.setPower(0);
+            robot.slide1.setPower(0);
+            robot.slide2.setPower(0);
             sleep(500);
             robot.outtakeServo.setPosition(1);
             sleep(1000);
             robot.outtakeServo.setPosition(0);
             sleep(1000);
-            robot.slideMotor.setPower(-0.8);
+            robot.slide1.setPower(-0.8);
+            robot.slide2.setPower(-0.8);
             sleep(1500); //used to be 800
-            robot.slideMotor.setPower(0);
+            robot.slide1.setPower(0);
+            robot.slide2.setPower(0);
             sleep(500);
         }
 
@@ -229,17 +237,21 @@ public class BASICAUTONOMOUS extends LinearOpMode {
             robot.frontLeftDrive.setPower(0);
             robot.frontRightDrive.setPower(0);
             sleep(500);
-            robot.slideMotor.setPower(0.8);
+            robot.slide1.setPower(0.8);
+            robot.slide2.setPower(0.8);
             sleep(1800);
-            robot.slideMotor.setPower(0);
+            robot.slide1.setPower(0);
+            robot.slide2.setPower(0);
             sleep(500);
             robot.outtakeServo.setPosition(1);
             sleep(750);
             robot.outtakeServo.setPosition(0);
             sleep(1500);
-            robot.slideMotor.setPower(-0.8);
+            robot.slide1.setPower(-0.8);
+            robot.slide2.setPower(-0.8);
             sleep(1500);
-            robot.slideMotor.setPower(0);
+            robot.slide1.setPower(0);
+            robot.slide2.setPower(0);
             sleep(500);
             robot.frontRightDrive.setPower(0.7);
             robot.frontLeftDrive.setPower(0.7);
@@ -304,17 +316,21 @@ public class BASICAUTONOMOUS extends LinearOpMode {
             robot.frontLeftDrive.setPower(0);
             robot.frontRightDrive.setPower(0);
             sleep(500);
-            robot.slideMotor.setPower(0.8);
+            robot.slide1.setPower(0.8);
+            robot.slide2.setPower(0.8);
             sleep(1800);
-            robot.slideMotor.setPower(0);
+            robot.slide1.setPower(0);
+            robot.slide2.setPower(0);
             sleep(500);
             robot.outtakeServo.setPosition(1);
             sleep(1000);
             robot.outtakeServo.setPosition(0);
             sleep(1000);
-            robot.slideMotor.setPower(-0.8);
+            robot.slide1.setPower(-0.8);
+            robot.slide2.setPower(-0.8);
             sleep(1500);
-            robot.slideMotor.setPower(0);
+            robot.slide1.setPower(0);
+            robot.slide2.setPower(0);
             sleep(500);
             robot.frontRightDrive.setPower(0.7);
             robot.frontLeftDrive.setPower(0.7);

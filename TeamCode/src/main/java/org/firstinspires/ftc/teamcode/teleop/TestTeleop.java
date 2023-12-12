@@ -15,9 +15,13 @@ public class TestTeleop extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         robot.init(hardwareMap);
-        robot.slideMotor.setTargetPosition(0);
-        robot.slideMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.slideMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.slide1.setTargetPosition(0);
+        robot.slide2.setTargetPosition(0);
+
+        robot.slide1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.slide2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.slide1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.slide2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         double speed = .9;
         waitForStart();
         boolean isSpinning = false;
@@ -78,40 +82,51 @@ public class TestTeleop extends LinearOpMode {
             }
             if (gamepad1.dpad_up == true)
             {
-                int slidePos = robot.slideMotor.getCurrentPosition();
-                String slide = Integer.toString(slidePos);
-                telemetry.addLine("slide encoder count = " + slide);
+                int slidePos1 = robot.slide1.getCurrentPosition();
+                int slidePos2 = robot.slide2.getCurrentPosition();
+                String slide1 = Integer.toString(slidePos1);
+                String slide2 = Integer.toString(slidePos2);
+                telemetry.addLine("slide encoder count = " + slide1);
                 telemetry.update();
-                if (slidePos <= 3700)
+                if (slidePos1 <= 3700)
                 {
-                    robot.slideMotor.setPower(0.5);
-                    robot.slideMotor.setTargetPosition(slidePos + 1000);
+                    robot.slide1.setPower(0.5);
+                    robot.slide1.setPower(0.5);
+                    robot.slide1.setTargetPosition(slidePos1 + 1000);
+                    robot.slide1.setTargetPosition(slidePos2 + 1000);
                 }
+
             }
             else if (gamepad1.dpad_down == true)
             {
-                int slidePos = robot.slideMotor.getCurrentPosition();
-                String slide = Integer.toString(slidePos);
-                telemetry.addLine("slide encoder count = " + slide);
+                int slidePos1 = robot.slide1.getCurrentPosition();
+                int slidePos2 = robot.slide2.getCurrentPosition();
+                String slide1 = Integer.toString(slidePos1);
+                String slide2 = Integer.toString(slidePos2);
+                telemetry.addLine("slide encoder count = " + slide1);
                 telemetry.update();
-                if (slidePos > 1200)
+                if (slidePos1 >1200)
                 {
-                    robot.slideMotor.setPower(-0.5);
-                    robot.slideMotor.setTargetPosition(slidePos - 1000);
+                    robot.slide1.setPower(-0.5);
+                    robot.slide1.setPower(-0.5);
+                    robot.slide1.setTargetPosition(slidePos1 - 1000);
+                    robot.slide1.setTargetPosition(slidePos2 - 1000);
                 }
             }
             else if (gamepad1.dpad_right == true)
             {
-                int slidePos = robot.slideMotor.getCurrentPosition();
-                String slide = Integer.toString(slidePos);
-                telemetry.addLine("slide encoder count = " + slide);
+                int slidePos1 = robot.slide1.getCurrentPosition();
+                int slidePos2 = robot.slide2.getCurrentPosition();
+                String slide1 = Integer.toString(slidePos1);
+                telemetry.addLine("slide encoder count = " + slide1);
                 telemetry.update();
-                if (slidePos > 1200);
+                if (slidePos1 > 1200);
                 {
-                    robot.slideMotor.setPower(-0.5);
-                    robot.slideMotor.setTargetPosition(200);
+                    robot.slide1.setPower(-0.5);
+                    robot.slide2.setPower(-0.5);
+                    robot.slide1.setTargetPosition(200);
+                    robot.slide2.setTargetPosition(200);
                 }
-                //justin is a poopoo
             }
         }
     }

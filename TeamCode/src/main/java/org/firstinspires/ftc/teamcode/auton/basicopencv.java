@@ -249,16 +249,22 @@ public class basicopencv extends LinearOpMode {
     public void outtake()
     {
         sleep(500);
-        int slidePos = robot.slideMotor.getCurrentPosition();
-        robot.slideMotor.setPower(0.7);
-        robot.slideMotor.setTargetPosition(slidePos + 2000);
+        int slidePos1 = robot.slide1.getCurrentPosition();
+        int slidePos2 = robot.slide1.getCurrentPosition();
+        robot.slide1.setPower(0.7);
+        robot.slide2.setPower(0.7);
+        robot.slide1.setTargetPosition(slidePos1 + 2000);
+        robot.slide2.setTargetPosition(slidePos2 + 2000);
         sleep(100);
         robot.outtakeServo.setPosition(1);
         sleep(500);
         robot.outtakeServo.setPosition(0);
-        slidePos = robot.slideMotor.getCurrentPosition();
-        robot.slideMotor.setPower(0.7);
-        robot.slideMotor.setTargetPosition(slidePos - 2000);
+        slidePos1 = robot.slide1.getCurrentPosition();
+        slidePos2 = robot.slide2.getCurrentPosition();
+        robot.slide1.setPower(0.7);
+        robot.slide2.setPower(0.7);
+        robot.slide2.setTargetPosition(slidePos2 - 2000);
+        robot.slide1.setTargetPosition(slidePos1 - 2000);
         sleep(100);
     }
     public void strafeLeft(int time)
