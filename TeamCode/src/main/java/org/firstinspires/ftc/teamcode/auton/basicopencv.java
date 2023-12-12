@@ -107,7 +107,6 @@ public class basicopencv extends LinearOpMode {
                 numberthing = 4;
             }
             if (currentGamepad1.right_trigger != 0) {
-
                 isFBlue = false;
                 isBBlue = true;
                 isFRed = false;
@@ -158,7 +157,7 @@ public class basicopencv extends LinearOpMode {
 
 
                 } else {
-                    telemetry.addLine("not detected");
+                    telemetry.addLine("rip");
                     telemetry.update();
                     location = "Left";
                     sleep(500);
@@ -188,19 +187,19 @@ public class basicopencv extends LinearOpMode {
 
 
                 } else {
-                    telemetry.addLine("not detected");
+                    telemetry.addLine("rip");
                     telemetry.update();
-                    location = "Left";
+                    location = "Middle";
                     sleep(500);
                 }
             }
         }
 
         waitForStart(); //wait for play button to be pressed
-        if(location == "Middle" && numberthing == 1){
+        if(location == "Middle" && numberthing == 1){ // FBlue
             // idk if this is right
         }
-        if(location == "Middle" && numberthing == 2){
+        if(location == "Middle" && numberthing == 2){ // BBlue
             tile();
         }
     }
@@ -209,12 +208,10 @@ public class basicopencv extends LinearOpMode {
         robot.frontLeftDrive.setPower(0.8);
         robot.backRightDrive.setPower(0.8);
         robot.backLeftDrive.setPower(0.8);
-
         robot.frontRightDrive.setTargetPosition(1000);
         robot.frontLeftDrive.setTargetPosition(1000);
         robot.backRightDrive.setTargetPosition(1000);
         robot.backLeftDrive.setTargetPosition(1000);
-
         sleep(2000);
     }
 }
