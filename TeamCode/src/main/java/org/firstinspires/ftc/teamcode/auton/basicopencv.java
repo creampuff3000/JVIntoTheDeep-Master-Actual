@@ -200,19 +200,91 @@ public class basicopencv extends LinearOpMode {
             // idk if this is right
         }
         if(location == "Middle" && numberthing == 2){ // BBlue
-            tile();
+            tile(1.3);
         }
     }
-    public void tile(){
+    public void tile(double tileNum)
+    {
+        int fleft = robot.frontRightDrive.getCurrentPosition();
+        int bleft = robot.frontLeftDrive.getCurrentPosition();
+        int bright = robot.backRightDrive.getCurrentPosition();
+        int fright = robot.backLeftDrive.getCurrentPosition();
         robot.frontRightDrive.setPower(0.8);
         robot.frontLeftDrive.setPower(0.8);
         robot.backRightDrive.setPower(0.8);
         robot.backLeftDrive.setPower(0.8);
-        robot.frontRightDrive.setTargetPosition(1000);
-        robot.frontLeftDrive.setTargetPosition(1000);
-        robot.backRightDrive.setTargetPosition(1000);
-        robot.backLeftDrive.setTargetPosition(1000);
+        robot.frontRightDrive.setTargetPosition((int)(fright + 1000 * tileNum));
+        robot.frontLeftDrive.setTargetPosition((int)(fleft + 1000 * tileNum));
+        robot.backRightDrive.setTargetPosition((int)(bright + 1000 * tileNum));
+        robot.backLeftDrive.setTargetPosition((int)(bleft + 1000 * tileNum));
         sleep(2000);
+    }
+    public void right90()
+    {
+        sleep(100);
+        int fleft = robot.frontRightDrive.getCurrentPosition();
+        int bleft = robot.frontLeftDrive.getCurrentPosition();
+        int bright = robot.backRightDrive.getCurrentPosition();
+        int fright = robot.backLeftDrive.getCurrentPosition();
+        robot.frontLeftDrive.setPower(0.7);
+        robot.frontRightDrive.setPower(0.7);
+        robot.backLeftDrive.setPower(0.7);
+        robot.backRightDrive.setPower(0.7);
+        robot.frontLeftDrive.setTargetPosition(fleft + 500);
+        robot.frontRightDrive.setTargetPosition(fright - 250);
+        robot.backLeftDrive.setTargetPosition(bleft + 500);
+        robot.backRightDrive.setTargetPosition(bright - 250);
+        sleep(100);
+    }
+    public void pixelDown()
+    {
+        sleep(200);
+        robot.intakeMotor.setPower(-0.1);
+        sleep(300);
+        robot.intakeMotor.setPower(0);
+    }
+    public void outtake()
+    {
+        sleep(500);
+        int slidePos = robot.slideMotor.getCurrentPosition();
+        robot.slideMotor.setPower(0.7);
+        robot.slideMotor.setTargetPosition(slidePos + 2000);
+        sleep(100);
+        robot.outtakeServo.setPosition(1);
+        sleep(500);
+        robot.outtakeServo.setPosition(0);
+        slidePos = robot.slideMotor.getCurrentPosition();
+        robot.slideMotor.setPower(0.7);
+        robot.slideMotor.setTargetPosition(slidePos - 2000);
+        sleep(100);
+    }
+    public void strafeLeft(int time)
+    {
+        sleep(100);
+        robot.frontLeftDrive.setPower(-0.7);
+        robot.frontRightDrive.setPower(0.7);
+        robot.backRightDrive.setPower(-0.7);
+        robot.backLeftDrive.setPower(0.7);
+        sleep(time);
+        robot.frontLeftDrive.setPower(0);
+        robot.frontRightDrive.setPower(0);
+        robot.backRightDrive.setPower(0);
+        robot.backLeftDrive.setPower(0);
+        sleep(100);
+    }
+    public void blueSide(String location)
+    {
+        if (location == "Middle")
+        {
+            tile(1.5);
+            pixelDown();
+            right90();
+            tile(-1.2);
+            outtake();
+            tile(-0.2);
+            strafeLeft(1300);
+            tile(0.5);
+        }
     }
 }
 
