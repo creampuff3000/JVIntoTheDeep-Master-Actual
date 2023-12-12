@@ -99,6 +99,7 @@ robot.slideMotor.setTargetPosition(slidePos - 1000);
                 }else if (gamepad1.dpad_right == true){
                     robot.slideMotor.setPower(-.5);
                    robot.slideMotor.setTargetPosition(0);
+                   //justin is a poopoo
                 }
 
 
