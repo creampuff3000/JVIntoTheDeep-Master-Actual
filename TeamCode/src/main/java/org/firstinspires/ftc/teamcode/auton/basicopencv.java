@@ -159,7 +159,7 @@ public class basicopencv extends LinearOpMode {
                 } else {
                     telemetry.addLine("rip");
                     telemetry.update();
-                    location = "Left";
+                    location = "Middle";
                     sleep(500);
                 }
             }
