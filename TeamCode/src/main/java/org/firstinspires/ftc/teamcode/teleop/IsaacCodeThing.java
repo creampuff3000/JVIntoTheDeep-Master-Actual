@@ -45,20 +45,6 @@
 ////             Teleop Code goes here         }
 //// Code a program that allows the robot to slide up using slideMotor 0.6 speed, and then drive backwards for 500 milliseconds at max speed.
 //// Variables: backLeftDrive, frontLeftDrive,backRightDrive,backLeftDrive,slideMotor
-//if (gamepad.a){
-//    robot.slideMotor.setPower(0.6);
-//    sleep(900);
-//    robot.slideMotor.setPower(0);
-//}
-//if (gamepad.right_trigger == 1){
-//    robot.backLeftDrive.setPower(-1);
-//    robot.frontLeftDrive.setPower(-1);
-//    robot.backRightDrive.setPower(-1);
-//    robot.frontRightDrive.setPower(-1);
-//    sleep(500);
-//    robot.backLeftDrive.setPower(0);
-//    robot.frontLeftDrive.setPower(0);
-//    robot.backRightDrive.setPower(0);
-//    robot.frontRightDrive.setPower(0);
+
 //}
 //}

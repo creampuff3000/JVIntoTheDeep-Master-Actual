@@ -44,6 +44,8 @@ public class basicopencv extends LinearOpMode {
         robot.frontLeftDrive.setTargetPosition(0);
         robot.backRightDrive.setTargetPosition(0);
         robot.backLeftDrive.setTargetPosition(0);
+        robot.slide1.setTargetPosition(0);
+        robot.slide2.setTargetPosition(0);
         robot.frontLeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.frontRightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.backLeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -286,10 +288,10 @@ public class basicopencv extends LinearOpMode {
         if (location == "Middle")
         {
             tile(1.5);
-            pixelDown();
+//            pixelDown();
             right90();
             tile(-1.2);
-            outtake();
+//            outtake();
             tile(-0.2);
             strafeLeft(1300);
             tile(0.5);
