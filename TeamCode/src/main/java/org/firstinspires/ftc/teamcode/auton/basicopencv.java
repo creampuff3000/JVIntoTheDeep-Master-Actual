@@ -288,10 +288,10 @@ public class basicopencv extends LinearOpMode {
         if (location == "Middle")
         {
             tile(1.5);
-//            pixelDown();
+            pixelDown();
             right90();
             tile(-1.2);
-//            outtake();
+            outtake();
             tile(-0.2);
             strafeLeft(1300);
             tile(0.5);

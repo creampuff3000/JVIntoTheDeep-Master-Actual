@@ -15,6 +15,7 @@ public class HWMap extends Project{
     public DcMotor slide2 = null;
     public Servo launchServo = null;
     public Servo outtakeServo = null;
+    public Servo mosaicServo = null;
     public DcMotor slide1 = null;
 
     public WebcamName camera = null;
@@ -30,6 +31,7 @@ public class HWMap extends Project{
         slide2 = hwMap.get(DcMotor.class, "rslide");
         launchServo = hwMap.get(Servo.class, "launchServo");
         outtakeServo = hwMap.get(Servo.class, "outtakeServo");
+        mosaicServo = hwMap.get(Servo.class, "mosaicServo");
         frontLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         frontRightDrive.setDirection(DcMotor.Direction.FORWARD);
         backLeftDrive.setDirection(DcMotor.Direction.REVERSE);
@@ -55,5 +57,6 @@ public class HWMap extends Project{
         slide2.setPower(0);
         launchServo.setPosition(0);
         outtakeServo.setPosition(0);
+        mosaicServo.setPosition(0);
     }
 }
