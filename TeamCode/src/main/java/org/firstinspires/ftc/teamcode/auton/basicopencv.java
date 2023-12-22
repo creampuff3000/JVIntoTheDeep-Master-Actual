@@ -76,7 +76,7 @@ public class basicopencv extends LinearOpMode {
         boolean isBBlue = false;
         boolean isFRed = false;
         boolean isBRed = false;
-        int numberthing = 0;
+        int robotPos = 0;
 
         // hi
         // Autonomous code starts here
@@ -90,7 +90,7 @@ public class basicopencv extends LinearOpMode {
                 isBBlue = false;
                 isFRed = false;
                 isBRed = false;
-                numberthing = 1;
+                robotPos = 1;
             }
             if (currentGamepad1.left_bumper && !previousGamepad1.left_bumper) {
 
@@ -98,7 +98,7 @@ public class basicopencv extends LinearOpMode {
                 isBBlue = false;
                 isFRed = true;
                 isBRed = false;
-                numberthing = 3;
+                robotPos = 3;
             }
             if (currentGamepad1.left_trigger != 0) {
 
@@ -106,14 +106,14 @@ public class basicopencv extends LinearOpMode {
                 isBBlue = false;
                 isFRed = false;
                 isBRed = true;
-                numberthing = 4;
+                robotPos = 4;
             }
             if (currentGamepad1.right_trigger != 0) {
                 isFBlue = false;
                 isBBlue = true;
                 isFRed = false;
                 isBRed = false;
-                numberthing = 2;
+                robotPos = 2;
             }
 
             if (isFBlue) {
@@ -135,7 +135,7 @@ public class basicopencv extends LinearOpMode {
             telemetry.addData("Parking", Alliance);
             telemetry.update();
 
-            if (numberthing == 1 || numberthing == 2) {
+            if (robotPos == 1 || robotPos == 2) {
                 webcam.setPipeline(BluePropDetectionPipeline); // setting the pipeline
                 BluePropLocation elementLocation = BluePropDetectionPipeline.getPropLocation(); // getting the prop location into a variable elementLocation
                 if (elementLocation == BluePropLocation.RIGHT) {
@@ -165,23 +165,23 @@ public class basicopencv extends LinearOpMode {
                     sleep(500);
                 }
             }
-            if (numberthing == 3 || numberthing == 4) {
-                webcam.setPipeline(BluePropDetectionPipeline); // setting the pipeline
-                BluePropLocation elementLocation = BluePropDetectionPipeline.getPropLocation(); // getting the prop location into a variable elementLocation
-                if (elementLocation == BluePropLocation.RIGHT) {
+            if (robotPos == 3 || robotPos == 4) {
+                webcam.setPipeline(RedPropDetectionPipeline); // setting the pipeline
+                RedPropLocation elementLocation = RedPropDetectionPipeline.getPropLocation(); // getting the prop location into a variable elementLocation
+                if (elementLocation == RedPropLocation.RIGHT) {
                     telemetry.addLine("right");
                     telemetry.update();
                     location = "Right";
                     sleep(500);
 
 
-                } else if (elementLocation == BluePropLocation.LEFT) {
+                } else if (elementLocation == RedPropLocation.LEFT) {
                     telemetry.addLine("left");
                     telemetry.update();
                     location = "Left";
                     sleep(500);
 
-                } else if (elementLocation == BluePropLocation.MIDDLE) {
+                } else if (elementLocation == RedPropLocation.MIDDLE) {
                     telemetry.addLine("middle");
                     telemetry.update();
                     location = "Middle";
@@ -199,13 +199,21 @@ public class basicopencv extends LinearOpMode {
 
         waitForStart(); //wait for play button to be pressed
 
-        if (numberthing == 1 || numberthing == 2)
+        if (robotPos == 1)
         { // BBlue
-            blueSide(location);
+            fBlue(location);
         }
-        else if (numberthing == 3 || numberthing == 4)
+        else if (robotPos == 2)
         {
-            //something happens
+            bBlue(location);
+        }
+        else if (robotPos == 3)
+        {
+            fRed(location);
+        }
+        else if (robotPos == 4)
+        {
+            bRed(location);
         }
     }
     public void tile(double tileNum)
@@ -283,7 +291,7 @@ public class basicopencv extends LinearOpMode {
         robot.backLeftDrive.setPower(0);
         sleep(100);
     }
-    public void blueSide(String location)
+    public void bBlue(String location)
     {
         if (location == "Middle")
         {
@@ -296,6 +304,40 @@ public class basicopencv extends LinearOpMode {
             strafeLeft(1300);
             tile(0.5);
         }
+        if (location == "Right")
+        {
+            tile(1.5);
+            pixelDown();
+            right90();
+            tile(-1.2);
+            outtake();
+            tile(-0.2);
+            strafeLeft(1300);
+            tile(0.5);
+        }
+        if (location == "Left")
+        {
+            tile(1.5);
+            pixelDown();
+            right90();
+            tile(-1.2);
+            outtake();
+            tile(-0.2);
+            strafeLeft(1300);
+            tile(0.5);
+        }
+    }
+    public void fBlue(String location)
+    {
+
+    }
+    public void fRed(String location)
+    {
+
+    }
+    public void bRed(String location)
+    {
+
     }
 }
 
