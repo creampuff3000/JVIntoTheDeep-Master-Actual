@@ -58,7 +58,7 @@ public class basicopencv extends LinearOpMode {
         webcam.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener() { // init the camera?
             @Override
             public void onOpened() {
-                webcam.startStreaming(1280, 960, OpenCvCameraRotation.UPRIGHT); // starting the camera at 1280 x 800
+                webcam.startStreaming(1280, 720, OpenCvCameraRotation.UPRIGHT); // starting the camera at 1280 x 800
             }
 
             @Override
