@@ -123,6 +123,7 @@ public class basicopencv extends LinearOpMode {
 
             telemetry.addData("Parking", var);
             telemetry.update();
+            sleep(1000);
 
             if (robotPos == 1 || robotPos == 2) {
                 webcam.setPipeline(BluePropDetectionPipeline); // setting the pipeline
