@@ -1,5 +1,5 @@
 package org.firstinspires.ftc.teamcode.auton;
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+//import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
@@ -10,7 +10,7 @@ import org.opencv.imgproc.Imgproc;
 import org.openftc.easyopencv.OpenCvPipeline;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
-@Autonomous(name = "BluePropDetech")
+//@Autonomous(name = "BluePropDetech")
 //OpenCV to cycle a cone during autonomous
 public class BluePropDetectionPipeline extends OpenCvPipeline {
     Telemetry telemetry;
