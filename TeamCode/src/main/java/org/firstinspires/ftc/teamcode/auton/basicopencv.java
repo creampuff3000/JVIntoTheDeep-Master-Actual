@@ -80,59 +80,48 @@ public class basicopencv extends LinearOpMode {
 
         // hi
         // Autonomous code starts here
+        String var = "";
         while (!isStarted()) {
             // uygiufougoijpiuhitfjfstuhhdstersuyrukuy;oyg
-            previousGamepad1.copy(currentGamepad1);
-            currentGamepad1.copy(gamepad1);
-            if (currentGamepad1.right_bumper && !previousGamepad1.right_bumper) {
+
+            if (gamepad1.right_bumper == true) {
 
                 isFBlue = true;
                 isBBlue = false;
                 isFRed = false;
                 isBRed = false;
                 robotPos = 1;
+                var = "FBlue";
             }
-            if (currentGamepad1.left_bumper && !previousGamepad1.left_bumper) {
+            if (gamepad1.left_bumper == true) {
 
                 isFBlue = false;
                 isBBlue = false;
                 isFRed = true;
                 isBRed = false;
                 robotPos = 3;
+                var = "FRed";
             }
-            if (currentGamepad1.left_trigger != 0) {
+            if (gamepad1.left_trigger != 0) {
 
                 isFBlue = false;
                 isBBlue = false;
                 isFRed = false;
                 isBRed = true;
                 robotPos = 4;
+                var = "BRed";
             }
-            if (currentGamepad1.right_trigger != 0) {
+            if (gamepad1.right_trigger != 0) {
                 isFBlue = false;
                 isBBlue = true;
                 isFRed = false;
                 isBRed = false;
                 robotPos = 2;
+                var = "BBlue";
             }
 
-            if (isFBlue) {
 
-                Alliance = Parking.BBlue;
-            }
-            if (isBBlue) {
-
-                Alliance = Parking.FRed;
-            }
-            if (isFRed) {
-
-                Alliance = Parking.BRed;
-            }
-            if (isBRed) {
-
-                Alliance = Parking.FBlue;
-            }
-            telemetry.addData("Parking", Alliance);
+            telemetry.addData("Parking", var);
             telemetry.update();
 
             if (robotPos == 1 || robotPos == 2) {
