@@ -45,7 +45,7 @@ public class TestTeleop extends LinearOpMode {
             robot.frontRightDrive.setPower(frontRightPower * speed);
             robot.backRightDrive.setPower(backRightPower * speed);
 //             Teleop Code goes here         }
-            if (gamepad1.x == true) {
+            if (gamepad1.y == true) {
                 double c = robot.outtakeServo.getPosition();
                 if (c == 0) {
                     robot.outtakeServo.setPosition(1);
@@ -84,17 +84,13 @@ public class TestTeleop extends LinearOpMode {
 //            }
             if (gamepad1.a == true)
             {
-                double f = robot.intakeMotor.getPower();
-                if (f == 0)
-                {
-                    robot.intakeMotor.setPower(0.8);
-                }
-                else if (f > 0)
-                {
-                    robot.intakeMotor.setPower(0);
-                }
+                robot.intakeMotor.setPower(1);
             }
             if (gamepad1.b == true)
+            {
+                robot.intakeMotor.setPower(0);
+            }
+            if (gamepad1.x == true)
             {
                 robot.intakeMotor.setPower(-0.5);
             }
@@ -125,7 +121,7 @@ public class TestTeleop extends LinearOpMode {
                 telemetry.addLine("slide1 encoder count = " + slide1);
                 telemetry.addLine("slide2 encoder count = " + slide2);
                 telemetry.update();
-                if (slidePos1 > 1200)
+                if (slidePos1 > 980)
                 {
                     robot.slide1.setPower(-0.5);
                     robot.slide2.setPower(-0.5);
