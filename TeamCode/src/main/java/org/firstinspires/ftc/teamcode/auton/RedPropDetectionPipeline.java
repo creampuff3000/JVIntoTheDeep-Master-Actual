@@ -33,15 +33,15 @@ public class RedPropDetectionPipeline extends OpenCvPipeline {
     //which are connected by the diagonals
     static final Rect leftROI = new Rect(
             new Point( 0, 0),
-            new Point(960, 400)
+            new Point(400, 720)
     );
     static final Rect middleROI = new Rect(
             new Point( 0, 400),
-            new Point(960, 840)
+            new Point(840, 720)
     );
     static final Rect rightROI = new Rect(
             new Point( 0, 0),
-            new Point(960, 1280)
+            new Point(1280, 720)
     );
 
 
