@@ -36,8 +36,8 @@ public class HWMap extends Project{
         frontRightDrive.setDirection(DcMotor.Direction.FORWARD);
         backLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         backRightDrive.setDirection(DcMotor.Direction.FORWARD);
-        slide1.setDirection(DcMotor.Direction.REVERSE);
-        slide2.setDirection(DcMotor.Direction.FORWARD);
+        slide1.setDirection(DcMotor.Direction.FORWARD);
+        slide2.setDirection(DcMotor.Direction.REVERSE);
         frontRightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         frontLeftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         backRightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
