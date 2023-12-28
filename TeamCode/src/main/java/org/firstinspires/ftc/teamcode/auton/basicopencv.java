@@ -262,9 +262,9 @@ public class basicopencv extends LinearOpMode {
     }
     public void pixelDown()
     {
-        sleep(200);
+        sleep(100);
         robot.intakeMotor.setPower(0.3);
-        sleep(1000);
+        sleep(1300);
         robot.intakeMotor.setPower(0);
     }
     public void outtake()
@@ -312,7 +312,7 @@ public class basicopencv extends LinearOpMode {
         robot.frontRightDrive.setTargetPosition((int) (fright + 800 * tileNum));;
         robot.backLeftDrive.setTargetPosition((int) (bleft + 800 * tileNum));
         robot.backRightDrive.setTargetPosition((int)(bright - 800 * tileNum));
-        sleep(1000);
+        sleep(2000);
     }
     public void strafeRight(double tileNum)
     {
@@ -328,7 +328,7 @@ public class basicopencv extends LinearOpMode {
         robot.frontRightDrive.setTargetPosition((int) (fright - 800 * tileNum));;
         robot.backLeftDrive.setTargetPosition((int) (bleft - 800 * tileNum));
         robot.backRightDrive.setTargetPosition((int)(bright + 800 * tileNum));
-        sleep(1000);
+        sleep(2000);
     }
     public void bBlue(String location)
     {
@@ -339,22 +339,22 @@ public class basicopencv extends LinearOpMode {
             tile(-0.35);
             pixelDown();
             sleep(100);
-            tile(-0.5);
+            tile(-0.65);
             sleep(100);
             left90();
             sleep(100);
-            tile(-2.25);
+            tile(-2.265);
             sleep(100);
             outtake();
-            sleep(100);
+            sleep(300);
             tile(0.5);
             sleep(100);
             robot.outtakeServo.setPosition(0);
             sleep(500);
             slideDown();
             sleep(100);
-            strafeLeft(2.2);
-            tile(-1.6);
+            strafeLeft(2.11);
+            tile(-1.5);
         }
         if (location == "Right")
         {
@@ -370,18 +370,30 @@ public class basicopencv extends LinearOpMode {
         }
         if (location == "Left")
         {
-            tile(1.5);
+            tile(2);
+            sleep(100);
+            left90();
+            sleep(100);
+            tile(0.23);
+            sleep(100);
+            tile(-0.08);
             sleep(100);
             pixelDown();
             sleep(100);
-            right90();
+            strafeLeft(0.3);
             sleep(100);
-            tile(-1.2);
+            tile(-2.465);
             sleep(100);
-//            outtake();
-//            tile(-0.2);
-//            strafeLeft(1300);
-//            tile(0.5);
+            outtake();
+            sleep(300);
+            tile(0.5);
+            sleep(100);
+            robot.outtakeServo.setPosition(0);
+            sleep(500);
+            slideDown();
+            sleep(100);
+            strafeLeft(2.12);
+            tile(-1.5);
         }
     }
     public void fBlue(String location)
