@@ -225,6 +225,10 @@ public class basicopencv extends LinearOpMode {
         robot.backRightDrive.setTargetPosition((int)(bright + 1000 * tileNum));
         robot.backLeftDrive.setTargetPosition((int)(bleft + 1000 * tileNum));
         sleep(Math.abs((long)(1000 * tileNum)));
+        robot.backRightDrive.setPower(0);
+        robot.backLeftDrive.setPower(0);
+        robot.frontRightDrive.setPower(0);
+        robot.frontLeftDrive.setPower(0);
     }
     public void right90()
     {
@@ -242,6 +246,10 @@ public class basicopencv extends LinearOpMode {
         robot.backLeftDrive.setTargetPosition(bleft + 1285);
         robot.backRightDrive.setTargetPosition(bright - 1285);
         sleep(1000);
+        robot.backRightDrive.setPower(0);
+        robot.backLeftDrive.setPower(0);
+        robot.frontRightDrive.setPower(0);
+        robot.frontLeftDrive.setPower(0);
     }
     public void left90()
     {
@@ -259,9 +267,17 @@ public class basicopencv extends LinearOpMode {
         robot.backLeftDrive.setTargetPosition(bleft - 1285);
         robot.backRightDrive.setTargetPosition(bright + 1285);
         sleep(1000);
+        robot.backRightDrive.setPower(0);
+        robot.backLeftDrive.setPower(0);
+        robot.frontRightDrive.setPower(0);
+        robot.frontLeftDrive.setPower(0);
     }
     public void pixelDown()
     {
+        robot.backRightDrive.setPower(0);
+        robot.backLeftDrive.setPower(0);
+        robot.frontRightDrive.setPower(0);
+        robot.frontLeftDrive.setPower(0);
         sleep(100);
         robot.intakeMotor.setPower(0.5);
         sleep(1300);
@@ -270,6 +286,10 @@ public class basicopencv extends LinearOpMode {
     public void outtake()
     {
         sleep(200);
+        robot.backRightDrive.setPower(0);
+        robot.backLeftDrive.setPower(0);
+        robot.frontRightDrive.setPower(0);
+        robot.frontLeftDrive.setPower(0);
         int slidePos1 = robot.slide1.getCurrentPosition();
         int slidePos2 = robot.slide2.getCurrentPosition();
         robot.slide1.setPower(0.7);
@@ -290,12 +310,16 @@ public class basicopencv extends LinearOpMode {
     }
     public void slideDown()
     {
+        robot.backRightDrive.setPower(0);
+        robot.backLeftDrive.setPower(0);
+        robot.frontRightDrive.setPower(0);
+        robot.frontLeftDrive.setPower(0);
         int slidePos1 = robot.slide1.getCurrentPosition();
         int slidePos2 = robot.slide2.getCurrentPosition();
         robot.slide1.setPower(0.7);
         robot.slide2.setPower(0.7);
-        robot.slide2.setTargetPosition(slidePos2 - 2100);
-        robot.slide1.setTargetPosition(slidePos1 - 2100);
+        robot.slide2.setTargetPosition(slidePos2 - 2120);
+        robot.slide1.setTargetPosition(slidePos1 - 2120);
         sleep(3000);
     }
     public void strafeLeft(double tileNum)
@@ -313,6 +337,10 @@ public class basicopencv extends LinearOpMode {
         robot.backLeftDrive.setTargetPosition((int) (bleft + 800 * tileNum));
         robot.backRightDrive.setTargetPosition((int)(bright - 800 * tileNum));
         sleep(2000);
+        robot.backRightDrive.setPower(0);
+        robot.backLeftDrive.setPower(0);
+        robot.frontRightDrive.setPower(0);
+        robot.frontLeftDrive.setPower(0);
     }
     public void strafeRight(double tileNum)
     {
@@ -329,6 +357,10 @@ public class basicopencv extends LinearOpMode {
         robot.backLeftDrive.setTargetPosition((int) (bleft - 800 * tileNum));
         robot.backRightDrive.setTargetPosition((int)(bright + 800 * tileNum));
         sleep(2000);
+        robot.backRightDrive.setPower(0);
+        robot.backLeftDrive.setPower(0);
+        robot.frontRightDrive.setPower(0);
+        robot.frontLeftDrive.setPower(0);
     }
     public void bBlue(String location)
     {
@@ -343,7 +375,7 @@ public class basicopencv extends LinearOpMode {
             sleep(100);
             left90();
             sleep(100);
-            tile(-2.265);
+            tile(-2.19);
             sleep(100);
             outtake();
             sleep(300);
@@ -353,20 +385,38 @@ public class basicopencv extends LinearOpMode {
             sleep(500);
             slideDown();
             sleep(100);
-            strafeLeft(2.11);
-            tile(-1.5);
+            strafeLeft(1.75);
+            tile(-1.3);
         }
         if (location == "Right")
         {
-            right90();
-//            tile(1.5);
-//            pixelDown();
-//            right90();
-//            tile(-1.2);
-//            outtake();
-//            tile(-0.2);
-//            strafeLeft(1300);
-//            tile(0.5);
+            tile(2);
+            sleep(100);
+            left90();
+            sleep(100);
+            tile(0.15);
+            sleep(100);
+            tile(-0.08);
+            sleep(100);
+            sleep(100);
+            tile(-1.35);
+            sleep(100);
+            pixelDown();
+            sleep(100);
+            strafeLeft(1.25);
+            sleep(100);
+            tile(-1.115);
+            sleep(100);
+            outtake();
+            sleep(300);
+            tile(0.5);
+            sleep(100);
+            robot.outtakeServo.setPosition(0);
+            sleep(500);
+            slideDown();
+            sleep(100);
+            strafeLeft(1.76);
+            tile(-1.5);
         }
         if (location == "Left")
         {
@@ -374,13 +424,13 @@ public class basicopencv extends LinearOpMode {
             sleep(100);
             left90();
             sleep(100);
-            tile(0.19);
+            tile(0.15);
             sleep(100);
             tile(-0.08);
             sleep(100);
             pixelDown();
             sleep(100);
-            strafeLeft(0.3);
+            strafeLeft(0.42);
             sleep(100);
             tile(-2.465);
             sleep(100);
@@ -392,7 +442,7 @@ public class basicopencv extends LinearOpMode {
             sleep(500);
             slideDown();
             sleep(100);
-            strafeLeft(2.12);
+            strafeLeft(2.05);
             tile(-1.5);
         }
     }
