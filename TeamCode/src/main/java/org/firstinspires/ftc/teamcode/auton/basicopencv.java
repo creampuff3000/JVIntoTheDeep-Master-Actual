@@ -263,7 +263,7 @@ public class basicopencv extends LinearOpMode {
     public void pixelDown()
     {
         sleep(100);
-        robot.intakeMotor.setPower(0.3);
+        robot.intakeMotor.setPower(0.5);
         sleep(1300);
         robot.intakeMotor.setPower(0);
     }
@@ -374,7 +374,7 @@ public class basicopencv extends LinearOpMode {
             sleep(100);
             left90();
             sleep(100);
-            tile(0.23);
+            tile(0.19);
             sleep(100);
             tile(-0.08);
             sleep(100);
