@@ -456,7 +456,40 @@ public class basicopencv extends LinearOpMode {
     }
     public void bRed(String location)
     {
-
+        if (location == "Middle")
+        {
+            tile(2);
+            sleep(100);
+            tile(-0.35);
+            pixelDown();
+        }
+        if (location == "Left")
+        {
+            tile(2);
+            sleep(100);
+            left90();
+            sleep(100);
+            tile(0.15);
+            sleep(100);
+            tile(-0.08);
+            sleep(100);
+            sleep(100);
+            tile(-1.35);
+            sleep(100);
+            pixelDown();
+        }
+        if (location == "Right")
+        {
+            tile(2);
+            sleep(100);
+            left90();
+            sleep(100);
+            tile(0.15);
+            sleep(100);
+            tile(-0.08);
+            sleep(100);
+            pixelDown();
+        }
     }
 }
 
