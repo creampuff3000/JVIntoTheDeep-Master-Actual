@@ -139,6 +139,7 @@ public class TestTeleop extends LinearOpMode {
                 telemetry.addLine("slide2 encoder count = " + slide2);
                 telemetry.update();
                 if (slidePos1 > 1200);
+
                 {
                     robot.slide1.setPower(-0.5);
                     robot.slide2.setPower(-0.5);

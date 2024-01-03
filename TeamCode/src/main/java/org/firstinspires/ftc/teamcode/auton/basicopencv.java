@@ -210,15 +210,36 @@ public class basicopencv extends LinearOpMode {
             bRed(location);
         }
     }
+
+    public void slow(double tileNum)
+    {
+        int fright = robot.frontRightDrive.getCurrentPosition();
+        int fleft = robot.frontLeftDrive.getCurrentPosition();
+        int bright = robot.backRightDrive.getCurrentPosition();
+        int bleft = robot.backLeftDrive.getCurrentPosition();
+        robot.frontRightDrive.setPower(0.1);
+        robot.frontLeftDrive.setPower(0.1);
+        robot.backRightDrive.setPower(0.1);
+        robot.backLeftDrive.setPower(0.1);
+        robot.frontRightDrive.setTargetPosition((int)(fright + 1000 * tileNum));
+        robot.frontLeftDrive.setTargetPosition((int)(fleft + 1000 * tileNum));
+        robot.backRightDrive.setTargetPosition((int)(bright + 1000 * tileNum));
+        robot.backLeftDrive.setTargetPosition((int)(bleft + 1000 * tileNum));
+        sleep(1000);
+        robot.backRightDrive.setPower(0);
+        robot.backLeftDrive.setPower(0);
+        robot.frontRightDrive.setPower(0);
+        robot.frontLeftDrive.setPower(0);
+    }
     public void tile(double tileNum)
     {
         int fright = robot.frontRightDrive.getCurrentPosition();
         int fleft = robot.frontLeftDrive.getCurrentPosition();
         int bright = robot.backRightDrive.getCurrentPosition();
         int bleft = robot.backLeftDrive.getCurrentPosition();
-        robot.frontRightDrive.setPower(0.8);
+        robot.frontRightDrive.setPower(0.84);
         robot.frontLeftDrive.setPower(0.8);
-        robot.backRightDrive.setPower(0.8);
+        robot.backRightDrive.setPower(0.84);
         robot.backLeftDrive.setPower(0.8);
         robot.frontRightDrive.setTargetPosition((int)(fright + 1000 * tileNum));
         robot.frontLeftDrive.setTargetPosition((int)(fleft + 1000 * tileNum));
@@ -262,10 +283,10 @@ public class basicopencv extends LinearOpMode {
         int bleft = robot.backLeftDrive.getCurrentPosition();
         int bright = robot.backRightDrive.getCurrentPosition();
         int fright = robot.frontRightDrive.getCurrentPosition();
-        robot.frontLeftDrive.setTargetPosition(fleft - 1285);
-        robot.frontRightDrive.setTargetPosition(fright + 1285);
-        robot.backLeftDrive.setTargetPosition(bleft - 1285);
-        robot.backRightDrive.setTargetPosition(bright + 1285);
+        robot.frontLeftDrive.setTargetPosition(fleft - 1230);
+        robot.frontRightDrive.setTargetPosition(fright + 1230);
+        robot.backLeftDrive.setTargetPosition(bleft - 1230);
+        robot.backRightDrive.setTargetPosition(bright + 1230);
         sleep(1000);
         robot.backRightDrive.setPower(0);
         robot.backLeftDrive.setPower(0);
@@ -294,18 +315,17 @@ public class basicopencv extends LinearOpMode {
         int slidePos2 = robot.slide2.getCurrentPosition();
         robot.slide1.setPower(0.7);
         robot.slide2.setPower(0.7);
-        robot.slide1.setTargetPosition(slidePos1 + 2100);
-        robot.slide2.setTargetPosition(slidePos2 + 2100);
-        sleep(3000);
+        robot.slide1.setTargetPosition(slidePos1 + 800);
+        robot.slide2.setTargetPosition(slidePos2 + 800);
+        sleep(400);
         robot.outtakeServo.setPosition(1);
-        sleep(500);
-        robot.outtakeServo.setPosition(0);
-        sleep(500);
-        robot.outtakeServo.setPosition(1);
-        sleep(500);
-        robot.outtakeServo.setPosition(0);
-        sleep(500);
-        robot.outtakeServo.setPosition(1);
+        sleep(600);
+        robot.slide1.setPower(1);
+        robot.slide2.setPower(1);
+        slidePos1 = robot.slide1.getCurrentPosition();
+        slidePos2 = robot.slide2.getCurrentPosition();
+        robot.slide1.setTargetPosition(slidePos1 + 500);
+        robot.slide2.setTargetPosition(slidePos2 + 500);
         sleep(500);
     }
     public void slideDown()
@@ -318,9 +338,9 @@ public class basicopencv extends LinearOpMode {
         int slidePos2 = robot.slide2.getCurrentPosition();
         robot.slide1.setPower(0.7);
         robot.slide2.setPower(0.7);
-        robot.slide2.setTargetPosition(slidePos2 - 2120);
-        robot.slide1.setTargetPosition(slidePos1 - 2120);
-        sleep(3000);
+        robot.slide2.setTargetPosition(slidePos2 - 1300);
+        robot.slide1.setTargetPosition(slidePos1 - 1300);
+        sleep(2000);
     }
     public void strafeLeft(double tileNum)
     {
@@ -356,7 +376,7 @@ public class basicopencv extends LinearOpMode {
         robot.frontRightDrive.setTargetPosition((int) (fright - 800 * tileNum));;
         robot.backLeftDrive.setTargetPosition((int) (bleft - 800 * tileNum));
         robot.backRightDrive.setTargetPosition((int)(bright + 800 * tileNum));
-        sleep(2000);
+        sleep(500);
         robot.backRightDrive.setPower(0);
         robot.backLeftDrive.setPower(0);
         robot.frontRightDrive.setPower(0);
@@ -367,26 +387,18 @@ public class basicopencv extends LinearOpMode {
         if (location == "Middle")
         {
             tile(2);
-            sleep(100);
             tile(-0.35);
             pixelDown();
-            sleep(100);
-            tile(-0.65);
-            sleep(100);
+            tile(-0.4);
             left90();
-            sleep(100);
-            tile(-2.19);
-            sleep(100);
+            tile(-2.45);
             outtake();
-            sleep(300);
-            tile(0.5);
-            sleep(100);
-            robot.outtakeServo.setPosition(0);
             sleep(500);
+            tile(0.3);
+            robot.outtakeServo.setPosition(0);
             slideDown();
-            sleep(100);
-            strafeLeft(1.75);
-            tile(-1.3);
+            strafeLeft(2);
+            tile(-1.2);
         }
         if (location == "Right")
         {
@@ -403,7 +415,7 @@ public class basicopencv extends LinearOpMode {
             sleep(100);
             pixelDown();
             sleep(100);
-            strafeLeft(1.25);
+            strafeLeft(1.2);
             sleep(100);
             tile(-1.115);
             sleep(100);
