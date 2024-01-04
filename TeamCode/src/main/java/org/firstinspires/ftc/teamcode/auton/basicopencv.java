@@ -344,9 +344,9 @@ public class basicopencv extends LinearOpMode {
     }
     public void strafeLeft(double tileNum)
     {
-        robot.frontLeftDrive.setPower(-0.7);
+        robot.frontLeftDrive.setPower(-0.5);
         robot.frontRightDrive.setPower(0.7);
-        robot.backRightDrive.setPower(-0.7);
+        robot.backRightDrive.setPower(-0.5);
         robot.backLeftDrive.setPower(0.7);
         int fleft = robot.frontLeftDrive.getCurrentPosition();
         int bleft = robot.backLeftDrive.getCurrentPosition();
@@ -356,7 +356,7 @@ public class basicopencv extends LinearOpMode {
         robot.frontRightDrive.setTargetPosition((int) (fright + 800 * tileNum));;
         robot.backLeftDrive.setTargetPosition((int) (bleft + 800 * tileNum));
         robot.backRightDrive.setTargetPosition((int)(bright - 800 * tileNum));
-        sleep(2000);
+        sleep(1500);
         robot.backRightDrive.setPower(0);
         robot.backLeftDrive.setPower(0);
         robot.frontRightDrive.setPower(0);
@@ -403,32 +403,20 @@ public class basicopencv extends LinearOpMode {
         if (location == "Right")
         {
             tile(2);
-            sleep(100);
             left90();
-            sleep(100);
             tile(0.15);
             sleep(100);
-            tile(-0.08);
-            sleep(100);
-            sleep(100);
-            tile(-1.35);
-            sleep(100);
+            tile(-1.4);
             pixelDown();
-            sleep(100);
-            strafeLeft(1.2);
-            sleep(100);
-            tile(-1.115);
-            sleep(100);
+            tile(-0.5);
+            strafeLeft(0.9);
+            tile(-0.87);
             outtake();
-            sleep(300);
             tile(0.5);
-            sleep(100);
             robot.outtakeServo.setPosition(0);
-            sleep(500);
             slideDown();
-            sleep(100);
-            strafeLeft(1.76);
-            tile(-1.5);
+            strafeLeft(1.57);
+            tile(-1.4);
         }
         if (location == "Left")
         {

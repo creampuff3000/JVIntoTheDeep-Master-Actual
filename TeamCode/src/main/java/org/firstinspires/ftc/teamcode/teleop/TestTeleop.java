@@ -15,13 +15,6 @@ public class TestTeleop extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         robot.init(hardwareMap);
-        robot.slide1.setTargetPosition(0);
-        robot.slide2.setTargetPosition(0);
-
-        robot.slide1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.slide2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.slide1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        robot.slide2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         double speed = .9;
         waitForStart();
         boolean isSpinning = false;
@@ -96,57 +89,25 @@ public class TestTeleop extends LinearOpMode {
             }
             if (gamepad1.dpad_up == true)
             {
-                int slidePos1 = robot.slide1.getCurrentPosition();
-                int slidePos2 = robot.slide2.getCurrentPosition();
-                String slide1 = Integer.toString(slidePos1);
-                String slide2 = Integer.toString(slidePos2);
-                telemetry.addLine("slide1 encoder count = " + slide1);
-                telemetry.addLine("slide2 encoder count = " + slide2);
-                telemetry.update();
-                if (slidePos1 <= 3700)
-                {
-                    robot.slide1.setPower(0.5);
-                    robot.slide2.setPower(0.5);
-                    robot.slide1.setTargetPosition(slidePos1 + 1000);
-                    robot.slide2.setTargetPosition(slidePos2 + 1000);
-                }
-
+                robot.slide1.setPower(0.7);
+                robot.slide2.setPower(0.7);
             }
-            else if (gamepad1.dpad_down == true)
+            if (gamepad1.dpad_up == false)
             {
-                int slidePos1 = robot.slide1.getCurrentPosition();
-                int slidePos2 = robot.slide2.getCurrentPosition();
-                String slide1 = Integer.toString(slidePos1);
-                String slide2 = Integer.toString(slidePos2);
-                telemetry.addLine("slide1 encoder count = " + slide1);
-                telemetry.addLine("slide2 encoder count = " + slide2);
-                telemetry.update();
-                if (slidePos1 > 980)
-                {
-                    robot.slide1.setPower(-0.5);
-                    robot.slide2.setPower(-0.5);
-                    robot.slide1.setTargetPosition(slidePos1 - 1000);
-                    robot.slide2.setTargetPosition(slidePos2 - 1000);
-                }
+                robot.slide1.setPower(0);
+                robot.slide1.setPower(0);
             }
-            else if (gamepad1.dpad_right == true)
+            if (gamepad1.dpad_down == true)
             {
-                int slidePos1 = robot.slide1.getCurrentPosition();
-                int slidePos2 = robot.slide2.getCurrentPosition();
-                String slide1 = Integer.toString(slidePos1);
-                String slide2 = Integer.toString(slidePos2);
-                telemetry.addLine("slide1 encoder count = " + slide1);
-                telemetry.addLine("slide2 encoder count = " + slide2);
-                telemetry.update();
-                if (slidePos1 > 1200);
-
-                {
-                    robot.slide1.setPower(-0.5);
-                    robot.slide2.setPower(-0.5);
-                    robot.slide1.setTargetPosition(200);
-                    robot.slide2.setTargetPosition(200);
-                }
+                robot.slide1.setPower(-0.7);
+                robot.slide2.setPower(-0.7);
             }
+            else if (gamepad1.dpad_down == false)
+            {
+                robot.slide1.setPower(0);
+                robot.slide2.setPower(0);
+            }
+
         }
     }
 }
