@@ -440,12 +440,57 @@ public class basicopencv extends LinearOpMode {
             tile(-1.5);
         }
     }
-    public void fBlue(String location)
-    {
-        tile(1.2);
+    public void fBlue(String location) {
+        if (location == "Left") {
+            tile(1.2);
+            sleep(100);
+            left90();
+            sleep(100);
+            tile(-1.45);
+            sleep(100);
+            pixelDown();
+        }
+        if (location == "Middle") {
+            tile(1.5);
+            pixelDown();
+            tile(-0.2);
+
+        }
+        if (location == "Right") {
+            tile(1.2);
+            left90();
+            tile(0.12);
+            sleep(100);
+            pixelDown();
+        }
     }
     public void fRed(String location)
     {
+        if (location == "Middle") {
+            tile(2);
+            tile(-0.35);
+            pixelDown();
+            tile(-0.15);
+        }
+        if (location == "Left") {
+            tile(1.6);
+            right90();
+            tile(0.2);
+            sleep(100);
+
+            pixelDown();
+            tile(-0.15);
+        }
+        if (location == "Right") {
+            tile(1.9);
+            sleep(100);
+            right90();
+            sleep(100);
+            tile(-1.05);
+            sleep(100);
+            pixelDown();
+            tile(-0.2);
+        }
 
     }
     public void bRed(String location)
@@ -457,7 +502,7 @@ public class basicopencv extends LinearOpMode {
             pixelDown();
             tile(-0.3);
             right90();
-            tile(-2.45);
+            tile(-2.85);
             outtake();
             sleep(500);
             tile(0.3);
@@ -485,15 +530,15 @@ public class basicopencv extends LinearOpMode {
         }
         if (location == "Right")
         {
-            tile(1.6);
+            tile(1.9);
             sleep(100);
             right90();
             sleep(100);
-            tile(-0.95);
+            tile(-1.2);
             sleep(100);
             pixelDown();
             sleep(100);
-            tile(-2.465);
+            tile(-2.365);
             sleep(100);
             outtake();
             sleep(300);
