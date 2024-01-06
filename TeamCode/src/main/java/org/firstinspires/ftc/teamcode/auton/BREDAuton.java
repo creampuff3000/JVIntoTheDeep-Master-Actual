@@ -37,7 +37,8 @@
 //
 //
 //        int direction = 1;
-//        int otherDirection = -1;
+//        int otherDirection = -
+//1;
 //
 //
 //        // hi
