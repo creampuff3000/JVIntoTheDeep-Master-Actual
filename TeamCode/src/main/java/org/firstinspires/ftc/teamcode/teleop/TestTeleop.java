@@ -50,16 +50,11 @@ public class TestTeleop extends LinearOpMode {
             }
             if (gamepad1.right_bumper == true && gamepad1.left_bumper == true)
             {
-                double d = robot.launchServo.getPosition();
-                if (d == 0)
-                {
-                    robot.launchServo.setPosition(1);
-                    sleep(800);
-                } else if (d == 1)
-                {
-                    robot.launchServo.setPosition(0);
-                    sleep(800);
-                }
+                robot.launchServo.setPower(1);
+            }
+            else
+            {
+                robot.launchServo.setPower(0);
             }
 //            if (gamepad1.left_bumper == true);
 //            {
