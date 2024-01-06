@@ -14,7 +14,7 @@ public class HWMap extends Project{
     public DcMotor  backRightDrive     = null;
     public DcMotor    intakeMotor   = null;
     public DcMotor slide2 = null;
-    public CRServo launchServo = null;
+    public Servo launchServo = null;
     public Servo outtakeServo = null;
     public Servo mosaicServo = null;
     public DcMotor slide1 = null;
@@ -30,7 +30,7 @@ public class HWMap extends Project{
         intakeMotor = hwMap.get(DcMotor.class, "intakeMotor");
         slide1 = hwMap.get(DcMotor.class, "lslide");
         slide2 = hwMap.get(DcMotor.class, "rslide");
-        launchServo = hwMap.get(CRServo.class, "launchServo");
+        launchServo = hwMap.get(Servo.class, "launchServo");
         outtakeServo = hwMap.get(Servo.class, "outtakeServo");
 //        mosaicServo = hwMap.get(Servo.class, "mosaicServo");
         frontLeftDrive.setDirection(DcMotor.Direction.REVERSE);
@@ -56,7 +56,7 @@ public class HWMap extends Project{
         intakeMotor.setPower(0);
         slide1.setPower(0);
         slide2.setPower(0);
-        launchServo.setPower(0);
+        launchServo.setPosition(0);
         outtakeServo.setPosition(0);
 //        mosaicServo.setPosition(0);
     }

@@ -36,11 +36,11 @@ public class RedPropDetectionPipeline extends OpenCvPipeline {
             new Point(400, 720)
     );
     static final Rect middleROI = new Rect(
-            new Point( 0, 400),
+            new Point( 400, 0),
             new Point(840, 720)
     );
     static final Rect rightROI = new Rect(
-            new Point( 0, 0),
+            new Point( 840, 0),
             new Point(1280, 720)
     );
 

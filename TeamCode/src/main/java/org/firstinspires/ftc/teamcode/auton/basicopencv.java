@@ -186,7 +186,7 @@ public class basicopencv extends LinearOpMode {
                 } else {
                     telemetry.addLine("rip");
                     telemetry.update();
-                    location = "Middle";
+                    location = "Left";
                     sleep(500);
                 }
             }
@@ -284,10 +284,10 @@ public class basicopencv extends LinearOpMode {
         int bleft = robot.backLeftDrive.getCurrentPosition();
         int bright = robot.backRightDrive.getCurrentPosition();
         int fright = robot.frontRightDrive.getCurrentPosition();
-        robot.frontLeftDrive.setTargetPosition(fleft + 1500);
-        robot.frontRightDrive.setTargetPosition(fright - 1500);
-        robot.backLeftDrive.setTargetPosition(bleft + 1500);
-        robot.backRightDrive.setTargetPosition(bright - 1500);
+        robot.frontLeftDrive.setTargetPosition(fleft + 1250);
+        robot.frontRightDrive.setTargetPosition(fright - 1250);
+        robot.backLeftDrive.setTargetPosition(bleft + 1250);
+        robot.backRightDrive.setTargetPosition(bright - 1250);
         sleep(1000);
         robot.backRightDrive.setPower(0);
         robot.backLeftDrive.setPower(0);
@@ -398,31 +398,31 @@ public class basicopencv extends LinearOpMode {
             tile(0.3);
             robot.outtakeServo.setPosition(0);
             slideDown();
-            strafeLeft(2);
+            strafeRight(2);
             tile(-1.2);
         }
         if (location == "Right")
         {
-            tile(1.2);
+            tile(1.7);
             left90();
-            tile(0.12);
+            tile(0.05);
             sleep(100);
             pixelDown();
-            tile(-2.4);
+            tile(-2.6);
             outtake();
             tile(0.5);
             robot.outtakeServo.setPosition(0);
             slideDown();
-            strafeLeft(1.57);
+            strafeRight(1.9);
             tile(-1.4);
         }
         if (location == "Left")
         {
-            tile(1.2);
+            tile(1.7);
             sleep(100);
             left90();
             sleep(100);
-            tile(-1.3);
+            tile(-1.45);
             sleep(100);
             pixelDown();
             sleep(100);
@@ -436,13 +436,13 @@ public class basicopencv extends LinearOpMode {
             sleep(500);
             slideDown();
             sleep(100);
-            strafeLeft(2.05);
+            strafeRight(2.05);
             tile(-1.5);
         }
     }
     public void fBlue(String location) {
         if (location == "Left") {
-            tile(1.2);
+            tile(1.7);
             sleep(100);
             left90();
             sleep(100);
@@ -451,15 +451,15 @@ public class basicopencv extends LinearOpMode {
             pixelDown();
         }
         if (location == "Middle") {
-            tile(1.5);
+            tile(2);
+            tile(-0.39);
             pixelDown();
-            tile(-0.2);
 
         }
         if (location == "Right") {
-            tile(1.2);
+            tile(1.7);
             left90();
-            tile(0.12);
+            tile(0.05);
             sleep(100);
             pixelDown();
         }
@@ -473,20 +473,17 @@ public class basicopencv extends LinearOpMode {
             tile(-0.15);
         }
         if (location == "Left") {
-            tile(1.6);
+            tile(1.7);
             right90();
-            tile(0.2);
             sleep(100);
-
             pixelDown();
             tile(-0.15);
         }
         if (location == "Right") {
-            tile(1.9);
+            tile(1.7);
             sleep(100);
-            right90();
+            left90();
             sleep(100);
-            tile(-1.05);
             sleep(100);
             pixelDown();
             tile(-0.2);
@@ -513,7 +510,7 @@ public class basicopencv extends LinearOpMode {
         }
         if (location == "Left")
         {
-            tile(1.6);
+            tile(1.8);
             right90();
             tile(0.2);
             sleep(100);
@@ -530,7 +527,7 @@ public class basicopencv extends LinearOpMode {
         }
         if (location == "Right")
         {
-            tile(1.9);
+            tile(1.8);
             sleep(100);
             right90();
             sleep(100);
