@@ -48,7 +48,7 @@ public class TestTeleop extends LinearOpMode {
                     sleep(500);
                 }
             }
-            if (gamepad1.left_bumper == true)
+            if (gamepad1.right_bumper == true)
             {
                 double d = robot.launchServo.getPosition();
                 if (d == 0) {
@@ -59,21 +59,20 @@ public class TestTeleop extends LinearOpMode {
                     sleep(500);
                 }
             }
-
-//            if (gamepad1.left_bumper == true);
-//            {
-//                double e = robot.mosaicServo.getPosition();
-//                if (e == 0)
-//                {
-//                    robot.mosaicServo.setPosition(1);
-//                    sleep(800);
-//                }
-//                else if (e == 1)
-//                {
-//                    robot.mosaicServo.setPosition(0);
-//                    sleep(800);
-//                }
-//            }
+            if (gamepad1.left_bumper == true);
+            {
+                double e = robot.mosaicServo.getPosition();
+                if (e == 0)
+                {
+                    robot.mosaicServo.setPosition(1);
+                    sleep(800);
+                }
+                else if (e == 1)
+                {
+                    robot.mosaicServo.setPosition(0);
+                    sleep(800);
+                }
+            }
             if (gamepad1.a == true)
             {
                 robot.intakeMotor.setPower(1);
