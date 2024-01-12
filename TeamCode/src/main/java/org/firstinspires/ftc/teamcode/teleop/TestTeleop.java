@@ -10,8 +10,6 @@ import org.firstinspires.ftc.teamcode.Projects.HWMap;
 @TeleOp(name = "TestTeleop")
 public class TestTeleop extends LinearOpMode {
     public HWMap robot = new HWMap();
-
-
     @Override
     public void runOpMode() throws InterruptedException {
         robot.init(hardwareMap);
@@ -40,11 +38,14 @@ public class TestTeleop extends LinearOpMode {
 //             Teleop Code goes here         }
             if (gamepad1.y == true) {
                 double c = robot.outtakeServo.getPosition();
-                if (c == 0) {
+                double z = robot.outtakeServo2.getPosition();
+                if (c == 0 && z == 0) {
                     robot.outtakeServo.setPosition(1);
+                    robot.outtakeServo2.setPosition(1);
                     sleep(500);
-                } else if (c == 1) {
+                } else if (c == 1 && z == 1) {
                     robot.outtakeServo.setPosition(0);
+                    robot.outtakeServo2.setPosition(0);
                     sleep(500);
                 }
             }
@@ -87,8 +88,8 @@ public class TestTeleop extends LinearOpMode {
             }
             if (gamepad1.dpad_up == true)
             {
-                robot.slide1.setPower(0.7);
-                robot.slide2.setPower(0.7);
+                robot.slide1.setPower(1);
+                robot.slide2.setPower(1);
             }
             if (gamepad1.dpad_up == false)
             {
@@ -97,8 +98,8 @@ public class TestTeleop extends LinearOpMode {
             }
             if (gamepad1.dpad_down == true)
             {
-                robot.slide1.setPower(-0.7);
-                robot.slide2.setPower(-0.7);
+                robot.slide1.setPower(-1);
+                robot.slide2.setPower(-1);
             }
             else if (gamepad1.dpad_down == false)
             {

@@ -320,6 +320,7 @@ public class basicopencv extends LinearOpMode {
         robot.slide2.setTargetPosition(slidePos2 + 800);
         sleep(400);
         robot.outtakeServo.setPosition(1);
+        robot.outtakeServo2.setPosition(1);
         sleep(600);
         robot.slide1.setPower(1);
         robot.slide2.setPower(1);
@@ -397,6 +398,7 @@ public class basicopencv extends LinearOpMode {
             sleep(500);
             tile(0.3);
             robot.outtakeServo.setPosition(0);
+            robot.outtakeServo2.setPosition(0);
             slideDown();
             strafeRight(2);
             tile(-1.2);
@@ -412,6 +414,7 @@ public class basicopencv extends LinearOpMode {
             outtake();
             tile(0.5);
             robot.outtakeServo.setPosition(0);
+            robot.outtakeServo2.setPosition(0);
             slideDown();
             strafeRight(1.9);
             tile(-1.4);
@@ -433,6 +436,7 @@ public class basicopencv extends LinearOpMode {
             tile(0.5);
             sleep(100);
             robot.outtakeServo.setPosition(0);
+            robot.outtakeServo2.setPosition(0);
             sleep(500);
             slideDown();
             sleep(100);
@@ -504,6 +508,7 @@ public class basicopencv extends LinearOpMode {
             sleep(500);
             tile(0.3);
             robot.outtakeServo.setPosition(0);
+            robot.outtakeServo2.setPosition(0);
             slideDown();
             strafeLeft(2);
             tile(-1.2);
@@ -521,6 +526,7 @@ public class basicopencv extends LinearOpMode {
             outtake();
             tile(0.5);
             robot.outtakeServo.setPosition(0);
+            robot.outtakeServo2.setPosition(0);
             slideDown();
             strafeLeft(1.57);
             tile(-1.4);
@@ -542,6 +548,7 @@ public class basicopencv extends LinearOpMode {
             tile(0.5);
             sleep(100);
             robot.outtakeServo.setPosition(0);
+            robot.outtakeServo2.setPosition(0);
             sleep(500);
             slideDown();
             sleep(100);

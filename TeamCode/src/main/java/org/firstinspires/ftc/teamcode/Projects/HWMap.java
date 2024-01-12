@@ -17,6 +17,7 @@ public class HWMap extends Project{
     public Servo launchServo = null;
     public Servo outtakeServo = null;
     public Servo mosaicServo = null;
+    public Servo outtakeServo2;
     public DcMotor slide1 = null;
 
     public WebcamName camera = null;
@@ -32,13 +33,15 @@ public class HWMap extends Project{
         slide2 = hwMap.get(DcMotor.class, "rslide");
         launchServo = hwMap.get(Servo.class, "launchServo");
         outtakeServo = hwMap.get(Servo.class, "outtakeServo");
-//        mosaicServo = hwMap.get(Servo.class, "mosaicServo");
+        mosaicServo = hwMap.get(Servo.class, "mosaicServo");
+        outtakeServo2 = hwMap.get(Servo.class, "outtakeServo2");
         frontLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         frontRightDrive.setDirection(DcMotor.Direction.FORWARD);
         backLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         backRightDrive.setDirection(DcMotor.Direction.FORWARD);
         slide1.setDirection(DcMotor.Direction.FORWARD);
         slide2.setDirection(DcMotor.Direction.REVERSE);
+        outtakeServo2.setDirection(Servo.Direction.REVERSE);
         frontRightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         frontLeftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         backRightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
@@ -58,6 +61,7 @@ public class HWMap extends Project{
         slide2.setPower(0);
         launchServo.setPosition(0);
         outtakeServo.setPosition(0);
-//        mosaicServo.setPosition(0);
+        outtakeServo2.setPosition(0);
+        mosaicServo.setPosition(0);
     }
 }
