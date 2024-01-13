@@ -14,7 +14,7 @@ import org.firstinspires.ftc.teamcode.auton.RedPropDetectionPipeline.RedPropLoca
 import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
 
-@Autonomous(name = "hopefullythisworks")
+@Autonomous(name = "thisdefinitelywillwork")
 
 public class basicopencv extends LinearOpMode {
     enum Parking {
@@ -128,7 +128,7 @@ public class basicopencv extends LinearOpMode {
 
             telemetry.addData("Parking", var);
             telemetry.update();
-            sleep(1000);
+            sleep(500);
 
             if (robotPos == 1 || robotPos == 2) {
                 webcam.setPipeline(BluePropDetectionPipeline); // setting the pipeline
