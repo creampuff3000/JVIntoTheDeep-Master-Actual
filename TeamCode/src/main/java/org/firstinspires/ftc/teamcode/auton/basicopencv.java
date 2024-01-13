@@ -214,14 +214,14 @@ public class basicopencv extends LinearOpMode {
 
     public void slow(double tileNum)
     {
-        int fright = robot.frontRightDrive.getCurrentPosition();
-        int fleft = robot.frontLeftDrive.getCurrentPosition();
-        int bright = robot.backRightDrive.getCurrentPosition();
-        int bleft = robot.backLeftDrive.getCurrentPosition();
         robot.frontRightDrive.setPower(0.1);
         robot.frontLeftDrive.setPower(0.1);
         robot.backRightDrive.setPower(0.1);
         robot.backLeftDrive.setPower(0.1);
+        int fright = robot.frontRightDrive.getCurrentPosition();
+        int fleft = robot.frontLeftDrive.getCurrentPosition();
+        int bright = robot.backRightDrive.getCurrentPosition();
+        int bleft = robot.backLeftDrive.getCurrentPosition();
         robot.frontRightDrive.setTargetPosition((int)(fright + 1000 * tileNum));
         robot.frontLeftDrive.setTargetPosition((int)(fleft + 1000 * tileNum));
         robot.backRightDrive.setTargetPosition((int)(bright + 1000 * tileNum));
@@ -234,14 +234,14 @@ public class basicopencv extends LinearOpMode {
     }
     public void tile(double tileNum)
     {
-        int fright = robot.frontRightDrive.getCurrentPosition();
-        int fleft = robot.frontLeftDrive.getCurrentPosition();
-        int bright = robot.backRightDrive.getCurrentPosition();
-        int bleft = robot.backLeftDrive.getCurrentPosition();
         robot.frontRightDrive.setPower(0.84);
         robot.frontLeftDrive.setPower(0.8);
         robot.backRightDrive.setPower(0.84);
         robot.backLeftDrive.setPower(0.8);
+        int fright = robot.frontRightDrive.getCurrentPosition();
+        int fleft = robot.frontLeftDrive.getCurrentPosition();
+        int bright = robot.backRightDrive.getCurrentPosition();
+        int bleft = robot.backLeftDrive.getCurrentPosition();
         robot.frontRightDrive.setTargetPosition((int)(fright + 1000 * tileNum));
         robot.frontLeftDrive.setTargetPosition((int)(fleft + 1000 * tileNum));
         robot.backRightDrive.setTargetPosition((int)(bright + 1000 * tileNum));
