@@ -182,7 +182,6 @@ public class basicopencv extends LinearOpMode {
                     location = "Middle";
                     sleep(500);
 
-
                 } else {
                     telemetry.addLine("rip");
                     telemetry.update();
@@ -252,48 +251,83 @@ public class basicopencv extends LinearOpMode {
         robot.frontRightDrive.setPower(0);
         robot.frontLeftDrive.setPower(0);
     }
-    public void right90()
+//    public void right90()
+//    {
+//        sleep(100);
+//        robot.frontLeftDrive.setPower(0.7);
+//        robot.frontRightDrive.setPower(0.7);
+//        robot.backLeftDrive.setPower(0.7);
+//        robot.backRightDrive.setPower(0.7);
+//        int fleft = robot.frontLeftDrive.getCurrentPosition();
+//        int bleft = robot.backLeftDrive.getCurrentPosition();
+//        int bright = robot.backRightDrive.getCurrentPosition();
+//        int fright = robot.frontRightDrive.getCurrentPosition();
+//        robot.frontLeftDrive.setTargetPosition(fleft + 1275);
+//        robot.frontRightDrive.setTargetPosition(fright - 1275);
+//        robot.backLeftDrive.setTargetPosition(bleft + 1275);
+//        robot.backRightDrive.setTargetPosition(bright - 1275);
+//        sleep(2000);
+//        robot.backRightDrive.setPower(0);
+//        robot.backLeftDrive.setPower(0);
+//        robot.frontRightDrive.setPower(0);
+//        robot.frontLeftDrive.setPower(0);
+//    }
+    public void turn(String direction, double degrees)
     {
-        sleep(100);
-        robot.frontLeftDrive.setPower(0.7);
-        robot.frontRightDrive.setPower(0.7);
-        robot.backLeftDrive.setPower(0.7);
-        robot.backRightDrive.setPower(0.7);
-        int fleft = robot.frontLeftDrive.getCurrentPosition();
-        int bleft = robot.backLeftDrive.getCurrentPosition();
-        int bright = robot.backRightDrive.getCurrentPosition();
-        int fright = robot.frontRightDrive.getCurrentPosition();
-        robot.frontLeftDrive.setTargetPosition(fleft + 1275);
-        robot.frontRightDrive.setTargetPosition(fright - 1275);
-        robot.backLeftDrive.setTargetPosition(bleft + 1275);
-        robot.backRightDrive.setTargetPosition(bright - 1275);
-        sleep(2000);
-        robot.backRightDrive.setPower(0);
-        robot.backLeftDrive.setPower(0);
-        robot.frontRightDrive.setPower(0);
-        robot.frontLeftDrive.setPower(0);
+        if (direction == "left")
+        {
+            robot.frontLeftDrive.setPower(0.7);
+            robot.frontRightDrive.setPower(0.7);
+            robot.backLeftDrive.setPower(0.7);
+            robot.backRightDrive.setPower(0.7);
+            int fleft = robot.frontLeftDrive.getCurrentPosition();
+            int bleft = robot.backLeftDrive.getCurrentPosition();
+            int bright = robot.backRightDrive.getCurrentPosition();
+            int fright = robot.frontRightDrive.getCurrentPosition();
+            robot.frontLeftDrive.setTargetPosition((int)(fleft - 14.33333 * degrees));
+            robot.frontRightDrive.setTargetPosition((int)(fright + 14.33333 * degrees));
+            robot.backLeftDrive.setTargetPosition((int)(bleft - 14.33333 * degrees));
+            robot.backRightDrive.setTargetPosition((int)(bright + 14.33333 * degrees));
+            // remember to sleep
+        }
+        if (direction == "right")
+        {
+            robot.frontLeftDrive.setPower(0.7);
+            robot.frontRightDrive.setPower(0.7);
+            robot.backLeftDrive.setPower(0.7);
+            robot.backRightDrive.setPower(0.7);
+            int fleft = robot.frontLeftDrive.getCurrentPosition();
+            int bleft = robot.backLeftDrive.getCurrentPosition();
+            int bright = robot.backRightDrive.getCurrentPosition();
+            int fright = robot.frontRightDrive.getCurrentPosition();
+            robot.frontLeftDrive.setTargetPosition((int)(fleft + 14.33333 * degrees));
+            robot.frontRightDrive.setTargetPosition((int)(fright - 14.33333 * degrees));
+            robot.backLeftDrive.setTargetPosition((int)(bleft + 14.33333 * degrees));
+            robot.backRightDrive.setTargetPosition((int)(bright - 14.33333 * degrees));
+            // remember to sleep
+        }
     }
-    public void left90()
-    {
-        sleep(100);
-        robot.frontLeftDrive.setPower(0.7);
-        robot.frontRightDrive.setPower(0.7);
-        robot.backLeftDrive.setPower(0.7);
-        robot.backRightDrive.setPower(0.7);
-        int fleft = robot.frontLeftDrive.getCurrentPosition();
-        int bleft = robot.backLeftDrive.getCurrentPosition();
-        int bright = robot.backRightDrive.getCurrentPosition();
-        int fright = robot.frontRightDrive.getCurrentPosition();
-        robot.frontLeftDrive.setTargetPosition(fleft - 1275);
-        robot.frontRightDrive.setTargetPosition(fright + 1275);
-        robot.backLeftDrive.setTargetPosition(bleft - 1275);
-        robot.backRightDrive.setTargetPosition(bright + 1275);
-        sleep(1000);
-        robot.backRightDrive.setPower(0);
-        robot.backLeftDrive.setPower(0);
-        robot.frontRightDrive.setPower(0);
-        robot.frontLeftDrive.setPower(0);
-    }
+//    public void left90()
+//    {
+//        sleep(100);
+//        robot.frontLeftDrive.setPower(0.7);
+//        robot.frontRightDrive.setPower(0.7);
+//        robot.backLeftDrive.setPower(0.7);
+//        robot.backRightDrive.setPower(0.7);
+//        int fleft = robot.frontLeftDrive.getCurrentPosition();
+//        int bleft = robot.backLeftDrive.getCurrentPosition();
+//        int bright = robot.backRightDrive.getCurrentPosition();
+//        int fright = robot.frontRightDrive.getCurrentPosition();
+//        robot.frontLeftDrive.setTargetPosition(fleft - 1275);
+//        robot.frontRightDrive.setTargetPosition(fright + 1275);
+//        robot.backLeftDrive.setTargetPosition(bleft - 1275);
+//        robot.backRightDrive.setTargetPosition(bright + 1275);
+//        sleep(1000);
+//        robot.backRightDrive.setPower(0);
+//        robot.backLeftDrive.setPower(0);
+//        robot.frontRightDrive.setPower(0);
+//        robot.frontLeftDrive.setPower(0);
+//    }
     public void pixelDown()
     {
         robot.backRightDrive.setPower(0);
@@ -392,7 +426,7 @@ public class basicopencv extends LinearOpMode {
             tile(-0.39);
             pixelDown();
             tile(-0.36);
-            left90();
+            turn("left", 90);
             tile(-2.85);
             outtake();
             sleep(500);
@@ -406,7 +440,7 @@ public class basicopencv extends LinearOpMode {
         if (location == "Right")
         {
             tile(1.7);
-            left90();
+            turn("left", 90);
             tile(0.05);
             sleep(100);
             pixelDown();
@@ -423,7 +457,7 @@ public class basicopencv extends LinearOpMode {
         {
             tile(1.7);
             sleep(100);
-            left90();
+            turn("left", 90);
             sleep(100);
             tile(-1.45);
             sleep(100);
@@ -482,7 +516,7 @@ public class basicopencv extends LinearOpMode {
                     }
                     if (location == "Left") {
                         tile(1.7);
-                        right90();
+                        turn("right", 90);
                         sleep(100);
                         pixelDown();
                         tile(-0.15);
@@ -490,7 +524,7 @@ public class basicopencv extends LinearOpMode {
                     if (location == "Right") {
                         tile(1.7);
                         sleep(100);
-                        left90();
+                        turn("left", 90);
                         sleep(100);
                         sleep(100);
                         pixelDown();
@@ -505,7 +539,7 @@ public class basicopencv extends LinearOpMode {
                         tile(-0.35);
                         pixelDown();
                         tile(-0.3);
-                        right90();
+                        turn("right", 90);
                         tile(-2.85);
                         outtake();
                         sleep(500);
@@ -518,7 +552,7 @@ public class basicopencv extends LinearOpMode {
                     }
                     if (location == "Left") {
                         tile(1.8);
-                        right90();
+                        turn("right", 90);
                         tile(0.2);
                         sleep(100);
 
@@ -536,7 +570,7 @@ public class basicopencv extends LinearOpMode {
                     if (location == "Right") {
                         tile(1.8);
                         sleep(100);
-                        right90();
+                        turn("right", 90);
                         sleep(100);
                         tile(-1.2);
                         sleep(100);
