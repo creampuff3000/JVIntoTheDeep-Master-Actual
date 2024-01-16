@@ -56,8 +56,8 @@ public class RedPropDetectionPipeline extends OpenCvPipeline {
         Imgproc.cvtColor(input, mat, Imgproc.COLOR_RGB2HSV);
 
         //define HSV range to identify the color red
-        Scalar lowHSV = new Scalar (0,130,130);
-        Scalar highHSV = new Scalar(10,255,250);
+        Scalar lowHSV = new Scalar (0,100,130);
+        Scalar highHSV = new Scalar(3,255,250);
         //applies a threshold (everything that is red will be white,
         // everything else will be black)
         //returns a new mat with this threshold

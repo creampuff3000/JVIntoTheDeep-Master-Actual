@@ -60,8 +60,8 @@ public class BluePropDetectionPipeline extends OpenCvPipeline {
         Imgproc.cvtColor(input, mat, Imgproc.COLOR_RGB2HSV);
 
         //define HSV range to identify the color blue
-        Scalar lowHSV = new Scalar (100,150,100);
-        Scalar highHSV = new Scalar(255,255,200);
+        Scalar lowHSV = new Scalar (115,180,100);
+        Scalar highHSV = new Scalar (225,255,230);
 
         //applies a threshold (everything that is blue will be white,
         // everything else will be black)

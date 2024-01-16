@@ -242,10 +242,10 @@ public class basicopencv extends LinearOpMode {
         int fleft = robot.frontLeftDrive.getCurrentPosition();
         int bright = robot.backRightDrive.getCurrentPosition();
         int bleft = robot.backLeftDrive.getCurrentPosition();
-        robot.frontRightDrive.setTargetPosition((int)(fright + 1000 * tileNum));
-        robot.frontLeftDrive.setTargetPosition((int)(fleft + 1000 * tileNum));
-        robot.backRightDrive.setTargetPosition((int)(bright + 1000 * tileNum));
-        robot.backLeftDrive.setTargetPosition((int)(bleft + 1000 * tileNum));
+        robot.frontRightDrive.setTargetPosition((int)(fright + 1175 * tileNum));
+        robot.frontLeftDrive.setTargetPosition((int)(fleft + 1175 * tileNum));
+        robot.backRightDrive.setTargetPosition((int)(bright + 1175 * tileNum));
+        robot.backLeftDrive.setTargetPosition((int)(bleft + 1175 * tileNum));
         sleep(Math.abs((long)(1000 * tileNum)));
         robot.backRightDrive.setPower(0);
         robot.backLeftDrive.setPower(0);
@@ -263,11 +263,11 @@ public class basicopencv extends LinearOpMode {
         int bleft = robot.backLeftDrive.getCurrentPosition();
         int bright = robot.backRightDrive.getCurrentPosition();
         int fright = robot.frontRightDrive.getCurrentPosition();
-        robot.frontLeftDrive.setTargetPosition(fleft - 1300);
-        robot.frontRightDrive.setTargetPosition(fright + 1300);
-        robot.backLeftDrive.setTargetPosition(bleft - 1300);
-        robot.backRightDrive.setTargetPosition(bright + 1300);
-        sleep(1000);
+        robot.frontLeftDrive.setTargetPosition(fleft + 1275);
+        robot.frontRightDrive.setTargetPosition(fright - 1275);
+        robot.backLeftDrive.setTargetPosition(bleft + 1275);
+        robot.backRightDrive.setTargetPosition(bright - 1275);
+        sleep(2000);
         robot.backRightDrive.setPower(0);
         robot.backLeftDrive.setPower(0);
         robot.frontRightDrive.setPower(0);
@@ -284,10 +284,10 @@ public class basicopencv extends LinearOpMode {
         int bleft = robot.backLeftDrive.getCurrentPosition();
         int bright = robot.backRightDrive.getCurrentPosition();
         int fright = robot.frontRightDrive.getCurrentPosition();
-        robot.frontLeftDrive.setTargetPosition(fleft + 1250);
-        robot.frontRightDrive.setTargetPosition(fright - 1250);
-        robot.backLeftDrive.setTargetPosition(bleft + 1250);
-        robot.backRightDrive.setTargetPosition(bright - 1250);
+        robot.frontLeftDrive.setTargetPosition(fleft - 1275);
+        robot.frontRightDrive.setTargetPosition(fright + 1275);
+        robot.backLeftDrive.setTargetPosition(bleft - 1275);
+        robot.backRightDrive.setTargetPosition(bright + 1275);
         sleep(1000);
         robot.backRightDrive.setPower(0);
         robot.backLeftDrive.setPower(0);
@@ -316,7 +316,7 @@ public class basicopencv extends LinearOpMode {
         int slidePos2 = robot.slide2.getCurrentPosition();
         robot.slide1.setPower(0.7);
         robot.slide2.setPower(0.7);
-        robot.slide1.setTargetPosition(slidePos1 + 800);
+        robot.slide1.setTargetPosition(slidePos1 + 800);  //if change this, change slideDown as well
         robot.slide2.setTargetPosition(slidePos2 + 800);
         sleep(400);
         robot.outtakeServo.setPosition(1);
@@ -354,10 +354,10 @@ public class basicopencv extends LinearOpMode {
         int bleft = robot.backLeftDrive.getCurrentPosition();
         int bright = robot.backRightDrive.getCurrentPosition();
         int fright = robot.frontRightDrive.getCurrentPosition();
-        robot.frontLeftDrive.setTargetPosition((int) (fleft - 1000 * tileNum));
-        robot.frontRightDrive.setTargetPosition((int) (fright + 1000 * tileNum));;
-        robot.backLeftDrive.setTargetPosition((int) (bleft + 1000 * tileNum));
-        robot.backRightDrive.setTargetPosition((int)(bright - 1000 * tileNum));
+        robot.frontLeftDrive.setTargetPosition((int) (fleft - 1700 * tileNum));
+        robot.frontRightDrive.setTargetPosition((int) (fright + 1700 * tileNum));;
+        robot.backLeftDrive.setTargetPosition((int) (bleft + 1530 * tileNum));
+        robot.backRightDrive.setTargetPosition((int)(bright - 1530 * tileNum));
         sleep(1500);
         robot.backRightDrive.setPower(0);
         robot.backLeftDrive.setPower(0);
@@ -374,11 +374,11 @@ public class basicopencv extends LinearOpMode {
         int bleft = robot.backLeftDrive.getCurrentPosition();
         int bright = robot.backRightDrive.getCurrentPosition();
         int fright = robot.frontRightDrive.getCurrentPosition();
-        robot.frontLeftDrive.setTargetPosition((int) (fleft + 1000 * tileNum));
-        robot.frontRightDrive.setTargetPosition((int) (fright - 1000 * tileNum));;
-        robot.backLeftDrive.setTargetPosition((int) (bleft - 1000 * tileNum));
-        robot.backRightDrive.setTargetPosition((int)(bright + 1000 * tileNum));
-        sleep(500);
+        robot.frontLeftDrive.setTargetPosition((int) (fleft + 1700 * tileNum));
+        robot.frontRightDrive.setTargetPosition((int) (fright - 1700 * tileNum));;
+        robot.backLeftDrive.setTargetPosition((int) (bleft - 1500 * tileNum));
+        robot.backRightDrive.setTargetPosition((int)(bright + 1500 * tileNum));
+        sleep(Math.abs((long)(1500 * tileNum)));
         robot.backRightDrive.setPower(0);
         robot.backLeftDrive.setPower(0);
         robot.frontRightDrive.setPower(0);
@@ -445,116 +445,117 @@ public class basicopencv extends LinearOpMode {
         }
     }
     public void fBlue(String location) {
+
         if (location == "Left") {
-            tile(1.7);
-            sleep(100);
-            left90();
-            sleep(100);
-            tile(-1.45);
-            sleep(100);
-            pixelDown();
-        }
-        if (location == "Middle") {
-            tile(2);
-            tile(-0.39);
-            pixelDown();
 
+//            tile(1.7);
+//            sleep(100);
+//            left90();
+//            sleep(100);
+//           tile(-1.45);
+//            sleep(100);
+//            pixelDown();
+ }
+            if (location == "Middle") {
+                strafeLeft(1);
+//            tile(2);
+//            tile(-0.39);
+//            pixelDown();
+//
         }
-        if (location == "Right") {
-            tile(1.7);
-            left90();
-            tile(0.05);
-            sleep(100);
-            pixelDown();
+                if (location == "Right") {
+//            tile(1.7);
+//            left90();
+//            tile(0.05);
+//            sleep(100);
+//            pixelDown();
         }
-    }
-    public void fRed(String location)
-    {
-        if (location == "Middle") {
-            tile(2);
-            tile(-0.35);
-            pixelDown();
-            tile(-0.15);
-        }
-        if (location == "Left") {
-            tile(1.7);
-            right90();
-            sleep(100);
-            pixelDown();
-            tile(-0.15);
-        }
-        if (location == "Right") {
-            tile(1.7);
-            sleep(100);
-            left90();
-            sleep(100);
-            sleep(100);
-            pixelDown();
-            tile(-0.2);
-        }
+//    }
+                }
+                public void fRed (String location)
+                {
+                    if (location == "Middle") {
+                        tile(2);
+                        tile(-0.35);
+                        pixelDown();
+                        tile(-0.15);
+                    }
+                    if (location == "Left") {
+                        tile(1.7);
+                        right90();
+                        sleep(100);
+                        pixelDown();
+                        tile(-0.15);
+                    }
+                    if (location == "Right") {
+                        tile(1.7);
+                        sleep(100);
+                        left90();
+                        sleep(100);
+                        sleep(100);
+                        pixelDown();
+                        tile(-0.2);
+                    }
 
-    }
-    public void bRed(String location)
-    {
-        if (location == "Middle")
-        {
-            tile(2);
-            tile(-0.35);
-            pixelDown();
-            tile(-0.3);
-            right90();
-            tile(-2.85);
-            outtake();
-            sleep(500);
-            tile(0.3);
-            robot.outtakeServo.setPosition(0);
-            robot.outtakeServo2.setPosition(0);
-            slideDown();
-            strafeLeft(2);
-            tile(-1.2);
-        }
-        if (location == "Left")
-        {
-            tile(1.8);
-            right90();
-            tile(0.2);
-            sleep(100);
+                }
+                public void bRed (String location)
+                {
+                    if (location == "Middle") {
+                        tile(2);
+                        tile(-0.35);
+                        pixelDown();
+                        tile(-0.3);
+                        right90();
+                        tile(-2.85);
+                        outtake();
+                        sleep(500);
+                        tile(0.3);
+                        robot.outtakeServo.setPosition(0);
+                        robot.outtakeServo2.setPosition(0);
+                        slideDown();
+                        strafeLeft(2);
+                        tile(-1.2);
+                    }
+                    if (location == "Left") {
+                        tile(1.8);
+                        right90();
+                        tile(0.2);
+                        sleep(100);
 
-            pixelDown();
-            tile(-1.5);
-            tile(-1.2);
-            outtake();
-            tile(0.5);
-            robot.outtakeServo.setPosition(0);
-            robot.outtakeServo2.setPosition(0);
-            slideDown();
-            strafeLeft(1.57);
-            tile(-1.4);
-        }
-        if (location == "Right")
-        {
-            tile(1.8);
-            sleep(100);
-            right90();
-            sleep(100);
-            tile(-1.2);
-            sleep(100);
-            pixelDown();
-            sleep(100);
-            tile(-2.365);
-            sleep(100);
-            outtake();
-            sleep(300);
-            tile(0.5);
-            sleep(100);
-            robot.outtakeServo.setPosition(0);
-            robot.outtakeServo2.setPosition(0);
-            sleep(500);
-            slideDown();
-            sleep(100);
-            strafeLeft(2.05);
-            tile(-1.5);
-        }
-    }
-}
+                        pixelDown();
+                        tile(-1.5);
+                        tile(-1.2);
+                        outtake();
+                        tile(0.5);
+                        robot.outtakeServo.setPosition(0);
+                        robot.outtakeServo2.setPosition(0);
+                        slideDown();
+                        strafeLeft(1.57);
+                        tile(-1.4);
+                    }
+                    if (location == "Right") {
+                        tile(1.8);
+                        sleep(100);
+                        right90();
+                        sleep(100);
+                        tile(-1.2);
+                        sleep(100);
+                        pixelDown();
+                        sleep(100);
+                        tile(-2.365);
+                        sleep(100);
+                        outtake();
+                        sleep(300);
+                        tile(0.5);
+                        sleep(100);
+                        robot.outtakeServo.setPosition(0);
+                        robot.outtakeServo2.setPosition(0);
+                        sleep(500);
+                        slideDown();
+                        sleep(100);
+                        strafeLeft(2.05);
+                        tile(-1.5);
+                    }
+                }
+            }
 

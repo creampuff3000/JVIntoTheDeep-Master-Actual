@@ -46,6 +46,10 @@ public class HWMap extends Project{
         frontLeftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         backRightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         backLeftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        frontRightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        backRightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        frontLeftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        backLeftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         slide1.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         slide1.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         camera = hwMap.get(WebcamName.class, "webcam");
@@ -62,6 +66,6 @@ public class HWMap extends Project{
         launchServo.setPosition(0);
         outtakeServo.setPosition(0);
         outtakeServo2.setPosition(0);
-        mosaicServo.setPosition(0);
+        mosaicServo.setPosition(1); // 1 is the right position for mosaicServo
     }
 }
