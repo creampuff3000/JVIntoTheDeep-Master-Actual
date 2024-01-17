@@ -10,11 +10,11 @@ import org.firstinspires.ftc.teamcode.Projects.HWMap;
 @TeleOp(name = "TestTeleop")
 public class TestTeleop extends LinearOpMode {
     public HWMap robot = new HWMap();
+
     @Override
     public void runOpMode() throws InterruptedException {
         robot.init(hardwareMap);
         double speed = .9;
-
 
 
         waitForStart();
@@ -39,7 +39,7 @@ public class TestTeleop extends LinearOpMode {
             robot.frontRightDrive.setPower(frontRightPower * speed);
             robot.backRightDrive.setPower(backRightPower * speed);
 //             Teleop Code goes here         }
-            if (gamepad1.y == true) {
+            if (gamepad2.y == true) {
                 double c = robot.outtakeServo.getPosition();
                 double z = robot.outtakeServo2.getPosition();
                 if (c == 0 && z == 0) {
@@ -52,8 +52,7 @@ public class TestTeleop extends LinearOpMode {
                     sleep(500);
                 }
             }
-            if (gamepad1.right_bumper == true)
-            {
+            if (gamepad1.right_bumper == true) {
                 double d = robot.launchServo.getPosition();
                 if (d == 0) {
                     robot.launchServo.setPosition(1);
@@ -63,54 +62,41 @@ public class TestTeleop extends LinearOpMode {
                     sleep(500);
                 }
             }
-            if (gamepad1.left_bumper == true)
-            {
+            if (gamepad1.left_bumper == true) {
                 double e = robot.mosaicServo.getPosition();
-                if (e == 0)
-                {
+                if (e == 0) {
                     robot.mosaicServo.setPosition(1);
 
                     sleep(800);
-                }
-                else if (e == 1)
-                {
+                } else if (e == 1) {
                     robot.mosaicServo.setPosition(0);
                     sleep(800);
                 }
             }
-            if (gamepad1.a == true)
-            {
+            if (gamepad1.a == true) {
                 robot.intakeMotor.setPower(1);
             }
-            if (gamepad1.b == true)
-            {
+            if (gamepad1.b == true) {
                 robot.intakeMotor.setPower(0);
             }
-            if (gamepad1.x == true)
-            {
+            if (gamepad1.x == true) {
                 robot.intakeMotor.setPower(-0.5);
             }
-            if (gamepad1.dpad_up == true)
-            {
-                robot.slide1.setPower(-1);
-                robot.slide2.setPower(-1);
-            }
-            if (gamepad1.dpad_up == false)
-            {
-                robot.slide1.setPower(0);
-                robot.slide1.setPower(0);
-            }
-            if (gamepad1.dpad_down == true)
-            {
+            if (gamepad2.dpad_up == true) {
                 robot.slide1.setPower(1);
                 robot.slide2.setPower(1);
             }
-            else if (gamepad1.dpad_down == false)
-            {
+            if (gamepad2.dpad_down == true) {
+                robot.slide1.setPower(-1);
+                robot.slide2.setPower(-1);
+            } else {
                 robot.slide1.setPower(0);
                 robot.slide2.setPower(0);
             }
-
+//            if (gamepad2.a == true) {
+//                robot.slide1.setPower(-1);
+//                robot.slide2.setPower(-1);
+//            }
         }
     }
 }
