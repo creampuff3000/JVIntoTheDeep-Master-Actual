@@ -221,10 +221,10 @@ public class basicopencv extends LinearOpMode {
         int fleft = robot.frontLeftDrive.getCurrentPosition();
         int bright = robot.backRightDrive.getCurrentPosition();
         int bleft = robot.backLeftDrive.getCurrentPosition();
-        robot.frontRightDrive.setTargetPosition((int)(fright + 1000 * tileNum));
-        robot.frontLeftDrive.setTargetPosition((int)(fleft + 1000 * tileNum));
-        robot.backRightDrive.setTargetPosition((int)(bright + 1000 * tileNum));
-        robot.backLeftDrive.setTargetPosition((int)(bleft + 1000 * tileNum));
+        robot.frontRightDrive.setTargetPosition((int)(fright + 769.23 * tileNum));
+        robot.frontLeftDrive.setTargetPosition((int)(fleft + 769.23 * tileNum));
+        robot.backRightDrive.setTargetPosition((int)(bright + 769.23 * tileNum));
+        robot.backLeftDrive.setTargetPosition((int)(bleft + 769.23 * tileNum));
         sleep(1000);
         robot.backRightDrive.setPower(0);
         robot.backLeftDrive.setPower(0);
@@ -241,10 +241,10 @@ public class basicopencv extends LinearOpMode {
         int fleft = robot.frontLeftDrive.getCurrentPosition();
         int bright = robot.backRightDrive.getCurrentPosition();
         int bleft = robot.backLeftDrive.getCurrentPosition();
-        robot.frontRightDrive.setTargetPosition((int)(fright + 1175 * tileNum));
-        robot.frontLeftDrive.setTargetPosition((int)(fleft + 1175 * tileNum));
-        robot.backRightDrive.setTargetPosition((int)(bright + 1175 * tileNum));
-        robot.backLeftDrive.setTargetPosition((int)(bleft + 1175 * tileNum));
+        robot.frontRightDrive.setTargetPosition((int)(fright + 903.846 * tileNum));
+        robot.frontLeftDrive.setTargetPosition((int)(fleft + 903.846 * tileNum));
+        robot.backRightDrive.setTargetPosition((int)(bright + 903.846 * tileNum));
+        robot.backLeftDrive.setTargetPosition((int)(bleft + 903.846 * tileNum));
         sleep(Math.abs((long)(1000 * tileNum)));
         robot.backRightDrive.setPower(0);
         robot.backLeftDrive.setPower(0);
@@ -284,10 +284,10 @@ public class basicopencv extends LinearOpMode {
             int bleft = robot.backLeftDrive.getCurrentPosition();
             int bright = robot.backRightDrive.getCurrentPosition();
             int fright = robot.frontRightDrive.getCurrentPosition();
-            robot.frontLeftDrive.setTargetPosition((int)(fleft - 14.33333 * degrees));
-            robot.frontRightDrive.setTargetPosition((int)(fright + 14.33333 * degrees));
-            robot.backLeftDrive.setTargetPosition((int)(bleft - 14.33333 * degrees));
-            robot.backRightDrive.setTargetPosition((int)(bright + 14.33333 * degrees));
+            robot.frontLeftDrive.setTargetPosition((int)(fleft - 11.0256384615 * degrees));
+            robot.frontRightDrive.setTargetPosition((int)(fright + 11.0256384615 * degrees));
+            robot.backLeftDrive.setTargetPosition((int)(bleft - 11.0256384615 * degrees));
+            robot.backRightDrive.setTargetPosition((int)(bright + 11.0256384615 * degrees));
             // remember to sleep
         }
         if (direction == "right")
@@ -300,10 +300,10 @@ public class basicopencv extends LinearOpMode {
             int bleft = robot.backLeftDrive.getCurrentPosition();
             int bright = robot.backRightDrive.getCurrentPosition();
             int fright = robot.frontRightDrive.getCurrentPosition();
-            robot.frontLeftDrive.setTargetPosition((int)(fleft + 14.33333 * degrees));
-            robot.frontRightDrive.setTargetPosition((int)(fright - 14.33333 * degrees));
-            robot.backLeftDrive.setTargetPosition((int)(bleft + 14.33333 * degrees));
-            robot.backRightDrive.setTargetPosition((int)(bright - 14.33333 * degrees));
+            robot.frontLeftDrive.setTargetPosition((int)(fleft + 11.0256384615 * degrees));
+            robot.frontRightDrive.setTargetPosition((int)(fright - 11.0256384615 * degrees));
+            robot.backLeftDrive.setTargetPosition((int)(bleft + 11.0256384615 * degrees));
+            robot.backRightDrive.setTargetPosition((int)(bright - 11.0256384615 * degrees));
             // remember to sleep
         }
     }
@@ -388,10 +388,10 @@ public class basicopencv extends LinearOpMode {
         int bleft = robot.backLeftDrive.getCurrentPosition();
         int bright = robot.backRightDrive.getCurrentPosition();
         int fright = robot.frontRightDrive.getCurrentPosition();
-        robot.frontLeftDrive.setTargetPosition((int) (fleft - 1700 * tileNum));
-        robot.frontRightDrive.setTargetPosition((int) (fright + 1700 * tileNum));;
-        robot.backLeftDrive.setTargetPosition((int) (bleft + 1530 * tileNum));
-        robot.backRightDrive.setTargetPosition((int)(bright - 1530 * tileNum));
+        robot.frontLeftDrive.setTargetPosition((int) (fleft - 1307.692 * tileNum));
+        robot.frontRightDrive.setTargetPosition((int) (fright + 1307.692 * tileNum));;
+        robot.backLeftDrive.setTargetPosition((int) (bleft + 1153.846 * tileNum));
+        robot.backRightDrive.setTargetPosition((int)(bright - 1153.846 * tileNum));
         sleep(1500);
         robot.backRightDrive.setPower(0);
         robot.backLeftDrive.setPower(0);
@@ -400,18 +400,18 @@ public class basicopencv extends LinearOpMode {
     }
     public void strafeRight(double tileNum)
     {
-        robot.frontLeftDrive.setPower(0.7);
+        robot.frontLeftDrive.setPower(0.5);
         robot.frontRightDrive.setPower(-0.7);
-        robot.backRightDrive.setPower(0.7);
+        robot.backRightDrive.setPower(0.5);
         robot.backLeftDrive.setPower(-0.7);
         int fleft = robot.frontLeftDrive.getCurrentPosition();
         int bleft = robot.backLeftDrive.getCurrentPosition();
         int bright = robot.backRightDrive.getCurrentPosition();
         int fright = robot.frontRightDrive.getCurrentPosition();
-        robot.frontLeftDrive.setTargetPosition((int) (fleft + 1700 * tileNum));
-        robot.frontRightDrive.setTargetPosition((int) (fright - 1700 * tileNum));;
-        robot.backLeftDrive.setTargetPosition((int) (bleft - 1500 * tileNum));
-        robot.backRightDrive.setTargetPosition((int)(bright + 1500 * tileNum));
+        robot.frontLeftDrive.setTargetPosition((int) (fleft + 1307.692 * tileNum));
+        robot.frontRightDrive.setTargetPosition((int) (fright - 1307.692 * tileNum));;
+        robot.backLeftDrive.setTargetPosition((int) (bleft - 1153.846 * tileNum));
+        robot.backRightDrive.setTargetPosition((int)(bright + 1153.846 * tileNum));
         sleep(Math.abs((long)(1500 * tileNum)));
         robot.backRightDrive.setPower(0);
         robot.backLeftDrive.setPower(0);
