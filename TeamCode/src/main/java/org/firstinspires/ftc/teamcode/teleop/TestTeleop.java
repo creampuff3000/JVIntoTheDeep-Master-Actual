@@ -40,16 +40,19 @@ public class TestTeleop extends LinearOpMode {
             robot.backRightDrive.setPower(backRightPower * speed);
 //             Teleop Code goes here         }
             if (gamepad2.y == true) {
-                double c = robot.outtakeServo.getPosition();
-                double z = robot.outtakeServo2.getPosition();
-                if (c == 0 && z == 0) {
+                double outtake1Pos = robot.outtakeServo.getPosition();
+                double outtake2Pos = robot.outtakeServo2.getPosition();
+                if (outtake1Pos == 0 && outtake2Pos == 0) {
                     robot.outtakeServo.setPosition(1);
                     robot.outtakeServo2.setPosition(1);
                     sleep(500);
-                } else if (c == 1 && z == 1) {
+                } else if (outtake1Pos == 1 && outtake2Pos == 1) {
                     robot.outtakeServo.setPosition(0);
                     robot.outtakeServo2.setPosition(0);
                     sleep(500);
+                } else if (outtake1Pos == 1 && outtake2Pos == 0 | outtake1Pos == 0 && outtake2Pos == 1){
+                    telemetry.addLine("rip");
+                    telemetry.update();
                 }
             }
             if (gamepad1.right_bumper == true) {
@@ -66,7 +69,6 @@ public class TestTeleop extends LinearOpMode {
                 double e = robot.mosaicServo.getPosition();
                 if (e == 0) {
                     robot.mosaicServo.setPosition(1);
-
                     sleep(800);
                 } else if (e == 1) {
                     robot.mosaicServo.setPosition(0);
