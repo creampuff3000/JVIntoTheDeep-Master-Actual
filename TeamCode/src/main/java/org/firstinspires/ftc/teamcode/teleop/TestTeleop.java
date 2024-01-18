@@ -20,7 +20,7 @@ public class TestTeleop extends LinearOpMode {
         double speed = 1;
         while (opModeIsActive()) {
             double pee = 0;
-            if (gamepad1.left_trigger == 1)
+            if (gamepad1.left_bumper == true)
             {
                 if (pee == 0)
                 {
@@ -61,7 +61,7 @@ public class TestTeleop extends LinearOpMode {
             robot.backRightDrive.setPower(backRightPower * speed);
 
 
-            if (gamepad2.y == true) {
+            if (gamepad2.right_trigger == 1) {
                 double outtake1Pos = robot.outtakeServo.getPosition();
                 double outtake2Pos = robot.outtakeServo2.getPosition();
                 if (outtake1Pos == 0 && outtake2Pos == 0) {
@@ -87,7 +87,7 @@ public class TestTeleop extends LinearOpMode {
                     sleep(500);
                 }
             }
-            if (gamepad1.left_bumper == true) {
+            if (gamepad1.y == true) {
                 double e = robot.mosaicServo.getPosition();
                 if (e == 0) {
                     robot.mosaicServo.setPosition(1);

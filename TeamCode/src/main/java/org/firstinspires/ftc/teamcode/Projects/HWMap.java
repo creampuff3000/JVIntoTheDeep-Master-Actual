@@ -51,7 +51,7 @@ public class HWMap extends Project{
         frontLeftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backLeftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         slide1.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        slide1.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        slide2.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         camera = hwMap.get(WebcamName.class, "webcam");
         Stop();
     }
