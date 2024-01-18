@@ -14,12 +14,33 @@ public class TestTeleop extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         robot.init(hardwareMap);
-        double speed = 1;
-
-
+        boolean slowMode = false;
         waitForStart();
         boolean isSpinning = false;
+        double speed = 1;
         while (opModeIsActive()) {
+            double pee = 0;
+            if (gamepad1.left_trigger == 1)
+            {
+                if (pee == 0)
+                {
+                    slowMode = true;
+                    pee = 1;
+                }
+                if (pee == 1)
+                {
+                    slowMode = false;
+                    pee = 0;
+                }
+            }
+            if (slowMode == true)
+            {
+                speed = 0.1;
+            }
+            else
+            {
+                speed = 1;
+            }
             boolean aButtonHeld = false;
             double y = -gamepad1.left_stick_y; // Remember, this is reversed!
             double x = -gamepad1.left_stick_x * 1.1; // Counteract imperfect strafing
@@ -38,7 +59,8 @@ public class TestTeleop extends LinearOpMode {
             robot.backLeftDrive.setPower(backLeftPower * speed);
             robot.frontRightDrive.setPower(frontRightPower * speed);
             robot.backRightDrive.setPower(backRightPower * speed);
-//             Teleop Code goes here         }
+
+
             if (gamepad2.y == true) {
                 double outtake1Pos = robot.outtakeServo.getPosition();
                 double outtake2Pos = robot.outtakeServo2.getPosition();
@@ -96,10 +118,6 @@ public class TestTeleop extends LinearOpMode {
                 robot.slide1.setPower(0);
                 robot.slide2.setPower(0);
             }
-//            if (gamepad2.a == true) {
-//                robot.slide1.setPower(-1);
-//                robot.slide2.setPower(-1);
-//            }
         }
     }
 }
