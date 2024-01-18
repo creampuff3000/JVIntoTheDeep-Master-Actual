@@ -86,10 +86,11 @@ public class TestTeleop extends LinearOpMode {
                 robot.slide1.setPower(1);
                 robot.slide2.setPower(1);
             }
-            if (gamepad2.dpad_down == true) {
+            else if (gamepad2.dpad_down == true) {
                 robot.slide1.setPower(-1);
                 robot.slide2.setPower(-1);
-            } else {
+            }
+            else {
                 robot.slide1.setPower(0);
                 robot.slide2.setPower(0);
             }

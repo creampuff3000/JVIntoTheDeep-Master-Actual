@@ -422,60 +422,50 @@ public class basicopencv extends LinearOpMode {
     {
         if (location == "Middle")
         {
-            tile(2);
-            tile(-0.39);
+            tile(1);
             pixelDown();
             tile(-0.36);
             turn("left", 90);
-            tile(-2.85);
+            tile(-1.7);
             outtake();
             sleep(500);
+            tile(0.2);
+            robot.outtakeServo.setPosition(0);
+            robot.outtakeServo2.setPosition(0);
+            slideDown();
+            strafeRight(1.5);
+            tile(-1.5);
+        }
+        if (location == "Right")
+        {
+            tile(1);
+            turn("right", 90);
+            pixelDown();
+            strafeLeft(0.2);
+            tile(-1.7);
+            outtake();
             tile(0.3);
             robot.outtakeServo.setPosition(0);
             robot.outtakeServo2.setPosition(0);
             slideDown();
-            strafeRight(2);
-            tile(-1.2);
-        }
-        if (location == "Right")
-        {
-            tile(1.7);
-            turn("left", 90);
-            tile(0.05);
-            sleep(100);
-            pixelDown();
-            tile(-2.6);
-            outtake();
-            tile(0.5);
-            robot.outtakeServo.setPosition(0);
-            robot.outtakeServo2.setPosition(0);
-            slideDown();
-            strafeRight(1.9);
-            tile(-1.4);
+            strafeRight(2.2);
+            tile(-1.7);
         }
         if (location == "Left")
         {
-            tile(1.7);
-            sleep(100);
-            turn("left", 90);
-            sleep(100);
-            tile(-1.45);
-            sleep(100);
+            tile(1);
+            turn("right", 90);
+            tile(-1.2);
             pixelDown();
-            sleep(100);
-            tile(-2);
-            sleep(100);
+            strafeRight(0.2);
+            tile(-1);
             outtake();
-            sleep(300);
-            tile(0.5);
-            sleep(100);
+            tile(0.3);
             robot.outtakeServo.setPosition(0);
             robot.outtakeServo2.setPosition(0);
-            sleep(500);
             slideDown();
-            sleep(100);
-            strafeRight(2.05);
-            tile(-1.5);
+            strafeRight(1.3);
+            tile(-1.3);
         }
     }
     public void fBlue(String location) {
