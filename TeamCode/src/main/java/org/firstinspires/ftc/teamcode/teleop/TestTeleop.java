@@ -19,18 +19,18 @@ public class TestTeleop extends LinearOpMode {
         boolean isSpinning = false;
         double speed = 1;
         while (opModeIsActive()) {
-            double pee = 0;
+            double p = 0;
             if (gamepad1.left_bumper == true)
             {
-                if (pee == 0)
+                if (p == 0)
                 {
                     slowMode = true;
-                    pee = 1;
+                    p = 1;
                 }
-                if (pee == 1)
+                if (p == 1)
                 {
                     slowMode = false;
-                    pee = 0;
+                    p = 0;
                 }
             }
             if (slowMode == true)
@@ -60,23 +60,43 @@ public class TestTeleop extends LinearOpMode {
             robot.frontRightDrive.setPower(frontRightPower * speed);
             robot.backRightDrive.setPower(backRightPower * speed);
 
+            robot.frontRightDrive.setTargetPosition(0);
+            robot.frontLeftDrive.setTargetPosition(0);
+            robot.backRightDrive.setTargetPosition(0);
+            robot.backLeftDrive.setTargetPosition(0);
+            robot.slide1.setTargetPosition(0);
+            robot.slide2.setTargetPosition(0);
+            robot.frontLeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            robot.frontRightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            robot.backLeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            robot.backRightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            robot.slide1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            robot.slide2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            robot.frontLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.frontRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.backLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.backRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.slide1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            robot.slide2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
+            // outtake
             if (gamepad2.right_trigger == 1) {
-                double outtake1Pos = robot.outtakeServo.getPosition();
-                double outtake2Pos = robot.outtakeServo2.getPosition();
+                double outtake1Pos = robot.leftOuttakeServo.getPosition();
+                double outtake2Pos = robot.rightOuttakeServo.getPosition();
                 if (outtake1Pos == 0 && outtake2Pos == 0) {
-                    robot.outtakeServo.setPosition(1);
-                    robot.outtakeServo2.setPosition(1);
+                    robot.leftOuttakeServo.setPosition(1);
+                    robot.rightOuttakeServo.setPosition(1);
                     sleep(500);
                 } else if (outtake1Pos == 1 && outtake2Pos == 1) {
-                    robot.outtakeServo.setPosition(0);
-                    robot.outtakeServo2.setPosition(0);
+                    robot.leftOuttakeServo.setPosition(0);
+                    robot.rightOuttakeServo.setPosition(0);
                     sleep(500);
                 } else if (outtake1Pos == 1 && outtake2Pos == 0 | outtake1Pos == 0 && outtake2Pos == 1){
                     telemetry.addLine("rip");
                     telemetry.update();
                 }
             }
+            // launch
             if (gamepad1.right_bumper == true) {
                 double d = robot.launchServo.getPosition();
                 if (d == 0) {
@@ -87,6 +107,7 @@ public class TestTeleop extends LinearOpMode {
                     sleep(500);
                 }
             }
+            // mosaic
             if (gamepad1.y == true) {
                 double e = robot.mosaicServo.getPosition();
                 if (e == 0) {
@@ -97,6 +118,7 @@ public class TestTeleop extends LinearOpMode {
                     sleep(800);
                 }
             }
+            // intake
             if (gamepad1.a == true) {
                 robot.intakeMotor.setPower(1);
             }
@@ -106,6 +128,7 @@ public class TestTeleop extends LinearOpMode {
             if (gamepad1.x == true) {
                 robot.intakeMotor.setPower(-0.5);
             }
+            // lift held
             if (gamepad2.dpad_up == true) {
                 robot.slide1.setPower(1);
                 robot.slide2.setPower(1);
@@ -117,6 +140,94 @@ public class TestTeleop extends LinearOpMode {
             else {
                 robot.slide1.setPower(0);
                 robot.slide2.setPower(0);
+            }
+
+            // presets
+            if (gamepad2.a == true) {
+                robot.slide1.setPower(-1);
+                robot.slide2.setPower(-1);
+                robot.slide1.setTargetPosition(0);
+                robot.slide2.setTargetPosition(0);
+            }
+            if (gamepad2.x == true){
+                int value = robot.slide1.getCurrentPosition();
+                int value2 = robot.slide2.getCurrentPosition();
+                if (value < 400) {
+                    robot.slide1.setPower(1);
+                    robot.slide2.setPower(1);
+                    robot.slide1.setTargetPosition(400);
+                    robot.slide2.setTargetPosition(400);
+                }
+                if (value > 400);{
+                    robot.slide1.setPower(-1);
+                    robot.slide2.setPower(-1);
+                    robot.slide1.setTargetPosition(400);
+                    robot.slide2.setTargetPosition(400);
+                }
+            }
+            if (gamepad2.b == true){
+                int value = robot.slide1.getCurrentPosition();
+                int value2 = robot.slide2.getCurrentPosition();
+                if (value < 800) {
+                    robot.slide1.setPower(1);
+                    robot.slide2.setPower(1);
+                    robot.slide1.setTargetPosition(800);
+                    robot.slide2.setTargetPosition(800);
+                }
+                if (value > 800) {
+                    robot.slide1.setPower(-1);
+                    robot.slide2.setPower(-1);
+                    robot.slide1.setTargetPosition(800);
+                    robot.slide2.setTargetPosition(800);
+                }
+            }
+            if (gamepad2.y == true){
+                int value = robot.slide1.getCurrentPosition();
+                int value2 = robot.slide2.getCurrentPosition();
+                if (value < 1200) {
+                    robot.slide1.setPower(1);
+                    robot.slide2.setPower(1);
+                    robot.slide1.setTargetPosition(1200);
+                    robot.slide2.setTargetPosition(1200);
+                }
+                if (value > 1200) {
+                    robot.slide1.setPower(-1);
+                    robot.slide2.setPower(-1);
+                    robot.slide1.setTargetPosition(1200);
+                    robot.slide2.setTargetPosition(1200);
+                }
+            }
+            if (gamepad2.dpad_left == true){
+                int value = robot.slide1.getCurrentPosition();
+                int value2 = robot.slide2.getCurrentPosition();
+                if (value < 1600) {
+                    robot.slide1.setPower(1);
+                    robot.slide2.setPower(1);
+                    robot.slide1.setTargetPosition(1600);
+                    robot.slide2.setTargetPosition(1600);
+                }
+                if (value > 1600) {
+                    robot.slide1.setPower(-1);
+                    robot.slide2.setPower(-1);
+                    robot.slide1.setTargetPosition(1600);
+                    robot.slide2.setTargetPosition(1600);
+                }
+            }
+            if (gamepad2.dpad_right == true){
+                int value = robot.slide1.getCurrentPosition();
+                int value2 = robot.slide2.getCurrentPosition();
+                if (value < 2000) {
+                    robot.slide1.setPower(1);
+                    robot.slide2.setPower(1);
+                    robot.slide1.setTargetPosition(2000);
+                    robot.slide2.setTargetPosition(2000);
+                }
+                if (value > 2000) {
+                    robot.slide1.setPower(-1);
+                    robot.slide2.setPower(-1);
+                    robot.slide1.setTargetPosition(2000);
+                    robot.slide2.setTargetPosition(2000);
+                }
             }
         }
     }

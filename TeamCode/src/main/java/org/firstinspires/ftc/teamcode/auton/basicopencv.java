@@ -353,8 +353,8 @@ public class basicopencv extends LinearOpMode {
         robot.slide1.setTargetPosition(slidePos1 + 800);  //if change this, change slideDown as well
         robot.slide2.setTargetPosition(slidePos2 + 800);
         sleep(400);
-        robot.outtakeServo.setPosition(1);
-        robot.outtakeServo2.setPosition(1);
+        robot.leftOuttakeServo.setPosition(1);
+        robot.rightOuttakeServo.setPosition(1);
         sleep(600);
         robot.slide1.setPower(1);
         robot.slide2.setPower(1);
@@ -430,8 +430,8 @@ public class basicopencv extends LinearOpMode {
             outtake();
             sleep(500);
             tile(0.2);
-            robot.outtakeServo.setPosition(0);
-            robot.outtakeServo2.setPosition(0);
+            robot.leftOuttakeServo.setPosition(0);
+            robot.rightOuttakeServo.setPosition(0);
             slideDown();
             strafeRight(1.5);
             tile(-1.5);
@@ -445,8 +445,8 @@ public class basicopencv extends LinearOpMode {
             tile(-1.7);
             outtake();
             tile(0.3);
-            robot.outtakeServo.setPosition(0);
-            robot.outtakeServo2.setPosition(0);
+            robot.leftOuttakeServo.setPosition(0);
+            robot.rightOuttakeServo.setPosition(0);
             slideDown();
             strafeRight(2.2);
             tile(-1.7);
@@ -461,8 +461,8 @@ public class basicopencv extends LinearOpMode {
             tile(-1);
             outtake();
             tile(0.3);
-            robot.outtakeServo.setPosition(0);
-            robot.outtakeServo2.setPosition(0);
+            robot.leftOuttakeServo.setPosition(0);
+            robot.rightOuttakeServo.setPosition(0);
             slideDown();
             strafeRight(1.3);
             tile(-1.3);
@@ -534,8 +534,8 @@ public class basicopencv extends LinearOpMode {
                         outtake();
                         sleep(500);
                         tile(0.3);
-                        robot.outtakeServo.setPosition(0);
-                        robot.outtakeServo2.setPosition(0);
+                        robot.leftOuttakeServo.setPosition(0);
+                        robot.rightOuttakeServo.setPosition(0);
                         slideDown();
                         strafeLeft(2);
                         tile(-1.2);
@@ -551,8 +551,8 @@ public class basicopencv extends LinearOpMode {
                         tile(-1.2);
                         outtake();
                         tile(0.5);
-                        robot.outtakeServo.setPosition(0);
-                        robot.outtakeServo2.setPosition(0);
+                        robot.leftOuttakeServo.setPosition(0);
+                        robot.rightOuttakeServo.setPosition(0);
                         slideDown();
                         strafeLeft(1.57);
                         tile(-1.4);
@@ -572,8 +572,8 @@ public class basicopencv extends LinearOpMode {
                         sleep(300);
                         tile(0.5);
                         sleep(100);
-                        robot.outtakeServo.setPosition(0);
-                        robot.outtakeServo2.setPosition(0);
+                        robot.leftOuttakeServo.setPosition(0);
+                        robot.rightOuttakeServo.setPosition(0);
                         sleep(500);
                         slideDown();
                         sleep(100);

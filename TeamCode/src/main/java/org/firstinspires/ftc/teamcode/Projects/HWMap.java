@@ -15,9 +15,9 @@ public class HWMap extends Project{
     public DcMotor    intakeMotor   = null;
     public DcMotor slide2 = null;
     public Servo launchServo = null;
-    public Servo outtakeServo = null;
+    public Servo leftOuttakeServo = null;
     public Servo mosaicServo = null;
-    public Servo outtakeServo2;
+    public Servo rightOuttakeServo;
     public DcMotor slide1 = null;
 
     public WebcamName camera = null;
@@ -32,16 +32,16 @@ public class HWMap extends Project{
         slide1 = hwMap.get(DcMotor.class, "lslide");
         slide2 = hwMap.get(DcMotor.class, "rslide");
         launchServo = hwMap.get(Servo.class, "launchServo");
-        outtakeServo = hwMap.get(Servo.class, "outtakeServo");
+        leftOuttakeServo = hwMap.get(Servo.class, "leftOuttakeServo");
         mosaicServo = hwMap.get(Servo.class, "mosaicServo");
-        outtakeServo2 = hwMap.get(Servo.class, "outtakeServo2");
+        rightOuttakeServo = hwMap.get(Servo.class, "rightOuttake");
         frontLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         frontRightDrive.setDirection(DcMotor.Direction.FORWARD);
         backLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         backRightDrive.setDirection(DcMotor.Direction.FORWARD);
         slide1.setDirection(DcMotor.Direction.REVERSE);
         slide2.setDirection(DcMotor.Direction.FORWARD);
-        outtakeServo2.setDirection(Servo.Direction.REVERSE);
+        rightOuttakeServo.setDirection(Servo.Direction.REVERSE);
         frontRightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         frontLeftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         backRightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
@@ -64,8 +64,8 @@ public class HWMap extends Project{
         slide1.setPower(0);
         slide2.setPower(0);
         launchServo.setPosition(0);
-        outtakeServo.setPosition(0);
-        outtakeServo2.setPosition(0);
+        leftOuttakeServo.setPosition(0);
+        rightOuttakeServo.setPosition(0);
         mosaicServo.setPosition(1); // 1 is the right position for mosaicServo
     }
 }
