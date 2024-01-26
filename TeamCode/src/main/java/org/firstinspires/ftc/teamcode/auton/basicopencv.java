@@ -44,20 +44,20 @@ public class basicopencv extends LinearOpMode {
         robot.frontLeftDrive.setTargetPosition(0);
         robot.backRightDrive.setTargetPosition(0);
         robot.backLeftDrive.setTargetPosition(0);
-        robot.slide1.setTargetPosition(0);
-        robot.slide2.setTargetPosition(0);
+        robot.lslide.setTargetPosition(0);
+        robot.rslide.setTargetPosition(0);
         robot.frontLeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.frontRightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.backLeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.backRightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.slide1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.slide2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.lslide.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.rslide.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.frontLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         robot.frontRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         robot.backLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         robot.backRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        robot.slide1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        robot.slide2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.lslide.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.rslide.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
         webcam.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener() { // init the camera?
             @Override
@@ -346,22 +346,22 @@ public class basicopencv extends LinearOpMode {
         robot.backLeftDrive.setPower(0);
         robot.frontRightDrive.setPower(0);
         robot.frontLeftDrive.setPower(0);
-        int slidePos1 = robot.slide1.getCurrentPosition();
-        int slidePos2 = robot.slide2.getCurrentPosition();
-        robot.slide1.setPower(0.7);
-        robot.slide2.setPower(0.7);
-        robot.slide1.setTargetPosition(slidePos1 + 800);  //if change this, change slideDown as well
-        robot.slide2.setTargetPosition(slidePos2 + 800);
+        int slidePos1 = robot.lslide.getCurrentPosition();
+        int slidePos2 = robot.rslide.getCurrentPosition();
+        robot.lslide.setPower(0.7);
+        robot.rslide.setPower(0.7);
+        robot.lslide.setTargetPosition(slidePos1 + 800);  //if change this, change slideDown as well
+        robot.rslide.setTargetPosition(slidePos2 + 800);
         sleep(400);
         robot.leftOuttakeServo.setPosition(1);
         robot.rightOuttakeServo.setPosition(1);
         sleep(600);
-        robot.slide1.setPower(1);
-        robot.slide2.setPower(1);
-        slidePos1 = robot.slide1.getCurrentPosition();
-        slidePos2 = robot.slide2.getCurrentPosition();
-        robot.slide1.setTargetPosition(slidePos1 + 500);
-        robot.slide2.setTargetPosition(slidePos2 + 500);
+        robot.lslide.setPower(1);
+        robot.rslide.setPower(1);
+        slidePos1 = robot.lslide.getCurrentPosition();
+        slidePos2 = robot.rslide.getCurrentPosition();
+        robot.lslide.setTargetPosition(slidePos1 + 500);
+        robot.rslide.setTargetPosition(slidePos2 + 500);
         sleep(500);
     }
     public void slideDown()
@@ -370,12 +370,12 @@ public class basicopencv extends LinearOpMode {
         robot.backLeftDrive.setPower(0);
         robot.frontRightDrive.setPower(0);
         robot.frontLeftDrive.setPower(0);
-        int slidePos1 = robot.slide1.getCurrentPosition();
-        int slidePos2 = robot.slide2.getCurrentPosition();
-        robot.slide1.setPower(0.7);
-        robot.slide2.setPower(0.7);
-        robot.slide2.setTargetPosition(slidePos2 - 1300);
-        robot.slide1.setTargetPosition(slidePos1 - 1300);
+        int slidePos1 = robot.lslide.getCurrentPosition();
+        int slidePos2 = robot.rslide.getCurrentPosition();
+        robot.lslide.setPower(0.7);
+        robot.rslide.setPower(0.7);
+        robot.rslide.setTargetPosition(slidePos2 - 1300);
+        robot.lslide.setTargetPosition(slidePos1 - 1300);
         sleep(2000);
     }
     public void strafeLeft(double tileNum)

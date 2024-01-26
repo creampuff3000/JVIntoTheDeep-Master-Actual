@@ -18,29 +18,32 @@ public class TestTeleop extends LinearOpMode {
         waitForStart();
         boolean isSpinning = false;
         double speed = 1;
+        robot.lslide.setTargetPosition(0);
+        robot.rslide.setTargetPosition(0);
+        robot.lslide.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.rslide.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.lslide.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.rslide.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         while (opModeIsActive()) {
             double p = 0;
             if (gamepad1.left_bumper == true)
             {
                 if (p == 0)
                 {
-                    slowMode = true;
+                    speed = 0.1;
                     p = 1;
+                    telemetry.addLine("slow");
+                    telemetry.update();
                 }
                 if (p == 1)
                 {
-                    slowMode = false;
+                    speed = 1;
+                    telemetry.addLine("fast");
+                    telemetry.update();
                     p = 0;
                 }
             }
-            if (slowMode == true)
-            {
-                speed = 0.1;
-            }
-            else
-            {
-                speed = 1;
-            }
+
             boolean aButtonHeld = false;
             double y = -gamepad1.left_stick_y; // Remember, this is reversed!
             double x = -gamepad1.left_stick_x * 1.1; // Counteract imperfect strafing
@@ -60,24 +63,6 @@ public class TestTeleop extends LinearOpMode {
             robot.frontRightDrive.setPower(frontRightPower * speed);
             robot.backRightDrive.setPower(backRightPower * speed);
 
-            robot.frontRightDrive.setTargetPosition(0);
-            robot.frontLeftDrive.setTargetPosition(0);
-            robot.backRightDrive.setTargetPosition(0);
-            robot.backLeftDrive.setTargetPosition(0);
-            robot.slide1.setTargetPosition(0);
-            robot.slide2.setTargetPosition(0);
-            robot.frontLeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            robot.frontRightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            robot.backLeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            robot.backRightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            robot.slide1.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            robot.slide2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-            robot.frontLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            robot.frontRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            robot.backLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            robot.backRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            robot.slide1.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            robot.slide2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
             // outtake
             if (gamepad2.right_trigger == 1) {
@@ -97,16 +82,16 @@ public class TestTeleop extends LinearOpMode {
                 }
             }
             // launch
-            if (gamepad1.right_bumper == true) {
-                double d = robot.launchServo.getPosition();
-                if (d == 0) {
-                    robot.launchServo.setPosition(1);
-                    sleep(500);
-                } else if (d == 1) {
-                    robot.launchServo.setPosition(0);
-                    sleep(500);
-                }
-            }
+//            if (gamepad1.right_bumper == true) {
+//                double d = robot.launchServo.getPosition();
+//                if (d == 0) {
+//                    robot.launchServo.setPosition(1);
+//                    sleep(500);
+//                } else if (d == 1) {
+//                    robot.launchServo.setPosition(0);
+//                    sleep(500);
+//                }
+//            }
             // mosaic
             if (gamepad1.y == true) {
                 double e = robot.mosaicServo.getPosition();
@@ -130,103 +115,85 @@ public class TestTeleop extends LinearOpMode {
             }
             // lift held
             if (gamepad2.dpad_up == true) {
-                robot.slide1.setPower(1);
-                robot.slide2.setPower(1);
+                robot.lslide.setPower(1);
+                robot.rslide.setPower(1);
             }
             else if (gamepad2.dpad_down == true) {
-                robot.slide1.setPower(-1);
-                robot.slide2.setPower(-1);
+                robot.lslide.setPower(-1);
+                robot.rslide.setPower(-1);
             }
             else {
-                robot.slide1.setPower(0);
-                robot.slide2.setPower(0);
+                robot.lslide.setPower(0);
+                robot.rslide.setPower(0);
             }
 
             // presets
             if (gamepad2.a == true) {
-                robot.slide1.setPower(-1);
-                robot.slide2.setPower(-1);
-                robot.slide1.setTargetPosition(0);
-                robot.slide2.setTargetPosition(0);
+                robot.lslide.setPower(-1);
+                robot.rslide.setPower(-1);
+                robot.lslide.setTargetPosition(0);
+                robot.rslide.setTargetPosition(0);
             }
             if (gamepad2.x == true){
-                int value = robot.slide1.getCurrentPosition();
-                int value2 = robot.slide2.getCurrentPosition();
-                if (value < 400) {
-                    robot.slide1.setPower(1);
-                    robot.slide2.setPower(1);
-                    robot.slide1.setTargetPosition(400);
-                    robot.slide2.setTargetPosition(400);
-                }
-                if (value > 400);{
-                    robot.slide1.setPower(-1);
-                    robot.slide2.setPower(-1);
-                    robot.slide1.setTargetPosition(400);
-                    robot.slide2.setTargetPosition(400);
-                }
+                robot.lslide.setPower(1);
+                robot.rslide.setPower(1);
+                robot.lslide.setTargetPosition(800);
+                robot.rslide.setTargetPosition(800);
             }
             if (gamepad2.b == true){
-                int value = robot.slide1.getCurrentPosition();
-                int value2 = robot.slide2.getCurrentPosition();
-                if (value < 800) {
-                    robot.slide1.setPower(1);
-                    robot.slide2.setPower(1);
-                    robot.slide1.setTargetPosition(800);
-                    robot.slide2.setTargetPosition(800);
-                }
-                if (value > 800) {
-                    robot.slide1.setPower(-1);
-                    robot.slide2.setPower(-1);
-                    robot.slide1.setTargetPosition(800);
-                    robot.slide2.setTargetPosition(800);
-                }
+                int value = robot.lslide.getCurrentPosition();
+                int value2 = robot.rslide.getCurrentPosition();
+                robot.lslide.setPower(1);
+                robot.rslide.setPower(1);
+                robot.lslide.setTargetPosition(1600);
+                robot.rslide.setTargetPosition(1600);
             }
             if (gamepad2.y == true){
-                int value = robot.slide1.getCurrentPosition();
-                int value2 = robot.slide2.getCurrentPosition();
+                int value = robot.lslide.getCurrentPosition();
+                int value2 = robot.rslide.getCurrentPosition();
                 if (value < 1200) {
-                    robot.slide1.setPower(1);
-                    robot.slide2.setPower(1);
-                    robot.slide1.setTargetPosition(1200);
-                    robot.slide2.setTargetPosition(1200);
+                    robot.lslide.setPower(1);
+                    robot.rslide.setPower(1);
+                    robot.lslide.setTargetPosition(1200);
+                    robot.rslide.setTargetPosition(1200);
                 }
                 if (value > 1200) {
-                    robot.slide1.setPower(-1);
-                    robot.slide2.setPower(-1);
-                    robot.slide1.setTargetPosition(1200);
-                    robot.slide2.setTargetPosition(1200);
+                    robot.lslide.setPower(-1);
+                    robot.rslide.setPower(-1);
+                    robot.lslide.setTargetPosition(1200);
+                    robot.rslide.setTargetPosition(1200);
                 }
             }
             if (gamepad2.dpad_left == true){
-                int value = robot.slide1.getCurrentPosition();
-                int value2 = robot.slide2.getCurrentPosition();
+                int value = robot.lslide.getCurrentPosition();
+                int value2 = robot.rslide.getCurrentPosition();
                 if (value < 1600) {
-                    robot.slide1.setPower(1);
-                    robot.slide2.setPower(1);
-                    robot.slide1.setTargetPosition(1600);
-                    robot.slide2.setTargetPosition(1600);
+                    robot.lslide.setPower(1);
+                    robot.rslide.setPower(1);
+                    robot.lslide.setTargetPosition(1600);
+                    robot.rslide.setTargetPosition(1600);
                 }
                 if (value > 1600) {
-                    robot.slide1.setPower(-1);
-                    robot.slide2.setPower(-1);
-                    robot.slide1.setTargetPosition(1600);
-                    robot.slide2.setTargetPosition(1600);
+                    robot.lslide.setPower(-1);
+                    robot.rslide.setPower(-1);
+                    robot.lslide.setTargetPosition(1600);
+                    robot.rslide.setTargetPosition(1600);
                 }
             }
             if (gamepad2.dpad_right == true){
-                int value = robot.slide1.getCurrentPosition();
-                int value2 = robot.slide2.getCurrentPosition();
+                int value = robot.lslide.getCurrentPosition();
+                int value2 = robot.rslide.getCurrentPosition();
                 if (value < 2000) {
-                    robot.slide1.setPower(1);
-                    robot.slide2.setPower(1);
-                    robot.slide1.setTargetPosition(2000);
-                    robot.slide2.setTargetPosition(2000);
+                    robot.lslide.setPower(1);
+                    robot.rslide.setPower(1);
+                    robot.lslide.setTargetPosition(2000);
+                    robot.rslide.setTargetPosition(2000);
                 }
                 if (value > 2000) {
-                    robot.slide1.setPower(-1);
-                    robot.slide2.setPower(-1);
-                    robot.slide1.setTargetPosition(2000);
-                    robot.slide2.setTargetPosition(2000);
+                    robot.lslide.setPower(-1);
+                    robot.rslide.setPower(-1);
+                    robot.lslide.setTargetPosition(2000);
+                    robot.rslide.setTargetPosition(2000);
                 }
             }
         }
