@@ -25,18 +25,18 @@ public class TestTeleop extends LinearOpMode {
         robot.lslide.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         robot.rslide.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         while (opModeIsActive()) {
+            telemetry.addLine("thing = " + robot.lslide.getCurrentPosition());
+            telemetry.addLine("thing = " + robot.rslide.getCurrentPosition());
+            telemetry.update();
             double p = 0;
-            if (gamepad1.left_bumper == true)
-            {
-                if (p == 0)
-                {
+            if (gamepad1.left_bumper == true) {
+                if (p == 0) {
                     speed = 0.1;
                     p = 1;
                     telemetry.addLine("slow");
                     telemetry.update();
                 }
-                if (p == 1)
-                {
+                if (p == 1) {
                     speed = 1;
                     telemetry.addLine("fast");
                     telemetry.update();
@@ -76,7 +76,7 @@ public class TestTeleop extends LinearOpMode {
                     robot.leftOuttakeServo.setPosition(0);
                     robot.rightOuttakeServo.setPosition(0);
                     sleep(500);
-                } else if (outtake1Pos == 1 && outtake2Pos == 0 | outtake1Pos == 0 && outtake2Pos == 1){
+                } else if (outtake1Pos == 1 && outtake2Pos == 0 | outtake1Pos == 0 && outtake2Pos == 1) {
                     telemetry.addLine("rip");
                     telemetry.update();
                 }
@@ -117,85 +117,122 @@ public class TestTeleop extends LinearOpMode {
             if (gamepad2.dpad_up == true) {
                 robot.lslide.setPower(1);
                 robot.rslide.setPower(1);
+                int rcurrentpos=robot.rslide.getCurrentPosition();
+                int lcurrentpos=robot.lslide.getCurrentPosition();
+                robot.rslide.setTargetPosition(rcurrentpos+100);
+                robot.lslide.setTargetPosition(lcurrentpos+100);
             }
-            else if (gamepad2.dpad_down == true) {
-                robot.lslide.setPower(-1);
-                robot.rslide.setPower(-1);
+            if (gamepad2.dpad_down == true) {
+                robot.lslide.setPower(1);
+                robot.rslide.setPower(1);
+                int rcurrentpos=robot.rslide.getCurrentPosition();
+                int lcurrentpos=robot.lslide.getCurrentPosition();
+                robot.rslide.setTargetPosition(rcurrentpos-100);
+                robot.lslide.setTargetPosition(lcurrentpos-100);
             }
-            else {
-                robot.lslide.setPower(0);
-                robot.rslide.setPower(0);
-            }
-
-            // presets
+            //rpesents
             if (gamepad2.a == true) {
-                robot.lslide.setPower(-1);
-                robot.rslide.setPower(-1);
+                robot.lslide.setPower(1);
+                robot.rslide.setPower(1);
                 robot.lslide.setTargetPosition(0);
                 robot.rslide.setTargetPosition(0);
             }
-            if (gamepad2.x == true){
+            if (gamepad2.x == true) {
+                int rVal = robot.rslide.getCurrentPosition();
+                int lVal = robot.lslide.getCurrentPosition();
+                int dog1 = 800 - rVal;
+                int dog2 = 800 - lVal;
                 robot.lslide.setPower(1);
                 robot.rslide.setPower(1);
-                robot.lslide.setTargetPosition(800);
-                robot.rslide.setTargetPosition(800);
+                if (rVal > 800){
+                    robot.lslide.setTargetPosition(lVal - Math.abs(dog2));
+                    robot.rslide.setTargetPosition(rVal - Math.abs(dog1));
+                }
+                if (rVal < 800){
+                    robot.lslide.setTargetPosition(lVal + Math.abs(dog2));
+                    robot.rslide.setTargetPosition(rVal + Math.abs(dog1));
+                }
+                telemetry.addLine("Lift encoder right side: " + robot.rslide.getCurrentPosition());
+                telemetry.addLine("Lift encoder left side: " + robot.lslide.getCurrentPosition());
+                telemetry.update();
             }
-            if (gamepad2.b == true){
-                int value = robot.lslide.getCurrentPosition();
-                int value2 = robot.rslide.getCurrentPosition();
+            if (gamepad2.b == true) {
+                int rVal = robot.rslide.getCurrentPosition();
+                int lVal = robot.lslide.getCurrentPosition();
+                int dog1 = 1600 - rVal;
+                int dog2 = 1600 - lVal;
                 robot.lslide.setPower(1);
                 robot.rslide.setPower(1);
-                robot.lslide.setTargetPosition(1600);
-                robot.rslide.setTargetPosition(1600);
+                if (rVal > 1600){
+                    robot.lslide.setTargetPosition(lVal - Math.abs(dog2));
+                    robot.rslide.setTargetPosition(rVal - Math.abs(dog1));
+                }
+                if (rVal < 1600){
+                    robot.lslide.setTargetPosition(lVal + Math.abs(dog2));
+                    robot.rslide.setTargetPosition(rVal + Math.abs(dog1));
+                }
+                telemetry.addLine("Lift encoder right side: " + robot.rslide.getCurrentPosition());
+                telemetry.addLine("Lift encoder left side: " + robot.lslide.getCurrentPosition());
+                telemetry.update();
             }
-            if (gamepad2.y == true){
-                int value = robot.lslide.getCurrentPosition();
-                int value2 = robot.rslide.getCurrentPosition();
-                if (value < 1200) {
-                    robot.lslide.setPower(1);
-                    robot.rslide.setPower(1);
-                    robot.lslide.setTargetPosition(1200);
-                    robot.rslide.setTargetPosition(1200);
+            if (gamepad2.y == true) {
+                int rVal = robot.rslide.getCurrentPosition();
+                int lVal = robot.lslide.getCurrentPosition();
+                int dog1 = 2400 - rVal;
+                int dog2 = 2400 - lVal;
+                robot.lslide.setPower(1);
+                robot.rslide.setPower(1);
+                if (rVal > 2400){
+                    robot.lslide.setTargetPosition(lVal - Math.abs(dog2));
+                    robot.rslide.setTargetPosition(rVal - Math.abs(dog1));
                 }
-                if (value > 1200) {
-                    robot.lslide.setPower(-1);
-                    robot.rslide.setPower(-1);
-                    robot.lslide.setTargetPosition(1200);
-                    robot.rslide.setTargetPosition(1200);
+                if (rVal < 2400){
+                    robot.lslide.setTargetPosition(lVal + Math.abs(dog2));
+                    robot.rslide.setTargetPosition(rVal + Math.abs(dog1));
                 }
+                telemetry.addLine("Lift encoder right side: " + robot.rslide.getCurrentPosition());
+                telemetry.addLine("Lift encoder left side: " + robot.lslide.getCurrentPosition());
+                telemetry.update();
             }
-            if (gamepad2.dpad_left == true){
-                int value = robot.lslide.getCurrentPosition();
-                int value2 = robot.rslide.getCurrentPosition();
-                if (value < 1600) {
-                    robot.lslide.setPower(1);
-                    robot.rslide.setPower(1);
-                    robot.lslide.setTargetPosition(1600);
-                    robot.rslide.setTargetPosition(1600);
+            if (gamepad2.dpad_left == true) {
+                int rVal = robot.rslide.getCurrentPosition();
+                int lVal = robot.lslide.getCurrentPosition();
+                int dog1 = 2800 - rVal;
+                int dog2 = 2800 - lVal;
+                robot.lslide.setPower(1);
+                robot.rslide.setPower(1);
+                if (rVal > 2800){
+                    robot.lslide.setTargetPosition(lVal - Math.abs(dog2));
+                    robot.rslide.setTargetPosition(rVal - Math.abs(dog1));
                 }
-                if (value > 1600) {
-                    robot.lslide.setPower(-1);
-                    robot.rslide.setPower(-1);
-                    robot.lslide.setTargetPosition(1600);
-                    robot.rslide.setTargetPosition(1600);
+                if (rVal < 2800){
+                    robot.lslide.setTargetPosition(lVal + Math.abs(dog2));
+                    robot.rslide.setTargetPosition(rVal + Math.abs(dog1));
                 }
+                telemetry.addLine("Lift encoder right side: " + robot.rslide.getCurrentPosition());
+                telemetry.addLine("Lift encoder left side: " + robot.lslide.getCurrentPosition());
+                telemetry.update();
             }
-            if (gamepad2.dpad_right == true){
-                int value = robot.lslide.getCurrentPosition();
-                int value2 = robot.rslide.getCurrentPosition();
-                if (value < 2000) {
-                    robot.lslide.setPower(1);
-                    robot.rslide.setPower(1);
-                    robot.lslide.setTargetPosition(2000);
-                    robot.rslide.setTargetPosition(2000);
+            if (gamepad2.dpad_right == true) {
+                int rVal = robot.rslide.getCurrentPosition();
+                int lVal = robot.lslide.getCurrentPosition();
+                int dog1 = 3600 - rVal;
+                int dog2 = 3600 - lVal;
+                robot.lslide.setPower(1);
+                robot.rslide.setPower(1);
+                if (rVal > 3600){
+                    robot.lslide.setTargetPosition(lVal - Math.abs(dog2));
+                    robot.rslide.setTargetPosition(rVal - Math.abs(dog1));
                 }
-                if (value > 2000) {
-                    robot.lslide.setPower(-1);
-                    robot.rslide.setPower(-1);
-                    robot.lslide.setTargetPosition(2000);
-                    robot.rslide.setTargetPosition(2000);
+                if (rVal < 3600){
+                    robot.lslide.setTargetPosition(lVal + Math.abs(dog2));
+                    robot.rslide.setTargetPosition(rVal + Math.abs(dog1));
                 }
+                telemetry.addLine("Lift encoder right side: " + robot.rslide.getCurrentPosition());
+                telemetry.addLine("Lift encoder left side: " + robot.lslide.getCurrentPosition());
+                telemetry.update();
             }
         }
     }
 }
+
