@@ -15,6 +15,7 @@ public class TestTeleop extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
         robot.init(hardwareMap);
         boolean slowMode = false;
+        boolean slowModeToggle = false; // variable to track slow mode toggle state
         waitForStart();
         boolean isSpinning = false;
         double speed = 1;
@@ -28,20 +29,14 @@ public class TestTeleop extends LinearOpMode {
             telemetry.addLine("lslide pos = " + robot.lslide.getCurrentPosition());
             telemetry.addLine("rslide pos = " + robot.rslide.getCurrentPosition());
             telemetry.update();
-            if (gamepad1.left_bumper == true) {
-                double p = 1;
-                if (p == 0) {
-                    speed = 0.1;
-                    p = 1;
-                    telemetry.addLine("slow");
-                    telemetry.update();
-                }
-                if (p == 1) {
-                    speed = 1;
-                    telemetry.addLine("fast");
-                    telemetry.update();
-                    p = 0;
-                }
+            if (gamepad1.left_bumper && !slowModeToggle) {
+                slowModeToggle = true;
+                slowMode = !slowMode;
+                speed = slowMode ? 0.1 : 1;
+                telemetry.addLine(slowMode ? "Slow" : "Fast");
+                telemetry.update();
+            } else if (!gamepad1.left_bumper) {
+                slowModeToggle = false;
             }
 
             boolean aButtonHeld = false;
