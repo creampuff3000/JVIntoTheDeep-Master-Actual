@@ -41,7 +41,7 @@ public class TestTeleop extends LinearOpMode {
 
             boolean aButtonHeld = false;
             double y = -gamepad1.left_stick_y; // Remember, this is reversed!
-            double x = -gamepad1.left_stick_x * 1.1; // Counteract imperfect strafing
+            double x = -gamepad1.left_stick_x * 1.1; // Counteract imperfect strafing (suspicious)
             double rx = -gamepad1.right_stick_x;
 
             // Denominator is the largest motor power (absolute value) or 1
@@ -59,7 +59,25 @@ public class TestTeleop extends LinearOpMode {
             robot.backRightDrive.setPower(backRightPower * speed);
 
 
-            // outtake
+            // can switch to encoders later which might be more accurate
+            if (gamepad1.dpad_up == true){
+                robot.frontRightDrive.setPower(1);
+                robot.frontLeftDrive.setPower(1);
+                robot.backRightDrive.setPower(1);
+                robot.backLeftDrive.setPower(1);
+            }
+            else if (gamepad1.dpad_down == true){
+                robot.frontRightDrive.setPower(-1);
+                robot.frontLeftDrive.setPower(-1);
+                robot.backRightDrive.setPower(-1);
+                robot.backLeftDrive.setPower(-1);
+            }
+            else { // could be a source of errors but we'll see
+                robot.frontRightDrive.setPower(0);
+                robot.frontLeftDrive.setPower(0);
+                robot.backLeftDrive.setPower(0);
+                robot.backRightDrive.setPower(0);
+            }
             if (gamepad2.right_trigger == 1) {
                 double outtake1Pos = robot.leftOuttakeServo.getPosition();
                 double outtake2Pos = robot.rightOuttakeServo.getPosition();
@@ -92,10 +110,10 @@ public class TestTeleop extends LinearOpMode {
                 double e = robot.mosaicServo.getPosition();
                 if (e == 0) {
                     robot.mosaicServo.setPosition(1);
-                    sleep(800);
+                    sleep(500);
                 } else if (e == 1) {
                     robot.mosaicServo.setPosition(0);
-                    sleep(800);
+                    sleep(500);
                 }
             }
             // intake
