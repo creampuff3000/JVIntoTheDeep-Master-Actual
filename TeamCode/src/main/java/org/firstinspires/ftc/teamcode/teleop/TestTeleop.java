@@ -29,15 +29,15 @@ public class TestTeleop extends LinearOpMode {
             telemetry.addLine("lslide pos = " + robot.lslide.getCurrentPosition());
             telemetry.addLine("rslide pos = " + robot.rslide.getCurrentPosition());
             telemetry.update();
-            if (gamepad1.left_bumper && !slowModeToggle) {
-                slowModeToggle = true;
-                slowMode = !slowMode;
-                speed = slowMode ? 0.1 : 1;
-                telemetry.addLine(slowMode ? "Slow" : "Fast");
-                telemetry.update();
-            } else if (!gamepad1.left_bumper) {
-                slowModeToggle = false;
-            }
+//            if (gamepad1.left_bumper && !slowModeToggle) {
+//                slowModeToggle = true;
+//                slowMode = !slowMode;
+//                speed = slowMode ? 0.1 : 1;
+//                telemetry.addLine(slowMode ? "Slow" : "Fast");
+//                telemetry.update();
+//            } else if (!gamepad1.left_bumper) {
+//                slowModeToggle = false;
+//            }
 
             boolean aButtonHeld = false;
             double y = -gamepad1.left_stick_y; // Remember, this is reversed!
@@ -60,24 +60,24 @@ public class TestTeleop extends LinearOpMode {
 
 
             // can switch to encoders later which might be more accurate
-            if (gamepad1.dpad_up == true){
-                robot.frontRightDrive.setPower(1);
-                robot.frontLeftDrive.setPower(1);
-                robot.backRightDrive.setPower(1);
-                robot.backLeftDrive.setPower(1);
-            }
-            else if (gamepad1.dpad_down == true){
-                robot.frontRightDrive.setPower(-1);
-                robot.frontLeftDrive.setPower(-1);
-                robot.backRightDrive.setPower(-1);
-                robot.backLeftDrive.setPower(-1);
-            }
-            else { // could be a source of errors but we'll see
-                robot.frontRightDrive.setPower(0);
-                robot.frontLeftDrive.setPower(0);
-                robot.backLeftDrive.setPower(0);
-                robot.backRightDrive.setPower(0);
-            }
+//            if (gamepad1.dpad_up == true){
+//                robot.frontRightDrive.setPower(1);
+//                robot.frontLeftDrive.setPower(1);
+//                robot.backRightDrive.setPower(1);
+//                robot.backLeftDrive.setPower(1);
+//            }
+//            else if (gamepad1.dpad_down == true){
+//                robot.frontRightDrive.setPower(-1);
+//                robot.frontLeftDrive.setPower(-1);
+//                robot.backRightDrive.setPower(-1);
+//                robot.backLeftDrive.setPower(-1);
+//            }
+//            else { // could be a source of errors but we'll see
+//                robot.frontRightDrive.setPower(0);
+//                robot.frontLeftDrive.setPower(0);
+//                robot.backLeftDrive.setPower(0);
+//                robot.backRightDrive.setPower(0);
+//            }
             if (gamepad2.right_trigger == 1) {
                 double outtake1Pos = robot.leftOuttakeServo.getPosition();
                 double outtake2Pos = robot.rightOuttakeServo.getPosition();
