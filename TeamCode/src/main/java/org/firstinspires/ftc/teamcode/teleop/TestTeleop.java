@@ -60,18 +60,18 @@ public class TestTeleop extends LinearOpMode {
 
 
             // can switch to encoders later which might be more accurate
-//            if (gamepad1.dpad_up == true){
-//                robot.frontRightDrive.setPower(1);
-//                robot.frontLeftDrive.setPower(1);
-//                robot.backRightDrive.setPower(1);
-//                robot.backLeftDrive.setPower(1);
-//            }
-//            else if (gamepad1.dpad_down == true){
-//                robot.frontRightDrive.setPower(-1);
-//                robot.frontLeftDrive.setPower(-1);
-//                robot.backRightDrive.setPower(-1);
-//                robot.backLeftDrive.setPower(-1);
-//            }
+            if (gamepad1.dpad_up == true){
+                robot.frontRightDrive.setPower(1);
+                robot.frontLeftDrive.setPower(1);
+                robot.backRightDrive.setPower(1);
+                robot.backLeftDrive.setPower(1);
+            }
+            else if (gamepad1.dpad_down == true){
+                robot.frontRightDrive.setPower(-1);
+                robot.frontLeftDrive.setPower(-1);
+                robot.backRightDrive.setPower(-1);
+                robot.backLeftDrive.setPower(-1);
+            }
 //            else { // could be a source of errors but we'll see
 //                robot.frontRightDrive.setPower(0);
 //                robot.frontLeftDrive.setPower(0);
