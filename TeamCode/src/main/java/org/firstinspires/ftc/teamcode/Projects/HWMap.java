@@ -64,7 +64,7 @@ public class HWMap extends Project{
         intakeMotor.setPower(0);
         lslide.setPower(0);
         rslide.setPower(0);
-        launchServo.setPosition(0);
+        launchServo.setPosition(1);
         leftOuttakeServo.setPosition(1);
         rightOuttakeServo.setPosition(1);
         mosaicServo.setPosition(1); // 1 is the right position for mosaicServo
