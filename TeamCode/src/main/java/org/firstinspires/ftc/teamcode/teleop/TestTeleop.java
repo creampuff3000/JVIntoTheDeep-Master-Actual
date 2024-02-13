@@ -7,15 +7,13 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.teamcode.Projects.HWMap;
 
-@TeleOp(name = "TestTeleop")
+@TeleOp(name = "yakult probiotic drink")
 public class TestTeleop extends LinearOpMode {
     public HWMap robot = new HWMap();
 
     @Override
     public void runOpMode() throws InterruptedException {
         robot.init(hardwareMap);
-        boolean slowMode = false;
-        boolean slowModeToggle = false; // variable to track slow mode toggle state
         waitForStart();
         boolean isSpinning = false;
         double speed = 1;
@@ -29,15 +27,7 @@ public class TestTeleop extends LinearOpMode {
             telemetry.addLine("lslide pos = " + robot.lslide.getCurrentPosition());
             telemetry.addLine("rslide pos = " + robot.rslide.getCurrentPosition());
             telemetry.update();
-//            if (gamepad1.left_bumper && !slowModeToggle) {
-//                slowModeToggle = true;
-//                slowMode = !slowMode;
-//                speed = slowMode ? 0.1 : 1;
-//                telemetry.addLine(slowMode ? "Slow" : "Fast");
-//                telemetry.update();
-//            } else if (!gamepad1.left_bumper) {
-//                slowModeToggle = false;
-//            }
+
 
             boolean aButtonHeld = false;
             double y = -gamepad1.left_stick_y; // Remember, this is reversed!
@@ -59,7 +49,6 @@ public class TestTeleop extends LinearOpMode {
             robot.backRightDrive.setPower(backRightPower * speed);
 
 
-            // can switch to encoders later which might be more accurate
             if (gamepad1.dpad_up == true){
                 robot.frontRightDrive.setPower(1);
                 robot.frontLeftDrive.setPower(1);
@@ -72,12 +61,6 @@ public class TestTeleop extends LinearOpMode {
                 robot.backRightDrive.setPower(-1);
                 robot.backLeftDrive.setPower(-1);
             }
-//            else { // could be a source of errors but we'll see
-//                robot.frontRightDrive.setPower(0);
-//                robot.frontLeftDrive.setPower(0);
-//                robot.backLeftDrive.setPower(0);
-//                robot.backRightDrive.setPower(0);
-//            }
             if (gamepad2.right_trigger == 1) {
                 double outtake1Pos = robot.leftOuttakeServo.getPosition();
                 double outtake2Pos = robot.rightOuttakeServo.getPosition();
@@ -90,7 +73,7 @@ public class TestTeleop extends LinearOpMode {
                     robot.rightOuttakeServo.setPosition(0);
                     sleep(500);
                 } else if (outtake1Pos == 1 && outtake2Pos == 0 | outtake1Pos == 0 && outtake2Pos == 1) {
-                    telemetry.addLine("honestly I have no idea how this happened but good luck");
+                    telemetry.addLine("buh");
                     telemetry.update();
                 }
             }
