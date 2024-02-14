@@ -36,11 +36,11 @@ public class BluePropDetectionPipeline extends OpenCvPipeline {
     //which are connected by the diagonals
     static final Rect leftROI = new Rect(
             new Point( 0, 0),
-            new Point(400, 720)
+            new Point(350, 720)
     );
     static final Rect middleROI = new Rect(
             new Point( 0, 0),
-            new Point(840, 720)
+            new Point(930, 720)
     );
     static final Rect rightROI = new Rect(
             new Point( 0, 0),
@@ -60,8 +60,8 @@ public class BluePropDetectionPipeline extends OpenCvPipeline {
         Imgproc.cvtColor(input, mat, Imgproc.COLOR_RGB2HSV);
 
         //define HSV range to identify the color blue
-        Scalar lowHSV = new Scalar (115,180,100);
-        Scalar highHSV = new Scalar (225,255,230);
+        Scalar lowHSV = new Scalar (95,160,90);
+        Scalar highHSV = new Scalar (235,255,235);
 
         //applies a threshold (everything that is blue will be white,
         // everything else will be black)
