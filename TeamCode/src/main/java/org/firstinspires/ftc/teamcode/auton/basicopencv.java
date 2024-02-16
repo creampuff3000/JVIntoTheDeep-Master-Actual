@@ -272,41 +272,41 @@ public class basicopencv extends LinearOpMode {
         robot.frontRightDrive.setPower(0);
         robot.frontLeftDrive.setPower(0);
     }
-//    public void turn(String direction, double degrees)
-//    {
-//        if (direction == "left")
-//        {
-//            robot.frontLeftDrive.setPower(0.7);
-//            robot.frontRightDrive.setPower(0.7);
-//            robot.backLeftDrive.setPower(0.7);
-//            robot.backRightDrive.setPower(0.7);
-//            int fleft = robot.frontLeftDrive.getCurrentPosition();
-//            int bleft = robot.backLeftDrive.getCurrentPosition();
-//            int bright = robot.backRightDrive.getCurrentPosition();
-//            int fright = robot.frontRightDrive.getCurrentPosition();
-//            robot.frontLeftDrive.setTargetPosition((int)(fleft - 11.0256384615 * degrees));
-//            robot.frontRightDrive.setTargetPosition((int)(fright + 11.0256384615 * degrees));
-//            robot.backLeftDrive.setTargetPosition((int)(bleft - 11.0256384615 * degrees));
-//            robot.backRightDrive.setTargetPosition((int)(bright + 11.0256384615 * degrees));
-//            // remember to sleep
-//        }
-//        if (direction == "right")
-//        {
-//            robot.frontLeftDrive.setPower(0.7);
-//            robot.frontRightDrive.setPower(0.7);
-//            robot.backLeftDrive.setPower(0.7);
-//            robot.backRightDrive.setPower(0.7);
-//            int fleft = robot.frontLeftDrive.getCurrentPosition();
-//            int bleft = robot.backLeftDrive.getCurrentPosition();
-//            int bright = robot.backRightDrive.getCurrentPosition();
-//            int fright = robot.frontRightDrive.getCurrentPosition();
-//            robot.frontLeftDrive.setTargetPosition((int)(fleft + 11.0256384615 * degrees));
-//            robot.frontRightDrive.setTargetPosition((int)(fright - 11.0256384615 * degrees));
-//            robot.backLeftDrive.setTargetPosition((int)(bleft + 11.0256384615 * degrees));
-//            robot.backRightDrive.setTargetPosition((int)(bright - 11.0256384615 * degrees));
-//            // remember to sleep
-//        }
-//    }
+    public void turn(String direction, double degrees)
+    {
+        if (direction == "left")
+        {
+            robot.frontLeftDrive.setPower(0.7);
+            robot.frontRightDrive.setPower(0.7);
+            robot.backLeftDrive.setPower(0.7);
+            robot.backRightDrive.setPower(0.7);
+            int fleft = robot.frontLeftDrive.getCurrentPosition();
+            int bleft = robot.backLeftDrive.getCurrentPosition();
+            int bright = robot.backRightDrive.getCurrentPosition();
+            int fright = robot.frontRightDrive.getCurrentPosition();
+            robot.frontLeftDrive.setTargetPosition((int)(fleft - 11.0256384615 * degrees));
+            robot.frontRightDrive.setTargetPosition((int)(fright + 11.0256384615 * degrees));
+            robot.backLeftDrive.setTargetPosition((int)(bleft - 11.0256384615 * degrees));
+            robot.backRightDrive.setTargetPosition((int)(bright + 11.0256384615 * degrees));
+            sleep((long)(20 * degrees));
+        }
+        if (direction == "right")
+        {
+            robot.frontLeftDrive.setPower(0.7);
+            robot.frontRightDrive.setPower(0.7);
+            robot.backLeftDrive.setPower(0.7);
+            robot.backRightDrive.setPower(0.7);
+            int fleft = robot.frontLeftDrive.getCurrentPosition();
+            int bleft = robot.backLeftDrive.getCurrentPosition();
+            int bright = robot.backRightDrive.getCurrentPosition();
+            int fright = robot.frontRightDrive.getCurrentPosition();
+            robot.frontLeftDrive.setTargetPosition((int)(fleft + 11.0256384615 * degrees));
+            robot.frontRightDrive.setTargetPosition((int)(fright - 11.0256384615 * degrees));
+            robot.backLeftDrive.setTargetPosition((int)(bleft + 11.0256384615 * degrees));
+            robot.backRightDrive.setTargetPosition((int)(bright - 11.0256384615 * degrees));
+            sleep((long)(20 * degrees));
+        }
+    }
     public void left90()
     {
         sleep(100);
