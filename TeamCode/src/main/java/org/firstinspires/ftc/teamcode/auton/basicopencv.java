@@ -185,7 +185,7 @@ public class basicopencv extends LinearOpMode {
                 } else {
                     telemetry.addLine("rip");
                     telemetry.update();
-                    location = "Left";
+                    location = "rip";
                     sleep(500);
                 }
             }
@@ -213,10 +213,6 @@ public class basicopencv extends LinearOpMode {
 
     public void slow(double tileNum)
     {
-        robot.frontRightDrive.setPower(0.1);
-        robot.frontLeftDrive.setPower(0.1);
-        robot.backRightDrive.setPower(0.1);
-        robot.backLeftDrive.setPower(0.1);
         int fright = robot.frontRightDrive.getCurrentPosition();
         int fleft = robot.frontLeftDrive.getCurrentPosition();
         int bright = robot.backRightDrive.getCurrentPosition();
@@ -225,11 +221,25 @@ public class basicopencv extends LinearOpMode {
         robot.frontLeftDrive.setTargetPosition((int)(fleft + 1350.846 * tileNum));
         robot.backRightDrive.setTargetPosition((int)(bright + 1350.846 * tileNum));
         robot.backLeftDrive.setTargetPosition((int)(bleft + 1350.846 * tileNum));
-        sleep(2000);
+        robot.frontRightDrive.setPower(0.1);
+        robot.frontLeftDrive.setPower(0.1);
+        robot.backRightDrive.setPower(0.1);
+        robot.backLeftDrive.setPower(0.1);
+        robot.frontRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.frontLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.backRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.backLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        while (robot.backLeftDrive.isBusy() && robot.backRightDrive.isBusy() && robot.frontLeftDrive.isBusy() && robot.frontRightDrive.isBusy()) {
+
+        }
         robot.backRightDrive.setPower(0);
         robot.backLeftDrive.setPower(0);
         robot.frontRightDrive.setPower(0);
         robot.frontLeftDrive.setPower(0);
+        robot.frontRightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        robot.frontLeftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        robot.backRightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        robot.backLeftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
     public void tile(double tileNum)
     {
@@ -263,24 +273,33 @@ public class basicopencv extends LinearOpMode {
     }
     public void right90()
     {
-        sleep(100);
-        robot.frontLeftDrive.setPower(0.7);
-        robot.frontRightDrive.setPower(0.7);
-        robot.backLeftDrive.setPower(0.7);
-        robot.backRightDrive.setPower(0.7);
         int fleft = robot.frontLeftDrive.getCurrentPosition();
         int bleft = robot.backLeftDrive.getCurrentPosition();
         int bright = robot.backRightDrive.getCurrentPosition();
         int fright = robot.frontRightDrive.getCurrentPosition();
-        robot.frontLeftDrive.setTargetPosition(fleft + 1200);
-        robot.frontRightDrive.setTargetPosition(fright - 1200);
-        robot.backLeftDrive.setTargetPosition(bleft + 1200);
-        robot.backRightDrive.setTargetPosition(bright - 1200);
-        sleep(2000);
+        robot.frontLeftDrive.setTargetPosition(fleft + 1120);
+        robot.frontRightDrive.setTargetPosition(fright - 1120);
+        robot.backLeftDrive.setTargetPosition(bleft + 1120);
+        robot.backRightDrive.setTargetPosition(bright - 1120);
+        robot.frontLeftDrive.setPower(0.7);
+        robot.frontRightDrive.setPower(0.7);
+        robot.backLeftDrive.setPower(0.7);
+        robot.backRightDrive.setPower(0.7);
+        robot.frontRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.frontLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.backRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.backLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        while (robot.backLeftDrive.isBusy() && robot.backRightDrive.isBusy() && robot.frontLeftDrive.isBusy() && robot.frontRightDrive.isBusy()) {
+
+        }
         robot.backRightDrive.setPower(0);
         robot.backLeftDrive.setPower(0);
         robot.frontRightDrive.setPower(0);
         robot.frontLeftDrive.setPower(0);
+        robot.frontRightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        robot.frontLeftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        robot.backRightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        robot.backLeftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
     public void turn(String direction, double degrees)
     {
@@ -319,24 +338,33 @@ public class basicopencv extends LinearOpMode {
     }
     public void left90()
     {
-        sleep(100);
-        robot.frontLeftDrive.setPower(0.7);
-        robot.frontRightDrive.setPower(0.7);
-        robot.backLeftDrive.setPower(0.7);
-        robot.backRightDrive.setPower(0.7);
         int fleft = robot.frontLeftDrive.getCurrentPosition();
         int bleft = robot.backLeftDrive.getCurrentPosition();
         int bright = robot.backRightDrive.getCurrentPosition();
         int fright = robot.frontRightDrive.getCurrentPosition();
-        robot.frontLeftDrive.setTargetPosition(fleft - 940);
-        robot.frontRightDrive.setTargetPosition(fright + 940);
-        robot.backLeftDrive.setTargetPosition(bleft - 940);
-        robot.backRightDrive.setTargetPosition(bright + 940);
-        sleep(1000);
+        robot.frontLeftDrive.setTargetPosition(fleft - 1120);
+        robot.frontRightDrive.setTargetPosition(fright + 1120);
+        robot.backLeftDrive.setTargetPosition(bleft - 1120);
+        robot.backRightDrive.setTargetPosition(bright + 1120);
+        robot.frontLeftDrive.setPower(0.7);
+        robot.frontRightDrive.setPower(0.7);
+        robot.backLeftDrive.setPower(0.7);
+        robot.backRightDrive.setPower(0.7);
+        robot.frontRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.frontLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.backRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        robot.backLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        while (robot.backLeftDrive.isBusy() && robot.backRightDrive.isBusy() && robot.frontLeftDrive.isBusy() && robot.frontRightDrive.isBusy()) {
+
+        }
         robot.backRightDrive.setPower(0);
         robot.backLeftDrive.setPower(0);
         robot.frontRightDrive.setPower(0);
         robot.frontLeftDrive.setPower(0);
+        robot.frontRightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        robot.frontLeftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        robot.backRightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        robot.backLeftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
     public void pixelDown()
     {
@@ -530,9 +558,9 @@ public class basicopencv extends LinearOpMode {
         if (location == "Left") {
             tile(1);
             right90();
-            tile(-0.7);
+            tile(-0.77);
             pixelDown();
-            tile(-0.4);
+            tile(-0.2);
  }
         if (location == "Middle") {
                 tile(1.16);
@@ -543,6 +571,7 @@ public class basicopencv extends LinearOpMode {
         if (location == "Right" | location == "rip") {
                     tile(1);
                     right90();
+                    tile(0.14);
                     pixelDown();
         }
 
@@ -572,9 +601,9 @@ public class basicopencv extends LinearOpMode {
                 {
                     if (location == "Middle") {
                         tile(1.16);
-                        tile(-0.31);
+                        tile(-0.25);
                         pixelDown();
-                        tile(-0.33);
+                        tile(-0.1);
                         right90();
                         tile(-1.4);
                         outtake();
@@ -589,10 +618,10 @@ public class basicopencv extends LinearOpMode {
                     if (location == "Left" | location == "rip") {
                         tile(1);
                         right90();
-                        tile(-0.7);
+                        tile(-0.6);
                         pixelDown();
-                        tile(-0.4);
-                        strafeRight(0.55);
+                        tile(-0.5);
+                        strafeRight(0.5);
                         tile(-0.5);
                         outtake();
                         slow(0.3);
@@ -606,6 +635,7 @@ public class basicopencv extends LinearOpMode {
                     if (location == "Right") {
                         tile(1);
                         right90();
+                        tile(0.14);
                         pixelDown();
                         strafeLeft(0.08);
                         tile(-1.4);
