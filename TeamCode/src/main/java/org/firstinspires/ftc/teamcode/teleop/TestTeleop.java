@@ -30,15 +30,15 @@ public class TestTeleop extends LinearOpMode {
             telemetry.addLine("rslide pos = " + robot.rslide.getCurrentPosition());
             telemetry.update();
 
-            if (gamepad1.left_bumper && !slowModeToggle) {
-                slowModeToggle = true;
-                slowMode = !slowMode;
-                speed = slowMode ? 0.1 : 1;
-                telemetry.addLine(slowMode ? "Slow mode" : "Fast mode");
-                telemetry.update();
-            } else if (!gamepad1.left_bumper) {
-                slowModeToggle = false;
-            }
+//            if (gamepad1.left_bumper && !slowModeToggle) {
+//                slowModeToggle = true;
+//                slowMode = !slowMode;
+//                speed = slowMode ? 0.1 : 1;
+//                telemetry.addLine(slowMode ? "Slow mode" : "Fast mode");
+//                telemetry.update();
+//            } else if (!gamepad1.left_bumper) {
+//                slowModeToggle = false;
+//            }
 
             boolean aButtonHeld = false;
             double y = -gamepad1.left_stick_y; // Remember, this is reversed!
