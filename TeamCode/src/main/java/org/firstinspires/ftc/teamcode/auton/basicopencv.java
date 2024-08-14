@@ -14,7 +14,7 @@ import org.firstinspires.ftc.teamcode.auton.RedPropDetectionPipeline.RedPropLoca
 import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
 
-@Autonomous(name = "thisdefinitelywillwork")
+@Autonomous(name = "this")
 
 public class basicopencv extends LinearOpMode {
     enum Parking {
