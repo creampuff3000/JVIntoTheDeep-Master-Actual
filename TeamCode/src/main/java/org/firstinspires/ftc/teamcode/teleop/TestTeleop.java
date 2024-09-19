@@ -50,6 +50,9 @@ public class TestTeleop extends LinearOpMode {
             robot.backRightDrive.setPower(backRightPower * speed);
 
         //start coding here
-        }
+            if ( robot.clawServo.getPosition(1)&&gamepad1.right_bumper = true){
+                robot.clawServo.setPosition(0);
+        }else if ( robot.clawServo.getPosition(0)&&gamepad1.right_bumper = true){
+                robot.clawServo.setPosition(1);
     }
 }
