@@ -19,7 +19,7 @@ public class HWMap extends Project{
     public Servo mosaicServo = null;
     public Servo rightOuttakeServo = null;
     public DcMotor lslide = null;
-
+    public Servo clawServo = null;
     public WebcamName camera = null;
     @Override
     public void init(HardwareMap hwMap) {
@@ -35,6 +35,7 @@ public class HWMap extends Project{
         leftOuttakeServo = hwMap.get(Servo.class, "leftOuttakeServo");
         mosaicServo = hwMap.get(Servo.class, "mosaicServo");
         rightOuttakeServo = hwMap.get(Servo.class, "rightOuttakeServo");
+        clawServo = hwMap.get(Servo.class, "clawServo");
         frontLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         frontRightDrive.setDirection(DcMotor.Direction.FORWARD);
         backLeftDrive.setDirection(DcMotor.Direction.REVERSE);
@@ -67,6 +68,7 @@ public class HWMap extends Project{
         launchServo.setPosition(1);
         leftOuttakeServo.setPosition(1);
         rightOuttakeServo.setPosition(1);
+        clawServo.setPosition(0);
         mosaicServo.setPosition(1); // 1 is the right position for mosaicServo
     }
 }

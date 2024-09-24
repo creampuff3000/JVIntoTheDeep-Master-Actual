@@ -10,7 +10,8 @@ import org.firstinspires.ftc.teamcode.Projects.HWMap;
 @TeleOp(name = "driverhubnotcharging")
 public class TestTeleop extends LinearOpMode {
     public HWMap robot = new HWMap();
-//rthrhyrjytjutyjjdfajflajldfsjf;lkadsjg;klsajl;jakfsdfjdsalkfjdsalkjfiuhiuhiuhuhuhuhuhuhuhuhuhuhuhuhuhu
+
+    //rthrhyrjytjutyjjdfajflajldfsjf;lkadsjg;klsajl;jakfsdfjdsalkfjdsalkjfiuhiuhiuhuhuhuhuhuhuhuhuhuhuhuhuhu
     @Override
     public void runOpMode() throws InterruptedException {
         robot.init(hardwareMap);
@@ -49,10 +50,12 @@ public class TestTeleop extends LinearOpMode {
             robot.frontRightDrive.setPower(frontRightPower * speed);
             robot.backRightDrive.setPower(backRightPower * speed);
 
-        //start coding here
-            if ( robot.clawServo.getPosition(1)&&gamepad1.right_bumper = true){
+            //start coding here
+            if (robot.clawServo.getPosition() == 1 && gamepad1.right_bumper == true) {
                 robot.clawServo.setPosition(0);
-        }else if ( robot.clawServo.getPosition(0)&&gamepad1.right_bumper = true){
+            } else if (robot.clawServo.getPosition() == 0 && gamepad1.right_bumper == true) {
                 robot.clawServo.setPosition(1);
+            }
+        }
     }
 }
