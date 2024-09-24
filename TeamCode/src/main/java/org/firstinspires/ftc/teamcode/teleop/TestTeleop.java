@@ -10,7 +10,8 @@ import org.firstinspires.ftc.teamcode.Projects.HWMap;
 @TeleOp(name = "driverhubnotcharging")
 public class TestTeleop extends LinearOpMode {
     public HWMap robot = new HWMap();
-//rthrhyrjytjutyjjdfajflajldfsjf;lkadsjg;klsajl;jakfsdfjdsalkfjdsalkjfiuhiuhiuhuhuhuhuhuhuhuhuhuhuhjkhgjolkuhuhuasdasdasdasdasdhiijij
+//rthrhyrjytjutyjjdfajflajldfsjf;lkadsjg;klsajl;jakfsdfjdsalkfjdsalkjfiuhiuhiuhuhuhuhuhuhuhuhuhuhuhjkhgjolkuhuhuasdasdasdasdasdhiijijt5y6uudduygttdgrdgrt5dgrt
+    //lkkkkm
     @Override
     public void runOpMode() throws InterruptedException {
         robot.init(hardwareMap);
