@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
-
+//hyubihyb
 public class HWMap extends Project{
     public DcMotor  frontLeftDrive   = null;
     public DcMotor  frontRightDrive  = null;
