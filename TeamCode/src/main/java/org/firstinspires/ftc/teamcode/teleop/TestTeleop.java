@@ -20,16 +20,9 @@ public class TestTeleop extends LinearOpMode {
         double speed = 1;
         boolean slowMode = false;
         boolean slowModeToggle = false;
-        robot.lslide.setTargetPosition(0);
-        robot.rslide.setTargetPosition(0);
-        robot.lslide.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.rslide.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.lslide.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        robot.rslide.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
         while (opModeIsActive()) {
-            telemetry.addLine("lslide pos = " + robot.lslide.getCurrentPosition());
-            telemetry.addLine("rslide pos = " + robot.rslide.getCurrentPosition());
-            telemetry.update();
+
 
             boolean aButtonHeld = false;
             double y = -gamepad1.left_stick_y; // Remember, this is reversed!
