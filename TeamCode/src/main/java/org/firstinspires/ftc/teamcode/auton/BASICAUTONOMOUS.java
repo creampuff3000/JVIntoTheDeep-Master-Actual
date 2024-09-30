@@ -38,10 +38,12 @@ public class BASICAUTONOMOUS extends LinearOpMode {
         boolean isBRed = false;
         // hi
         // Autonomous code starts here
+
         while (!isStarted()) {
             // uygiufougoijpiuhitfjfstuhhdstersuyrukuy;oyg
             previousGamepad1.copy(currentGamepad1);
             currentGamepad1.copy(gamepad1);
+
             if (currentGamepad1.right_bumper && !previousGamepad1.right_bumper) {
 
                 isFBlue = true;
@@ -93,7 +95,6 @@ public class BASICAUTONOMOUS extends LinearOpMode {
         waitForStart(); //wait for play button to be pressed
 
         if (Alliance == BASICAUTONOMOUS.Parking.FBlue) {
-
         }
         if (Alliance == BASICAUTONOMOUS.Parking.FRed) {
 
