@@ -11,7 +11,7 @@ import org.firstinspires.ftc.teamcode.Projects.HWMap;
 public class TestTeleop extends LinearOpMode {
     public HWMap robot = new HWMap();
 
-    //rthrhyrjytjutyjjdfSDJKF:KLDSJF:LSKDFJajflajldfsjf;lkaskdfj;jsadsdfjks;adfalkj;klfsjdf;adsjg;klsajl;jakfsdfjdsalkfjdsalkjfiuhiuhiuhuhuhuhuhuhuhuhuhuhuhuhuhu
+    //rthrhyrjytjutyjjdfSDJKF:KLDSJF:LSKDFJajflajldfsjf;lkaskdfj;jsadsdfjks;adfalkj;klfsjdf;adsjg;klsajl;jakfsdfjdsalkfjdsalkjfiuhiuhiuhuhuhuhuhuhuhuhuhuhuhuhuhutyler
     @Override
     public void runOpMode() throws InterruptedException {
         robot.init(hardwareMap);
