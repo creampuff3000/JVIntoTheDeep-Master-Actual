@@ -44,6 +44,28 @@ public class TestTeleop extends LinearOpMode {
             robot.backRightDrive.setPower(backRightPower * speed);
 
             //start coding here
+            if (gamepad1.y == true) {
+                robot.lslide.setPower(1);
+                robot.rslide.setPower(1);
+                int rcurrentpos = robot.rslide.getCurrentPosition();
+                int lcurrentpos = robot.lslide.getCurrentPosition();
+                robot.rslide.setTargetPosition(rcurrentpos - 100);
+                robot.lslide.setTargetPosition(lcurrentpos - 100);
+            } else if (gamepad1.b == true) {
+                robot.lslide.setPower(1);
+                robot.rslide.setPower(1);
+                int rcurrentpos = robot.rslide.getCurrentPosition();
+                int lcurrentpos = robot.lslide.getCurrentPosition();
+                robot.rslide.setTargetPosition(rcurrentpos - 100);
+                robot.lslide.setTargetPosition(lcurrentpos - 100);
+            } else if (gamepad1.a == true){
+                robot.lslide.setPower(1);
+                robot.rslide.setPower(1);
+                int rcurrentpos = robot.rslide.getCurrentPosition();
+                int lcurrentpos = robot.lslide.getCurrentPosition();
+                robot.rslide.setTargetPosition(0);
+                robot.lslide.setTargetPosition(0);
+        }
             if (robot.clawServo.getPosition() == 1 && gamepad1.right_bumper == true) {
                 robot.clawServo.setPosition(0);
             } else if (robot.clawServo.getPosition() == 0 && gamepad1.right_bumper == true) {
