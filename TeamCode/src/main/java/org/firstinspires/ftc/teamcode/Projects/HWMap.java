@@ -16,6 +16,7 @@ public class HWMap extends Project{
     public DcMotor lslide = null;
     public DcMotor rslide = null;
     public Servo clawServo = null;
+    public Servo wristServo = null;
     public WebcamName camera = null;
     @Override
     public void init(HardwareMap hwMap) {
@@ -27,6 +28,7 @@ public class HWMap extends Project{
         lslide = hwMap.get(DcMotor.class, "leftSlideMotor");
         rslide = hwMap.get(DcMotor.class, "rightSlideMotor");
         clawServo = hwMap.get(Servo.class, "clawServo");
+        wristServo = hwMap.get(Servo.class, "wristServo");
         frontLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         frontRightDrive.setDirection(DcMotor.Direction.FORWARD);
         backLeftDrive.setDirection(DcMotor.Direction.REVERSE);
@@ -58,5 +60,6 @@ public class HWMap extends Project{
         backLeftDrive.setPower(0);
         intakeMotor.setPower(0);
         clawServo.setPosition(0);
+        wristServo.setPosition(0);
     }
 }

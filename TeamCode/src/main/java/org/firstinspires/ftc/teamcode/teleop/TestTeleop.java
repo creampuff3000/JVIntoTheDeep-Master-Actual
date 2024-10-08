@@ -71,6 +71,11 @@ public class TestTeleop extends LinearOpMode {
             } else if (robot.clawServo.getPosition() == 0 && gamepad1.right_bumper == true) {
                 robot.clawServo.setPosition(1);
             }
+            if (robot.wristServo.getPosition() == 1 && gamepad1.left_bumper == true){
+                robot.wristServo.setPosition(0);
+            } else if (robot.wristServo.getPosition() == 0 && gamepad1.left_bumper == true){
+                robot.wristServo.setPosition(1);
+            }
             if (gamepad1.dpad_up == true) {
                 robot.rslide.setPower(1);
                 robot.lslide.setPower(1);
