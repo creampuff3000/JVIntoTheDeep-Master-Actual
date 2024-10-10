@@ -45,44 +45,34 @@ public class TestTeleop extends LinearOpMode {
 
             //start coding here
             if (gamepad1.y == true) {
-                robot.lslide.setPower(1);
-                robot.rslide.setPower(1);
-                int rcurrentpos = robot.rslide.getCurrentPosition();
-                int lcurrentpos = robot.lslide.getCurrentPosition();
-                robot.rslide.setTargetPosition(rcurrentpos - 100);
-                robot.lslide.setTargetPosition(lcurrentpos - 100);
+                robot.slideMotor.setPower(1);
+                int currentpos = robot.slideMotor.getCurrentPosition();
+                robot.slideMotor.setTargetPosition(currentpos - 100);
+
             } else if (gamepad1.b == true) {
-                robot.lslide.setPower(1);
-                robot.rslide.setPower(1);
-                int rcurrentpos = robot.rslide.getCurrentPosition();
-                int lcurrentpos = robot.lslide.getCurrentPosition();
-                robot.rslide.setTargetPosition(rcurrentpos - 100);
-                robot.lslide.setTargetPosition(lcurrentpos - 100);
+                robot.slideMotor.setPower(1);
+                int currentpos = robot.slideMotor.getCurrentPosition();
+                robot.slideMotor.setTargetPosition(currentpos - 100);
             } else if (gamepad1.a == true){
-                robot.lslide.setPower(1);
-                robot.rslide.setPower(1);
-                int rcurrentpos = robot.rslide.getCurrentPosition();
-                int lcurrentpos = robot.lslide.getCurrentPosition();
-                robot.rslide.setTargetPosition(0);
-                robot.lslide.setTargetPosition(0);
+                robot.slideMotor.setPower(1);
+                int currentpos = robot.slideMotor.getCurrentPosition();
+                robot.slideMotor.setTargetPosition(0);
         }
             if (robot.clawServo.getPosition() == 1 && gamepad1.right_bumper == true) {
                 robot.clawServo.setPosition(0);
             } else if (robot.clawServo.getPosition() == 0 && gamepad1.right_bumper == true) {
                 robot.clawServo.setPosition(1);
-            }
+            } m
             if (robot.wristServo.getPosition() == 1 && gamepad1.left_bumper == true){
                 robot.wristServo.setPosition(0);
             } else if (robot.wristServo.getPosition() == 0 && gamepad1.left_bumper == true){
                 robot.wristServo.setPosition(1);
             }
             if (gamepad1.dpad_up == true) {
-                robot.rslide.setPower(1);
-                robot.lslide.setPower(1);
+                robot.slideMotor.setPower(1);
             }
             if (gamepad1.dpad_down == true) {
-                robot.rslide.setPower(-1);
-                robot.lslide.setPower(-1);
+                robot.slideMotor.setPower(-1);
             }
         }
     }

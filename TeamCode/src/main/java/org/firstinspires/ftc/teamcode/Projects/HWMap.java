@@ -13,8 +13,7 @@ public class HWMap extends Project{
     public DcMotor  backLeftDrive = null;
     public DcMotor  backRightDrive     = null;
     public DcMotor    intakeMotor   = null;
-    public DcMotor lslide = null;
-    public DcMotor rslide = null;
+    public DcMotor slideMotor = null;
     public Servo clawServo = null;
     public Servo wristServo = null;
     public WebcamName camera = null;
@@ -25,8 +24,7 @@ public class HWMap extends Project{
         frontRightDrive = hwMap.get(DcMotor.class, "frontRightDrive");
         backLeftDrive = hwMap.get(DcMotor.class, "backLeftDrive");
         backRightDrive = hwMap.get(DcMotor.class, "backRightDrive");
-        lslide = hwMap.get(DcMotor.class, "leftSlideMotor");
-        rslide = hwMap.get(DcMotor.class, "rightSlideMotor");
+        slideMotor = hwMap.get(DcMotor.class, "SlideMotor");
         clawServo = hwMap.get(Servo.class, "clawServo");
         wristServo = hwMap.get(Servo.class, "wristServo");
         frontLeftDrive.setDirection(DcMotor.Direction.REVERSE);
@@ -34,22 +32,19 @@ public class HWMap extends Project{
         backLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         backRightDrive.setDirection(DcMotor.Direction.FORWARD);
         intakeMotor.setDirection(DcMotor.Direction.REVERSE);
-        lslide.setDirection(DcMotor.Direction.FORWARD);
+        slideMotor.setDirection(DcMotor.Direction.FORWARD);
         //change prob
-        rslide.setDirection(DcMotor.Direction.REVERSE);
         //also change prob
         frontRightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         frontLeftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         backRightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         backLeftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        lslide.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        rslide.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        slideMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         frontRightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backRightDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         frontLeftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backLeftDrive.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        lslide.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        rslide.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        slideMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         camera = hwMap.get(WebcamName.class, "webcam");
         Stop();
     }
