@@ -14,7 +14,7 @@ import org.firstinspires.ftc.teamcode.auton.RedPropDetectionPipeline.RedPropLoca
 import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
 
-@Autonomous(name = "this")
+@Autonomous(name = "Glaceau Vitamin Water Energy Tropical Citrus")
 
 public class basicopencv extends LinearOpMode {
     enum Parking {
