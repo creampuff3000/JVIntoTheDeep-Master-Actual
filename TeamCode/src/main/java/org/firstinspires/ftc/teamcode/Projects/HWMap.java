@@ -58,6 +58,6 @@ public class HWMap extends Project{
         intakeMotor.setPower(0);
         clawServo.setPosition(0);
         wristServo.setPosition(0);
-        elbowMotor.setPower(0)
+        elbowMotor.setPower(0);
     }
 }
