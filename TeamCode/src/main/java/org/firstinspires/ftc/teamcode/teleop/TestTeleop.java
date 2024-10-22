@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.teamcode.Projects.HWMap;
 
-@TeleOp(name = "driverhubnotcharging")
+@TeleOp(name = "dasani")
 public class TestTeleop extends LinearOpMode {
     public HWMap robot = new HWMap();
 
