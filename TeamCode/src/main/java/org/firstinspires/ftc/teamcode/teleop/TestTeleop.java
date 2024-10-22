@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.teamcode.Projects.HWMap;
 
-@TeleOp(name = "dasani")
+@TeleOp(name = "dasaniwater")
 public class TestTeleop extends LinearOpMode {
     public HWMap robot = new HWMap();
 
