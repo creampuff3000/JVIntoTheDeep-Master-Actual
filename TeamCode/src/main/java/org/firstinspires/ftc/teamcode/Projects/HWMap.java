@@ -16,6 +16,7 @@ public class HWMap extends Project{
     public DcMotor slideMotor = null;
     public Servo clawServo = null;
     public Servo wristServo = null;
+    public Servo elbowServo = null;
     public DcMotor elbowMotor = null;
     public WebcamName camera = null;
     @Override

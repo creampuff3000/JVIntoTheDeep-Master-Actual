@@ -94,6 +94,11 @@ public class TestTeleop extends LinearOpMode {
                     robot.elbowMotor.setPower(0);
                 }
             }
+
+            //dpad up lift up, dpad down lift down leftSlideMotor, rightSlideMotor
+
+
+
         }
     }
 }
